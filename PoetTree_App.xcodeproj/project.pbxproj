@@ -3,27 +3,49 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		174043954CE735E296A4529F /* Pods_PoetTree_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */; };
 		DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93152614911C0029D640 /* AppDelegate.swift */; };
 		DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93172614911C0029D640 /* SceneDelegate.swift */; };
-		DB4F931A2614911C0029D640 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93192614911C0029D640 /* ViewController.swift */; };
 		DB4F931D2614911C0029D640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4F931B2614911C0029D640 /* Main.storyboard */; };
 		DB4F931F2614911D0029D640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB4F931E2614911D0029D640 /* Assets.xcassets */; };
 		DB4F93222614911D0029D640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4F93202614911D0029D640 /* LaunchScreen.storyboard */; };
+		DB4F932F261491D30029D640 /* Writing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F932E261491D30029D640 /* Writing.swift */; };
+		DB4F9334261496A80029D640 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F9333261496A80029D640 /* MainViewController.swift */; };
+		DB4F93402614B4D00029D640 /* Satisfy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4F933F2614B4D00029D640 /* Satisfy-Regular.ttf */; };
+		DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93422614BDED0029D640 /* WritingViewController.swift */; };
+		DB4F93472614C0E80029D640 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93462614C0E80029D640 /* Constants.swift */; };
+		DB4F934B2614CD880029D640 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F934A2614CD880029D640 /* UserInfoViewController.swift */; };
+		DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F934D2614D3840029D640 /* UserPoemCell.swift */; };
+		DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */; };
+		DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB789832261777790065D964 /* GoogleLogInViewController.swift */; };
+		DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoetTree_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		981538C40A400E0A725E1113 /* Pods-PoetTree_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.release.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.release.xcconfig"; sourceTree = "<group>"; };
+		ABF4A84711A44CB2D6E95503 /* Pods-PoetTree_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.debug.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.debug.xcconfig"; sourceTree = "<group>"; };
 		DB4F93122614911C0029D640 /* PoetTree_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoetTree_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4F93152614911C0029D640 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4F93172614911C0029D640 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DB4F93192614911C0029D640 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DB4F931C2614911C0029D640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB4F931E2614911D0029D640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB4F93212614911D0029D640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4F93232614911D0029D640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB4F932E261491D30029D640 /* Writing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writing.swift; sourceTree = "<group>"; };
+		DB4F9333261496A80029D640 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DB4F933F2614B4D00029D640 /* Satisfy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satisfy-Regular.ttf"; sourceTree = "<group>"; };
+		DB4F93422614BDED0029D640 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
+		DB4F93462614C0E80029D640 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DB4F934A2614CD880029D640 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		DB4F934D2614D3840029D640 /* UserPoemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPoemCell.swift; sourceTree = "<group>"; };
+		DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterDayMainViewController.swift; sourceTree = "<group>"; };
+		DB789832261777790065D964 /* GoogleLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLogInViewController.swift; sourceTree = "<group>"; };
+		DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174043954CE735E296A4529F /* Pods_PoetTree_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CCE7EC5560CE56BFAAAB8C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABF4A84711A44CB2D6E95503 /* Pods-PoetTree_App.debug.xcconfig */,
+				981538C40A400E0A725E1113 /* Pods-PoetTree_App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		855A658CE1892036AC96206D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DB4F93092614911C0029D640 = {
 			isa = PBXGroup;
 			children = (
 				DB4F93142614911C0029D640 /* PoetTree_App */,
 				DB4F93132614911C0029D640 /* Products */,
+				1CCE7EC5560CE56BFAAAB8C3 /* Pods */,
+				855A658CE1892036AC96206D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +98,72 @@
 		DB4F93142614911C0029D640 /* PoetTree_App */ = {
 			isa = PBXGroup;
 			children = (
-				DB4F93152614911C0029D640 /* AppDelegate.swift */,
-				DB4F93172614911C0029D640 /* SceneDelegate.swift */,
-				DB4F93192614911C0029D640 /* ViewController.swift */,
-				DB4F931B2614911C0029D640 /* Main.storyboard */,
+				DB4F93452614C0DB0029D640 /* Utils */,
+				DB4F932D2614916D0029D640 /* Supporting files */,
+				DB4F932B261491350029D640 /* Model */,
+				DB4F932C2614914C0029D640 /* View */,
+				DB4F932A2614912B0029D640 /* Controllers */,
 				DB4F931E2614911D0029D640 /* Assets.xcassets */,
-				DB4F93202614911D0029D640 /* LaunchScreen.storyboard */,
+				DB4F933E2614B4D00029D640 /* Fonts */,
 				DB4F93232614911D0029D640 /* Info.plist */,
+				DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */,
 			);
 			path = PoetTree_App;
+			sourceTree = "<group>";
+		};
+		DB4F932A2614912B0029D640 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F9333261496A80029D640 /* MainViewController.swift */,
+				DB4F93422614BDED0029D640 /* WritingViewController.swift */,
+				DB4F934A2614CD880029D640 /* UserInfoViewController.swift */,
+				DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */,
+				DB789832261777790065D964 /* GoogleLogInViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		DB4F932B261491350029D640 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F932E261491D30029D640 /* Writing.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DB4F932C2614914C0029D640 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F931B2614911C0029D640 /* Main.storyboard */,
+				DB4F93202614911D0029D640 /* LaunchScreen.storyboard */,
+				DB4F934D2614D3840029D640 /* UserPoemCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB4F932D2614916D0029D640 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F93152614911C0029D640 /* AppDelegate.swift */,
+				DB4F93172614911C0029D640 /* SceneDelegate.swift */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		DB4F933E2614B4D00029D640 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F933F2614B4D00029D640 /* Satisfy-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		DB4F93452614C0DB0029D640 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F93462614C0E80029D640 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DB4F93262614911D0029D640 /* Build configuration list for PBXNativeTarget "PoetTree_App" */;
 			buildPhases = (
+				8198078055E94444216FD64F /* [CP] Check Pods Manifest.lock */,
 				DB4F930E2614911C0029D640 /* Sources */,
 				DB4F930F2614911C0029D640 /* Frameworks */,
 				DB4F93102614911C0029D640 /* Resources */,
+				06E06B0B2C937A048DDB91F3 /* [CP] Embed Pods Frameworks */,
+				4E2CB39A7ECFBD7A9AB9B43E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -125,6 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB4F93222614911D0029D640 /* LaunchScreen.storyboard in Resources */,
+				DB4F93402614B4D00029D640 /* Satisfy-Regular.ttf in Resources */,
+				DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */,
 				DB4F931F2614911D0029D640 /* Assets.xcassets in Resources */,
 				DB4F931D2614911C0029D640 /* Main.storyboard in Resources */,
 			);
@@ -132,14 +236,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		06E06B0B2C937A048DDB91F3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4E2CB39A7ECFBD7A9AB9B43E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8198078055E94444216FD64F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PoetTree_App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DB4F930E2614911C0029D640 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB4F931A2614911C0029D640 /* ViewController.swift in Sources */,
+				DB4F932F261491D30029D640 /* Writing.swift in Sources */,
+				DB4F934B2614CD880029D640 /* UserInfoViewController.swift in Sources */,
+				DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */,
+				DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */,
 				DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */,
+				DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */,
+				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,
+				DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */,
+				DB4F9334261496A80029D640 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +453,7 @@
 		};
 		DB4F93272614911D0029D640 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABF4A84711A44CB2D6E95503 /* Pods-PoetTree_App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +473,7 @@
 		};
 		DB4F93282614911D0029D640 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 981538C40A400E0A725E1113 /* Pods-PoetTree_App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
