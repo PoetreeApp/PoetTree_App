@@ -9,9 +9,20 @@ import Foundation
 
 struct K {
     
+
+    
     struct SEGUE_ID {
         static let toWriting = "toWriting"
-        static let toUserInfo = "toUserInfo"
+        static let toUserWriting = "toUserWriting"
+        static let toLogIn = "goToLogIn"
+    }
+    
+    struct API {
+        
+        static let base_url = "http://54.180.34.121:8080/"
+        
+        static let USER_POST: String = base_url + "users/signIn"
+        
     }
     
     

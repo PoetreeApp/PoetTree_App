@@ -8,19 +8,80 @@
 import UIKit
 import GoogleSignIn
 import Firebase
+import Alamofire
+import SwiftyJSON
 
-class GoogleLogInViewController: UIViewController {
+protocol GoogleLogInDelegate {
+    func googleLogedIn(user: GIDGoogleUser)
+}
+
+
+class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
     
     public static var user: GIDGoogleUser!
-    
+    var delegate: GoogleLogInDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("googleLogIn called")
        
         GIDSignIn.sharedInstance()?.presentingViewController = self
-        
-        
+        GIDSignIn.sharedInstance().delegate = self
     }
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+       
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        
+            guard let authentication = user.authentication else {return}
+            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+        
+            Auth.auth().signIn(with: credential) { (authResult, error) in
+                if error != nil {
+                    return
+                } else {
+                    
+                    //유저 콜백 받아옴
+                    
+                    GoogleLogInViewController.user = user
+                    
+                    
+                    let parameter: [String : Any] =
+                        [ "email" : user.profile.email,
+                                   "name" : user.profile.name,
+                                   "provider" : "Google"
+                                    ]
+                            
+                    
+                    
+                    //앱서버에 포스팅
+                    AF.request(K.API.USER_POST, method: .post, parameters: parameter, encoding: JSONEncoding.default).response{
+                        response in
+                        
+                        if let data = response.data {
+                            let jsonData = JSON(data)
+                            let token = jsonData["token"]
+                            print(token)
+                            
+                        }
+                       
+                    }
+                    
+                    DispatchQueue.main.async {
+                        self.delegate?.googleLogedIn(user: user)
+                    }
+
+                    self.dismiss(animated: true, completion: nil)
+                    
+                    }
+                    
+                    
+                }
+            }
+            
+        
     
 }

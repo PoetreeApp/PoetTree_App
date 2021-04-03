@@ -60,14 +60,14 @@
                             <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="userIconTapped:" destination="T0Z-uu-1cx" id="NPq-Gm-Apm"/>
-                                <segue destination="B5c-2w-mSH" kind="presentation" modalPresentationStyle="fullScreen" id="VvM-gr-pXR"/>
+                                <segue destination="B5c-2w-mSH" kind="presentation" identifier="goToLogIn" modalPresentationStyle="automatic" id="VvM-gr-pXR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="toDaysPhoto" destination="ffz-Mj-P1t" id="e9L-bc-Yzh"/>
                         <segue destination="zLj-BB-nLQ" kind="show" identifier="toWriting" id="Lix-n7-F6h"/>
-                        <segue destination="L3B-aK-g34" kind="show" identifier="toUserInfo" id="9uO-Hh-Xhk"/>
+                        <segue destination="L3B-aK-g34" kind="show" identifier="toUserWriting" id="9uO-Hh-Xhk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFD-IQ-pmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,7 +79,7 @@
             <objects>
                 <viewController id="B5c-2w-mSH" customClass="GoogleLogInViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vdy-0d-U3n">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KFK-gi-LMZ" customClass="GIDSignInButton">
@@ -94,12 +94,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5og-Yy-OPf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2980" y="-1093"/>
+            <point key="canvasLocation" x="3190" y="-1207"/>
         </scene>
-        <!--User Info View Controller-->
+        <!--User Writing View Controller-->
         <scene sceneID="w5Q-L0-Mcm">
             <objects>
-                <viewController id="L3B-aK-g34" customClass="UserInfoViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="L3B-aK-g34" customClass="UserWritingViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QRI-hY-ZEr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

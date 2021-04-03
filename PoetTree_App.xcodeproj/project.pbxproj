@@ -18,10 +18,12 @@
 		DB4F93402614B4D00029D640 /* Satisfy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4F933F2614B4D00029D640 /* Satisfy-Regular.ttf */; };
 		DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93422614BDED0029D640 /* WritingViewController.swift */; };
 		DB4F93472614C0E80029D640 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93462614C0E80029D640 /* Constants.swift */; };
-		DB4F934B2614CD880029D640 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F934A2614CD880029D640 /* UserInfoViewController.swift */; };
+		DB4F934B2614CD880029D640 /* UserWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F934A2614CD880029D640 /* UserWritingViewController.swift */; };
 		DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F934D2614D3840029D640 /* UserPoemCell.swift */; };
 		DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */; };
 		DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB789832261777790065D964 /* GoogleLogInViewController.swift */; };
+		DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D1D432618BBCC0092820D /* UserModel.swift */; };
+		DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D1D472618E43C0092820D /* Interceptor.swift */; };
 		DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -41,10 +43,12 @@
 		DB4F933F2614B4D00029D640 /* Satisfy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satisfy-Regular.ttf"; sourceTree = "<group>"; };
 		DB4F93422614BDED0029D640 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		DB4F93462614C0E80029D640 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		DB4F934A2614CD880029D640 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
+		DB4F934A2614CD880029D640 /* UserWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingViewController.swift; sourceTree = "<group>"; };
 		DB4F934D2614D3840029D640 /* UserPoemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPoemCell.swift; sourceTree = "<group>"; };
 		DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterDayMainViewController.swift; sourceTree = "<group>"; };
 		DB789832261777790065D964 /* GoogleLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLogInViewController.swift; sourceTree = "<group>"; };
+		DB7D1D432618BBCC0092820D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		DB7D1D472618E43C0092820D /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
 		DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,7 @@
 		DB4F93142614911C0029D640 /* PoetTree_App */ = {
 			isa = PBXGroup;
 			children = (
+				DB7D1D462618E4280092820D /* API */,
 				DB4F93452614C0DB0029D640 /* Utils */,
 				DB4F932D2614916D0029D640 /* Supporting files */,
 				DB4F932B261491350029D640 /* Model */,
@@ -116,7 +121,7 @@
 			children = (
 				DB4F9333261496A80029D640 /* MainViewController.swift */,
 				DB4F93422614BDED0029D640 /* WritingViewController.swift */,
-				DB4F934A2614CD880029D640 /* UserInfoViewController.swift */,
+				DB4F934A2614CD880029D640 /* UserWritingViewController.swift */,
 				DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */,
 				DB789832261777790065D964 /* GoogleLogInViewController.swift */,
 			);
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				DB4F932E261491D30029D640 /* Writing.swift */,
+				DB7D1D432618BBCC0092820D /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -164,6 +170,14 @@
 				DB4F93462614C0E80029D640 /* Constants.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		DB7D1D462618E4280092820D /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DB7D1D472618E43C0092820D /* Interceptor.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,15 +315,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB4F932F261491D30029D640 /* Writing.swift in Sources */,
-				DB4F934B2614CD880029D640 /* UserInfoViewController.swift in Sources */,
+				DB4F934B2614CD880029D640 /* UserWritingViewController.swift in Sources */,
 				DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */,
 				DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */,
 				DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */,
 				DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */,
 				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,
+				DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */,
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,
 				DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */,
 				DB4F9334261496A80029D640 /* MainViewController.swift in Sources */,
+				DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

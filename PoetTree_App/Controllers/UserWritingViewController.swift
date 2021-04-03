@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UserInfoViewController: UIViewController {
+class UserWritingViewController: UIViewController {
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,14 +30,14 @@ class UserInfoViewController: UIViewController {
     
 }
 
-extension UserInfoViewController: UITableViewDelegate {
+extension UserWritingViewController: UITableViewDelegate {
     
     
     
 }
 
 
-extension UserInfoViewController: UITableViewDataSource {
+extension UserWritingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
