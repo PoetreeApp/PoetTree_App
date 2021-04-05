@@ -19,9 +19,9 @@ struct K {
     
     struct API {
         
-        static let base_url = "http://54.180.34.121:8080/"
-        
-        static let USER_POST: String = base_url + "users/signIn"
+        static let BASE_URL = "http://54.180.34.121:8080/"
+        static let USER_POST: String = BASE_URL + "users/signIn"
+        static let WRITING_POST: String = BASE_URL + "posts"
         
     }
     
