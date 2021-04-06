@@ -14,8 +14,9 @@ class MainViewController: UIViewController, GoogleLogInDelegate {
     
     @IBOutlet weak var toDaysPhoto: UILabel!
     @IBOutlet weak var hashTagStackView: UIStackView!
-    @IBOutlet weak var keyWordTextField: UITextField!
+    @IBOutlet weak var keyWordTextField1: UITextField!
     
+    @IBOutlet weak var keyWordTextField2: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,9 +63,10 @@ class MainViewController: UIViewController, GoogleLogInDelegate {
                 return
             }
             
-            if let keyWord = self.keyWordTextField.text {
+            if let keyWord1 = self.keyWordTextField1.text,
+            let keyWord2 = self.keyWordTextField2.text{
                 
-                destinationVC.keyWord = keyWord
+                destinationVC.keyWord = ["#"+keyWord1, "#"+keyWord2]
             }
         }
     }

@@ -24,12 +24,12 @@ final class RequestInterceptor: Alamofire.RequestInterceptor {
 
 
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        print("\(storage) token info")
+        print("\(storage) adapt token")
         
         var urlRequest = urlRequest
         
-        urlRequest.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Accept")
+//        urlRequest.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Content-Type")
+//        urlRequest.addValue("application/json; charset=UTF-8", forHTTPHeaderField: "Accept")
 
         /// Set the Authorization header value using the access token.
         urlRequest.setValue("Bearer " + storage, forHTTPHeaderField: "Authorization")

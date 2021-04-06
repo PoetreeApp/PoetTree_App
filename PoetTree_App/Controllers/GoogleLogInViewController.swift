@@ -59,7 +59,7 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
                             if let data = response.data {
                                 let jsonData = JSON(data)
                                 guard let token = jsonData["token"].string else { return }
-                                
+                                print(" got token \(token)")
                                 let userDefaults = UserDefaults.standard
                                 userDefaults.setValue(token, forKeyPath: "token")
                             }

@@ -10,7 +10,7 @@ import Alamofire
 
 class WritingViewController: UIViewController {
 
-    var keyWord: String?
+    var keyWord: [String]?
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var keyWordLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
@@ -41,7 +41,7 @@ class WritingViewController: UIViewController {
     fileprivate func setKeyWordLabel(){
         
         if let keyWord = keyWord {
-            keyWordLabel.text = "#\(keyWord)"
+            keyWordLabel.text = "\(keyWord[0]) \(keyWord[1])"
         }
 
     }
@@ -60,14 +60,14 @@ class WritingViewController: UIViewController {
            let email = GoogleLogInViewController.user.profile.email,
            let hashtags = keyWord {
             
-            let writing = Writing(title: title, content: content, email: email, hashtags: [hashtags])
+            let writing = Writing(title: title, content: content, email: email, hashtags: hashtags)
             
             
             let parameter: [String : Any] =
                 [ "title" : writing.title,
                   "content" : writing.content,
                   "email" : writing.email,
-                  "hashtags": writing.hashtags
+                  "hashtags": "\(writing.hashtags[0]), \(writing.hashtags[1])"
                 ]
             
             
