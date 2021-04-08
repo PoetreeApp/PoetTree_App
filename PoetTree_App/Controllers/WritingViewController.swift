@@ -71,7 +71,7 @@ class WritingViewController: UIViewController {
                 ]
             
             
-            AF.request(K.API.WRITING_POST, method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response{
+            AF.request(K.API.WRITING_GET_POST, method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response{
                 response in
                 
                 debugPrint(response)

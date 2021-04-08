@@ -13,7 +13,7 @@
 		DB4F931D2614911C0029D640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4F931B2614911C0029D640 /* Main.storyboard */; };
 		DB4F931F2614911D0029D640 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB4F931E2614911D0029D640 /* Assets.xcassets */; };
 		DB4F93222614911D0029D640 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4F93202614911D0029D640 /* LaunchScreen.storyboard */; };
-		DB4F932F261491D30029D640 /* Writing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F932E261491D30029D640 /* Writing.swift */; };
+		DB4F932F261491D30029D640 /* WritingPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F932E261491D30029D640 /* WritingPost.swift */; };
 		DB4F9334261496A80029D640 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F9333261496A80029D640 /* MainViewController.swift */; };
 		DB4F93402614B4D00029D640 /* Satisfy-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DB4F933F2614B4D00029D640 /* Satisfy-Regular.ttf */; };
 		DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93422614BDED0029D640 /* WritingViewController.swift */; };
@@ -24,6 +24,9 @@
 		DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB789832261777790065D964 /* GoogleLogInViewController.swift */; };
 		DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D1D432618BBCC0092820D /* UserModel.swift */; };
 		DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D1D472618E43C0092820D /* Interceptor.swift */; };
+		DB881C07261C307200085EB9 /* WritingGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C06261C307200085EB9 /* WritingGet.swift */; };
+		DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0A261C3E0300085EB9 /* PostsCell.swift */; };
+		DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0D261C3FC100085EB9 /* WritingService.swift */; };
 		DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +41,7 @@
 		DB4F931E2614911D0029D640 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB4F93212614911D0029D640 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB4F93232614911D0029D640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB4F932E261491D30029D640 /* Writing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writing.swift; sourceTree = "<group>"; };
+		DB4F932E261491D30029D640 /* WritingPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPost.swift; sourceTree = "<group>"; };
 		DB4F9333261496A80029D640 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		DB4F933F2614B4D00029D640 /* Satisfy-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Satisfy-Regular.ttf"; sourceTree = "<group>"; };
 		DB4F93422614BDED0029D640 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		DB789832261777790065D964 /* GoogleLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLogInViewController.swift; sourceTree = "<group>"; };
 		DB7D1D432618BBCC0092820D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DB7D1D472618E43C0092820D /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		DB881C06261C307200085EB9 /* WritingGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingGet.swift; sourceTree = "<group>"; };
+		DB881C0A261C3E0300085EB9 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
+		DB881C0D261C3FC100085EB9 /* WritingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingService.swift; sourceTree = "<group>"; };
 		DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,8 +137,10 @@
 		DB4F932B261491350029D640 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DB4F932E261491D30029D640 /* Writing.swift */,
+				DB4F932E261491D30029D640 /* WritingPost.swift */,
 				DB7D1D432618BBCC0092820D /* UserModel.swift */,
+				DB881C06261C307200085EB9 /* WritingGet.swift */,
+				DB881C0D261C3FC100085EB9 /* WritingService.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +151,7 @@
 				DB4F931B2614911C0029D640 /* Main.storyboard */,
 				DB4F93202614911D0029D640 /* LaunchScreen.storyboard */,
 				DB4F934D2614D3840029D640 /* UserPoemCell.swift */,
+				DB881C0A261C3E0300085EB9 /* PostsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,17 +323,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB4F932F261491D30029D640 /* Writing.swift in Sources */,
+				DB4F932F261491D30029D640 /* WritingPost.swift in Sources */,
 				DB4F934B2614CD880029D640 /* UserWritingViewController.swift in Sources */,
 				DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */,
 				DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */,
 				DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */,
+				DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */,
 				DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */,
 				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,
+				DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */,
 				DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */,
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,
 				DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */,
 				DB4F9334261496A80029D640 /* MainViewController.swift in Sources */,
+				DB881C07261C307200085EB9 /* WritingGet.swift in Sources */,
 				DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
