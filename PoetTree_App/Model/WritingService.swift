@@ -39,16 +39,6 @@ class WritingService {
                         self.writings.append(WritingGet(title: title, content: content, views: views, likes: likes, hashtags: hashtags))
                         print(self.writings)
                     }
-
-//                    struct WritingGet {
-//
-//                        let title: String
-//                        let content: String
-//                        let views: Int
-//                        let likes: Int
-//                        let hashtags: String
-//
-//                    }
                     
                 }
 

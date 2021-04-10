@@ -13,9 +13,13 @@ class YesterDayMainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    
+    var writings: [WritingGet] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("yesterday viewdidload called")
+        getWritings()
     }
     
    
@@ -24,8 +28,42 @@ class YesterDayMainViewController: UIViewController {
         super.viewWillAppear(animated)
         //매번 불림
         
-        let a = WritingService.shared
-        
+    }
+    
+    func getWritings(){
+        AF.request(K.API.WRITING_GET_POST, method: .get).responseJSON { [weak self] response in
+            
+            guard let self = self else {return}
+            
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+              
+                //writing을 받아와서 초기화함
+
+                for (index, json) in json {
+                    
+                    print(json["views"].int!)
+                    
+                    if let title = json["title"].string,
+                       let content = json["content"].string,
+                       let views = json["views"].int,
+                       let likes = json["likes"].int,
+                       let hashtags = json["hashtags"].string {
+                       
+                        self.writings.append(WritingGet(title: title, content: content, views: views, likes: likes, hashtags: hashtags))
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                    
+                    
+                }
+
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 }
@@ -37,12 +75,17 @@ extension YesterDayMainViewController: UITableViewDelegate {
 extension YesterDayMainViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return writings.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: K.TABLE_VIEW_CELL_ID.postsCell) as? PostsCell else {
+            return UITableViewCell()
+        }
+        
+        cell.updateCell(writing: writings[indexPath.row])
+
+        return cell
     }
-    
-    
 }
