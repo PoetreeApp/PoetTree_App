@@ -9,14 +9,20 @@ import UIKit
 import GoogleSignIn
 import Toast_Swift
 
-class MainViewController: UIViewController, GoogleLogInDelegate {
+class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
     
     @IBOutlet weak var toDaysPhoto: UILabel!
     @IBOutlet weak var hashTagStackView: UIStackView!
     @IBOutlet weak var keyWordTextField1: UITextField!
-    
     @IBOutlet weak var keyWordTextField2: UITextField!
+    @IBOutlet weak var wrtBtn: UIButton!
+    
+    
+    
+
+    var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +30,60 @@ class MainViewController: UIViewController, GoogleLogInDelegate {
         let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
         let underlineAttributedString = NSAttributedString(string: "Today's Photo", attributes: underlineAttribute)
         toDaysPhoto.attributedText = underlineAttributedString
-        
+        self.config()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowHandle(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideHandle), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("HomeVC - viewWillDisappear() called")
+        // 키보드 노티 해제
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    fileprivate func config(){
+        self.keyboardDismissTabGesture.delegate = self
+        self.view.addGestureRecognizer(keyboardDismissTabGesture)
+    }
+
+    //MARK: - keyboard 에따른 view 설정
+    @objc func keyboardWillShowHandle(notification: NSNotification){
+        print("HomeVC - keyboardWillShowHandle() called")
+        // 키보드 사이즈 가져오기
+
+//        self.navigationController?.navigationBar.isHidden = true
+
+
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+
+            print("keyboardSize.height: \(keyboardSize.height)")
+            //버튼을 들어올림
+            
+            self.wrtBtn.frame.origin.y = -keyboardSize.height
+        }
+
+    }
+    
+    @objc func keyboardWillHideHandle(){
+        print("HomeVC - keyboardWillHideHandle() called")
+        //버튼을 다시 내림
+       
+    }
+
+    
     //MARK: - after logIn delegate function
     func googleLogedIn(user: GIDGoogleUser) {
         print("change bar button")
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(moveToUserWriting))
         self.hashTagStackView.isHidden = false
+        self.toDaysPhoto.isHidden = true
     }
     
     //MARK: - move to user writing
@@ -38,11 +91,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate {
     
         performSegue(withIdentifier: K.SEGUE_ID.toUserWriting, sender: self)
         
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("view will appear celled")
     }
     
     
@@ -82,5 +130,18 @@ class MainViewController: UIViewController, GoogleLogInDelegate {
         
     }
     
+    //MARK: - 제스처 recognizer
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+
+        if(touch.view?.isDescendant(of: hashTagStackView) == true){
+
+            return false
+        }  else {
+            view.endEditing(true)
+            return true
+        }
+
+    }
     
 }
