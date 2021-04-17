@@ -16,6 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="22l-r0-6wd">
+                                <rect key="frame" x="0.0" y="310" width="414" height="276"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="276" id="RsU-Ke-MJX"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffz-Mj-P1t">
+                                <rect key="frame" x="137" y="170" width="140" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="140" id="CkU-Fx-9al"/>
+                                    <constraint firstAttribute="height" constant="40" id="dPY-aY-aOa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cc5-oM-bNY">
                                 <rect key="frame" x="330" y="731" width="59" height="57"/>
                                 <color key="tintColor" red="0.21424649941800822" green="0.21424649941800822" blue="0.21424649941800822" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -28,22 +44,6 @@
                                     <action selector="writeBtnTapped:" destination="T0Z-uu-1cx" eventType="touchUpInside" id="vqC-UQ-iB9"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffz-Mj-P1t">
-                                <rect key="frame" x="137" y="170" width="140" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="CkU-Fx-9al"/>
-                                    <constraint firstAttribute="height" constant="40" id="dPY-aY-aOa"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSymbols" family="Apple Symbols" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="22l-r0-6wd">
-                                <rect key="frame" x="0.0" y="310" width="414" height="276"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="276" id="RsU-Ke-MJX"/>
-                                </constraints>
-                            </imageView>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LWe-zN-zgS">
                                 <rect key="frame" x="147" y="159.5" width="120" height="110.5"/>
                                 <subviews>

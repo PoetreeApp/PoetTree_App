@@ -66,7 +66,12 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             print("keyboardSize.height: \(keyboardSize.height)")
             //버튼을 들어올림
             
-            self.wrtBtn.frame.origin.y = -keyboardSize.height
+            self.wrtBtn.frame.origin.y = self.wrtBtn.frame.origin.y - keyboardSize.height
+            
+            
+//            self.wrtBtn.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: keyboardSize.height).isActive = true
+//            self.wrtBtn.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 25).isActive = true
+        
         }
 
     }
@@ -74,7 +79,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @objc func keyboardWillHideHandle(){
         print("HomeVC - keyboardWillHideHandle() called")
         //버튼을 다시 내림
-       
+        self.wrtBtn.frame.origin.y = self.view.frame.origin.y - 20
     }
 
     
