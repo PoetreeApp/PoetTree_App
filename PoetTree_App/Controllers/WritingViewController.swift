@@ -75,6 +75,7 @@ class WritingViewController: UIViewController {
                 response in
                 
                 debugPrint(response)
+                self.navigationController?.popViewController(animated: true)
                 
             }
             

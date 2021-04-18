@@ -20,6 +20,9 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     
     
     
+    
+    
+    
 
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
 
@@ -73,7 +76,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
 //            self.wrtBtn.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 25).isActive = true
         
         }
-
     }
     
     @objc func keyboardWillHideHandle(){

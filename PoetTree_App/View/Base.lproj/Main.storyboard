@@ -401,11 +401,87 @@
                     <navigationItem key="navigationItem" title="Yesterdays" id="k90-iw-uNB"/>
                     <connections>
                         <outlet property="tableView" destination="Pwh-l7-2cQ" id="W61-OZ-UI9"/>
+                        <segue destination="fSh-In-JQ1" kind="show" identifier="toYesterdayWriting" id="U8t-M6-9y6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7L-pU-wmm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2582.608695652174" y="930.80357142857133"/>
+        </scene>
+        <!--Yesterdays Writing-->
+        <scene sceneID="MC1-My-Y1c">
+            <objects>
+                <viewController id="fSh-In-JQ1" customClass="YesterdaysWriting" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1cy-sr-Azr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxF-uR-fxJ">
+                                <rect key="frame" x="10" y="138" width="394" height="42"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYl-b8-6T9">
+                                <rect key="frame" x="20" y="200" width="374" height="788"/>
+                                <string key="text">꽃게가 간장 속에
+
+반쯤 몸을 담그고 엎드려 있다
+
+등판에 간장이 울컥울컥 쏟아질 때
+
+꽃게는  뱃속의 알을 껴안으려고
+
+꿈틀거리다가 더 낮게
+
+더 바닥 쪽으로 웅크렸으리라
+
+​
+
+버둥거렸으리라 버둥거리다가
+
+어찌할 수 없어서
+
+살 속에 스며드는 것을
+
+한때의 어스름을
+
+꽃게는 천천히 받아들였으리라
+
+껍질이 먹먹해지기 전에
+
+가만히 알들에게 말했으리라
+
+​
+
+저녁이야
+
+불 끄고 잘 시간이야</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kfP-iG-QSL"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kfP-iG-QSL" firstAttribute="trailing" secondItem="vxF-uR-fxJ" secondAttribute="trailing" constant="10" id="IPS-2f-WQx"/>
+                            <constraint firstItem="vxF-uR-fxJ" firstAttribute="top" secondItem="kfP-iG-QSL" secondAttribute="top" constant="50" id="TfG-yl-rTJ"/>
+                            <constraint firstItem="vxF-uR-fxJ" firstAttribute="leading" secondItem="kfP-iG-QSL" secondAttribute="leading" constant="10" id="Xat-Nr-mBu"/>
+                            <constraint firstItem="uYl-b8-6T9" firstAttribute="top" secondItem="vxF-uR-fxJ" secondAttribute="bottom" constant="20" id="edL-X5-drB"/>
+                            <constraint firstItem="kfP-iG-QSL" firstAttribute="trailing" secondItem="uYl-b8-6T9" secondAttribute="trailing" constant="20" id="flH-6c-HIL"/>
+                            <constraint firstItem="uYl-b8-6T9" firstAttribute="leading" secondItem="kfP-iG-QSL" secondAttribute="leading" constant="20" id="p06-yM-h2n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="wWd-Wr-6CS"/>
+                    <connections>
+                        <outlet property="contentLabel" destination="uYl-b8-6T9" id="APo-2v-1l4"/>
+                        <outlet property="titleLabel" destination="vxF-uR-fxJ" id="npv-mO-W5U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="htr-Kw-gNY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3616" y="859"/>
         </scene>
         <!--Today-->
         <scene sceneID="w9t-hM-g5x">

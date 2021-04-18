@@ -15,6 +15,7 @@ struct K {
         static let toWriting = "toWriting"
         static let toUserWriting = "toUserWriting"
         static let toLogIn = "goToLogIn"
+        static let toYesterdayWriting = "toYesterdayWriting"
     }
     
     struct API {

@@ -70,6 +70,18 @@ class YesterDayMainViewController: UIViewController {
 
 extension YesterDayMainViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: K.SEGUE_ID.toYesterdayWriting, sender: writings[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let writingVC = segue.destination as? YesterdaysWriting,
+              let writing = sender as? WritingGet else {return}
+        
+        writingVC.writing = writing
+        
+    }
 }
 
 extension YesterDayMainViewController: UITableViewDataSource{
