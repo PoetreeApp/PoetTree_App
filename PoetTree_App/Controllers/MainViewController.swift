@@ -19,10 +19,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var wrtBtn: UIButton!
     
     
-    
-    
-    
-    
 
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
 

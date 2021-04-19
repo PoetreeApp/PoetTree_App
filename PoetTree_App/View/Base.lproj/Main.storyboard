@@ -401,7 +401,7 @@
                     <navigationItem key="navigationItem" title="Yesterdays" id="k90-iw-uNB"/>
                     <connections>
                         <outlet property="tableView" destination="Pwh-l7-2cQ" id="W61-OZ-UI9"/>
-                        <segue destination="fSh-In-JQ1" kind="show" identifier="toYesterdayWriting" id="U8t-M6-9y6"/>
+                        <segue destination="b2A-hI-Co9" kind="show" identifier="toYesterdayWriting" id="h75-vR-iFe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z7L-pU-wmm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -417,13 +417,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxF-uR-fxJ">
-                                <rect key="frame" x="10" y="138" width="394" height="42"/>
+                                <rect key="frame" x="10" y="94" width="394" height="42"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYl-b8-6T9">
-                                <rect key="frame" x="20" y="200" width="374" height="788"/>
+                                <rect key="frame" x="20" y="156" width="374" height="788"/>
                                 <string key="text">꽃게가 간장 속에
 
 반쯤 몸을 담그고 엎드려 있다
@@ -474,14 +474,120 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="wWd-Wr-6CS"/>
-                    <connections>
-                        <outlet property="contentLabel" destination="uYl-b8-6T9" id="APo-2v-1l4"/>
-                        <outlet property="titleLabel" destination="vxF-uR-fxJ" id="npv-mO-W5U"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="htr-Kw-gNY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3616" y="859"/>
+            <point key="canvasLocation" x="3616" y="809"/>
+        </scene>
+        <!--Yesterdays Writing-->
+        <scene sceneID="N67-u8-3Pu">
+            <objects>
+                <viewController id="b2A-hI-Co9" customClass="YesterdaysWriting" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LPQ-0J-VwX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57e-Zz-i4s">
+                                <rect key="frame" x="0.0" y="88" width="414" height="1412"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWq-Xi-8nM">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="980.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="p92-H1-yUP">
+                                                <rect key="frame" x="10" y="30" width="394" height="940.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qaH-wQ-N1N">
+                                                        <rect key="frame" x="0.0" y="0.0" width="394" height="43"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User123" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1e-xE-Qrc">
+                                                        <rect key="frame" x="0.0" y="93" width="394" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9eG-0h-0a1">
+                                                        <rect key="frame" x="0.0" y="163.5" width="394" height="777"/>
+                                                        <string key="text">꽃게가 간장 속에
+
+반쯤 몸을 담그고 엎드려 있다
+
+등판에 간장이 울컥울컥 쏟아질 때
+
+꽃게는  뱃속의 알을 껴안으려고
+
+꿈틀거리다가 더 낮게
+
+더 바닥 쪽으로 웅크렸으리라
+
+버둥거렸으리라 버둥거리다가
+
+어찌할 수 없어서
+
+살 속에 스며드는 것을
+
+한때의 어스름을
+
+꽃게는 천천히 받아들였으리라
+
+껍질이 먹먹해지기 전에
+
+가만히 알들에게 말했으리라
+
+​
+
+저녁이야
+
+불 끄고 잘 시간이야</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="p92-H1-yUP" secondAttribute="bottom" constant="10" id="R2h-CR-dBO"/>
+                                            <constraint firstItem="p92-H1-yUP" firstAttribute="top" secondItem="hWq-Xi-8nM" secondAttribute="top" constant="30" id="SzN-FJ-Elr"/>
+                                            <constraint firstAttribute="trailing" secondItem="p92-H1-yUP" secondAttribute="trailing" constant="10" id="WlE-6w-6YZ"/>
+                                            <constraint firstItem="p92-H1-yUP" firstAttribute="leading" secondItem="hWq-Xi-8nM" secondAttribute="leading" constant="10" id="sbj-YS-ZCj"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hWq-Xi-8nM" firstAttribute="bottom" secondItem="ihA-kM-6EN" secondAttribute="bottom" id="14t-w2-W2Z"/>
+                                    <constraint firstItem="hWq-Xi-8nM" firstAttribute="leading" secondItem="ihA-kM-6EN" secondAttribute="leading" id="GDf-8R-TMK"/>
+                                    <constraint firstItem="hWq-Xi-8nM" firstAttribute="width" secondItem="wqR-DK-Xaw" secondAttribute="width" id="Jm8-aB-bdR"/>
+                                    <constraint firstItem="hWq-Xi-8nM" firstAttribute="top" secondItem="ihA-kM-6EN" secondAttribute="top" id="bsx-kP-CuW"/>
+                                    <constraint firstItem="hWq-Xi-8nM" firstAttribute="trailing" secondItem="ihA-kM-6EN" secondAttribute="trailing" id="gI0-gm-xIx"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="ihA-kM-6EN"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="wqR-DK-Xaw"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Rgp-Q2-fAY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="57e-Zz-i4s" firstAttribute="leading" secondItem="Rgp-Q2-fAY" secondAttribute="leading" id="AlI-yd-SLZ"/>
+                            <constraint firstAttribute="bottom" secondItem="57e-Zz-i4s" secondAttribute="bottom" id="BtW-fP-Ycy"/>
+                            <constraint firstItem="57e-Zz-i4s" firstAttribute="top" secondItem="Rgp-Q2-fAY" secondAttribute="top" id="iQh-S6-b6y"/>
+                            <constraint firstItem="Rgp-Q2-fAY" firstAttribute="trailing" secondItem="57e-Zz-i4s" secondAttribute="trailing" id="x1f-6Y-hUf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="B0b-Ci-qlQ"/>
+                    <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="contentLabel" destination="9eG-0h-0a1" id="9vj-H4-94O"/>
+                        <outlet property="titleLabel" destination="qaH-wQ-N1N" id="8EY-7L-OWd"/>
+                        <outlet property="userIdLabel" destination="e1e-xE-Qrc" id="qgh-9P-R9f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="frR-HF-zYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3616" y="1791"/>
         </scene>
         <!--Today-->
         <scene sceneID="w9t-hM-g5x">

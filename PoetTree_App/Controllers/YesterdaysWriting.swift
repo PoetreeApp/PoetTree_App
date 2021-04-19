@@ -12,6 +12,7 @@ class YesterdaysWriting: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var userIdLabel: UILabel!
     
     var writing: WritingGet?
     
@@ -26,5 +27,4 @@ class YesterdaysWriting: UIViewController {
         titleLabel.text = writing?.title
         contentLabel.text = writing?.content
     }
-    
 }
