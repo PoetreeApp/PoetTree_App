@@ -72,9 +72,5 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
                 }
             }
         }
-        
     }
-    
-    
-    
 }

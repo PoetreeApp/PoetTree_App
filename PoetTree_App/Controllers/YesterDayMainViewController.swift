@@ -22,7 +22,6 @@ class YesterDayMainViewController: UIViewController {
         getWritings()
     }
     
-   
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,23 +48,22 @@ class YesterDayMainViewController: UIViewController {
                        let content = json["content"].string,
                        let views = json["views"].int,
                        let likes = json["likes"].int,
-                       let hashtags = json["hashtags"].string {
-                       
-                        self.writings.append(WritingGet(title: title, content: content, views: views, likes: likes, hashtags: hashtags))
+                       let hashtags = json["hashtags"].string,
+                       let id = json["id"].int,
+                       let email = json["UserEmail"].string{
+                        
+                        self.writings.append(WritingGet(id: id, title: title, content: content, views: views, likes: likes, hashtags: hashtags, userEmail: email))
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
                     }
-                    
-                    
                 }
-
+                
             case .failure(let error):
                 print(error)
             }
         }
     }
-    
 }
 
 extension YesterDayMainViewController: UITableViewDelegate {

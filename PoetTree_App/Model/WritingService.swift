@@ -34,9 +34,11 @@ class WritingService {
                        let content = json["content"].string,
                        let views = json["views"].int,
                        let likes = json["likes"].int,
-                       let hashtags = json["hashtags"].string {
+                       let hashtags = json["hashtags"].string,
+                       let id = json["id"].int,
+                       let email = json["UserEmail"].string{
                         
-                        self.writings.append(WritingGet(title: title, content: content, views: views, likes: likes, hashtags: hashtags))
+                        self.writings.append(WritingGet(id: id,title: title, content: content, views: views, likes: likes, hashtags: hashtags, userEmail: email))
                         print(self.writings)
                     }
                     

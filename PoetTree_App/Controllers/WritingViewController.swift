@@ -15,9 +15,7 @@ class WritingViewController: UIViewController {
     @IBOutlet weak var keyWordLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextView!
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +41,6 @@ class WritingViewController: UIViewController {
         if let keyWord = keyWord {
             keyWordLabel.text = "\(keyWord[0]) \(keyWord[1])"
         }
-
     }
     
     //MARK: - Back
@@ -78,13 +75,6 @@ class WritingViewController: UIViewController {
                 self.navigationController?.popViewController(animated: true)
                 
             }
-            
-            
         }
-         
-        
-        
     }
-    
-
 }
