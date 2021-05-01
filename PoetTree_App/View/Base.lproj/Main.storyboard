@@ -582,7 +582,7 @@
                     <connections>
                         <outlet property="contentLabel" destination="9eG-0h-0a1" id="9vj-H4-94O"/>
                         <outlet property="titleLabel" destination="qaH-wQ-N1N" id="8EY-7L-OWd"/>
-                        <outlet property="userIdLabel" destination="e1e-xE-Qrc" id="qgh-9P-R9f"/>
+                        <outlet property="userNameLabel" destination="e1e-xE-Qrc" id="qgh-9P-R9f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frR-HF-zYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

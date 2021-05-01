@@ -16,5 +16,5 @@ struct WritingGet {
     let likes: Int
     let hashtags: String
     let userEmail: String
-    
+    let userName: String
 }

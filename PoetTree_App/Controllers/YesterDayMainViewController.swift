@@ -50,15 +50,14 @@ class YesterDayMainViewController: UIViewController {
                        let likes = json["likes"].int,
                        let hashtags = json["hashtags"].string,
                        let id = json["id"].int,
-                       let email = json["UserEmail"].string{
-                        
-                        self.writings.append(WritingGet(id: id, title: title, content: content, views: views, likes: likes, hashtags: hashtags, userEmail: email))
+                       let email = json["UserEmail"].string,
+                       let userName = json["name"].string{
+                        self.writings.append(WritingGet(id: id, title: title, content: content, views: views, likes: likes, hashtags: hashtags, userEmail: email, userName: userName))
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
                     }
                 }
-                
             case .failure(let error):
                 print(error)
             }
