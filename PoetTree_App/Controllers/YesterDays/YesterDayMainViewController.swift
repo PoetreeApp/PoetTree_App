@@ -68,6 +68,7 @@ class YesterDayMainViewController: UIViewController {
 extension YesterDayMainViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.isSelected = false
         performSegue(withIdentifier: K.SEGUE_ID.toYesterdayWriting, sender: writings[indexPath.row])
     }
     
@@ -97,4 +98,8 @@ extension YesterDayMainViewController: UITableViewDataSource{
 
         return cell
     }
+    
+    
+    //글추가하면 delegate으로 글 추가 , tableview datareload
+    
 }

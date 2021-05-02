@@ -29,6 +29,7 @@
 		DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0A261C3E0300085EB9 /* PostsCell.swift */; };
 		DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0D261C3FC100085EB9 /* WritingService.swift */; };
 		DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */; };
+		DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		DB881C0A261C3E0300085EB9 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		DB881C0D261C3FC100085EB9 /* WritingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingService.swift; sourceTree = "<group>"; };
 		DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterDayCorrectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,12 +129,11 @@
 		DB4F932A2614912B0029D640 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DBA774A1263E6E5D00D16EED /* UserWriting */,
+				DBA774A0263E6E4B00D16EED /* Wrting */,
+				DBA7749F263E6E3500D16EED /* LogIn */,
+				DBA7749E263E6E2800D16EED /* YesterDays */,
 				DB4F9333261496A80029D640 /* MainViewController.swift */,
-				DB4F93422614BDED0029D640 /* WritingViewController.swift */,
-				DB4F934A2614CD880029D640 /* UserWritingViewController.swift */,
-				DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */,
-				DB789832261777790065D964 /* GoogleLogInViewController.swift */,
-				DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,6 +191,40 @@
 				DB7D1D472618E43C0092820D /* Interceptor.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		DBA7749E263E6E2800D16EED /* YesterDays */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */,
+				DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */,
+				DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */,
+			);
+			path = YesterDays;
+			sourceTree = "<group>";
+		};
+		DBA7749F263E6E3500D16EED /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				DB789832261777790065D964 /* GoogleLogInViewController.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		DBA774A0263E6E4B00D16EED /* Wrting */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F93422614BDED0029D640 /* WritingViewController.swift */,
+			);
+			path = Wrting;
+			sourceTree = "<group>";
+		};
+		DBA774A1263E6E5D00D16EED /* UserWriting */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F934A2614CD880029D640 /* UserWritingViewController.swift */,
+			);
+			path = UserWriting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +375,7 @@
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,
 				DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */,
 				DB4F9334261496A80029D640 /* MainViewController.swift in Sources */,
+				DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */,
 				DB881C07261C307200085EB9 /* WritingGet.swift in Sources */,
 				DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */,
 			);
