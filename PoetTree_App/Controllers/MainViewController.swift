@@ -8,6 +8,7 @@
 import UIKit
 import GoogleSignIn
 import Toast_Swift
+import Kingfisher
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
@@ -17,7 +18,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var keyWordTextField1: UITextField!
     @IBOutlet weak var keyWordTextField2: UITextField!
     @IBOutlet weak var wrtBtn: UIButton!
-    
+    @IBOutlet weak var todaysImage: UIImageView!
     
 
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
@@ -29,6 +30,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
         let underlineAttributedString = NSAttributedString(string: "Today's Photo", attributes: underlineAttribute)
         toDaysPhoto.attributedText = underlineAttributedString
+        
         self.config()
     }
     

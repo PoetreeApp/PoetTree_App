@@ -10,8 +10,8 @@ import Foundation
 
 struct Writing: Codable {
     
-    let title: String
-    let content: String
+    var title: String
+    var content: String
     let email: String
     let hashtags: [String]
     

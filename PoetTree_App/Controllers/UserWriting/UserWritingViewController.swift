@@ -15,24 +15,17 @@ class UserWritingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         self.navigationController?.navigationItem.hidesBackButton = true
-        
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
     }
-    
     
     @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }
 
 extension UserWritingViewController: UITableViewDelegate {
-    
-    
     
 }
 
@@ -52,10 +45,4 @@ extension UserWritingViewController: UITableViewDataSource {
         
         return cell
     }
-    
-    
-    //글추가하면 delegate으로 추가
-    
-    
-    
 }

@@ -8,26 +8,19 @@
 import Foundation
 
 struct K {
-    
-
-    
     struct SEGUE_ID {
         static let toWriting = "toWriting"
         static let toUserWriting = "toUserWriting"
         static let toLogIn = "goToLogIn"
         static let toYesterdayWriting = "toYesterdayWriting"
+        static let toCorrectionDetail = "toCorrection"
     }
-    
     struct API {
-        
         static let BASE_URL = "http://54.180.34.121:8080/"
         static let USER_POST: String = BASE_URL + "users/signIn"
-        static let WRITING_GET_POST: String = BASE_URL + "posts"
-        
+        static let WRITING_GET_POST: String = BASE_URL + "posts/"
     }
-    
     struct TABLE_VIEW_CELL_ID {
         static let postsCell = "PostsCell"
     }
-    
 }

@@ -10,8 +10,8 @@ import Foundation
 struct WritingGet {
     
     let id: Int
-    let title: String
-    let content: String
+    var title: String
+    var content: String
     let views: Int
     let likes: Int
     let hashtags: String

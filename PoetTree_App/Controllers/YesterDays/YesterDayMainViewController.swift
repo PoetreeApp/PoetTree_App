@@ -13,20 +13,18 @@ class YesterDayMainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    
     var writings: [WritingGet] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("yesterday viewdidload called")
-        getWritings()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //매번 불림
-        
+        writings.removeAll()
+        getWritings()
+        tableView.reloadData()
     }
     
     func getWritings(){
@@ -37,13 +35,8 @@ class YesterDayMainViewController: UIViewController {
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-              
-                //writing을 받아와서 초기화함
 
                 for (index, json) in json {
-                    
-                    print(json["views"].int!)
-                    
                     if let title = json["title"].string,
                        let content = json["content"].string,
                        let views = json["views"].int,
@@ -73,12 +66,9 @@ extension YesterDayMainViewController: UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard let writingVC = segue.destination as? YesterdaysWriting,
               let writing = sender as? WritingGet else {return}
-        
         writingVC.writing = writing
-        
     }
 }
 
@@ -89,17 +79,10 @@ extension YesterDayMainViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: K.TABLE_VIEW_CELL_ID.postsCell) as? PostsCell else {
             return UITableViewCell()
         }
-        
         cell.updateCell(writing: writings[indexPath.row])
-
         return cell
     }
-    
-    
-    //글추가하면 delegate으로 글 추가 , tableview datareload
-    
 }

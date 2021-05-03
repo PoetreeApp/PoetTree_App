@@ -15,7 +15,6 @@ protocol GoogleLogInDelegate {
     func googleLogedIn(user: GIDGoogleUser)
 }
 
-
 class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
     
     public static var user: GIDGoogleUser!
@@ -23,12 +22,9 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("googleLogIn called")
-        
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance().delegate = self
     }
-    
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
@@ -40,19 +36,16 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
         
             if let authentication = user.authentication {
                 let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-                
                 Auth.auth().signIn(with: credential) { (authResult, error) in
                     if error != nil {
                         return
                     } else {
-                        
                         GoogleLogInViewController.user = user
                         let parameter: [String : Any] =
                             [ "email" : user.profile.email,
                               "name" : user.profile.name,
                               "provider" : "Google"
                             ]
-                        //앱서버에 포스팅
                         AF.request(K.API.USER_POST, method: .post, parameters: parameter, encoding: JSONEncoding.default).response{
                             response in
                             
