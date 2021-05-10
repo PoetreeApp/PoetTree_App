@@ -346,7 +346,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZNc-Li-8w2">
-                                                    <rect key="frame" x="145.5" y="32" width="62" height="36"/>
+                                                    <rect key="frame" x="145.5" y="9" width="62" height="36"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -357,24 +357,26 @@
                                                         <constraint firstAttribute="width" secondItem="cPB-ur-V4q" secondAttribute="height" multiplier="4:3" id="Dfu-kV-GV5"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️:  2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuY-so-trc">
-                                                    <rect key="frame" x="347" y="39.5" width="47" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️:  2 View: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuY-so-trc">
+                                                    <rect key="frame" x="287" y="70" width="107" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vR-dy-IsP">
+                                                    <rect key="frame" x="259" y="66" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ZNc-Li-8w2" firstAttribute="leading" secondItem="cPB-ur-V4q" secondAttribute="trailing" constant="20" id="32g-qI-ntT"/>
                                                 <constraint firstItem="MuY-so-trc" firstAttribute="trailing" secondItem="0Yj-yd-XIL" secondAttribute="trailingMargin" id="4K2-GG-ULj"/>
-                                                <constraint firstItem="MuY-so-trc" firstAttribute="centerY" secondItem="cPB-ur-V4q" secondAttribute="centerY" id="HfW-ef-uV8"/>
-                                                <constraint firstItem="ZNc-Li-8w2" firstAttribute="centerY" secondItem="0Yj-yd-XIL" secondAttribute="centerY" id="Mdk-WF-uvk"/>
+                                                <constraint firstItem="ZNc-Li-8w2" firstAttribute="top" secondItem="cPB-ur-V4q" secondAttribute="top" id="OLP-dB-Acv"/>
                                                 <constraint firstItem="cPB-ur-V4q" firstAttribute="centerY" secondItem="0Yj-yd-XIL" secondAttribute="centerY" id="QCw-4g-qfu"/>
-                                                <constraint firstItem="MuY-so-trc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZNc-Li-8w2" secondAttribute="trailing" constant="20" id="jN6-Tr-CRT"/>
+                                                <constraint firstItem="MuY-so-trc" firstAttribute="bottom" secondItem="cPB-ur-V4q" secondAttribute="bottom" id="d7h-vl-i0E"/>
                                                 <constraint firstAttribute="bottom" secondItem="cPB-ur-V4q" secondAttribute="bottom" constant="9" id="o3w-j6-s82"/>
                                                 <constraint firstItem="cPB-ur-V4q" firstAttribute="leading" secondItem="0Yj-yd-XIL" secondAttribute="leading" constant="16" id="rTf-mD-JI5"/>
                                                 <constraint firstItem="cPB-ur-V4q" firstAttribute="top" secondItem="0Yj-yd-XIL" secondAttribute="top" constant="9" id="yoW-Bv-ZaD"/>
-                                                <constraint firstItem="MuY-so-trc" firstAttribute="centerY" secondItem="ZNc-Li-8w2" secondAttribute="centerY" id="yvs-rl-cUu"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -549,9 +551,8 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfq-dE-A1w">
                                                         <rect key="frame" x="0.0" y="990.5" width="394" height="35"/>
                                                         <subviews>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-B4-9aW">
-                                                                <rect key="frame" x="332" y="2" width="63" height="34"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-B4-9aW">
+                                                                <rect key="frame" x="331" y="0.5" width="63" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <state key="normal" title="수정하기"/>
                                                                 <connections>
@@ -577,9 +578,8 @@
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r16-ai-LJJ">
-                                                                <rect key="frame" x="261" y="1" width="63" height="34"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r16-ai-LJJ">
+                                                                <rect key="frame" x="263" y="0.5" width="63" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <state key="normal" title="삭제하기"/>
                                                                 <connections>
@@ -589,9 +589,13 @@
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
+                                                            <constraint firstItem="ONL-B4-9aW" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="0xa-Qn-zip"/>
+                                                            <constraint firstItem="ONL-B4-9aW" firstAttribute="leading" secondItem="r16-ai-LJJ" secondAttribute="trailing" constant="5" id="5N9-2i-POp"/>
                                                             <constraint firstItem="pWw-AC-7Nb" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="8X9-s7-d23"/>
                                                             <constraint firstAttribute="trailing" secondItem="pWw-AC-7Nb" secondAttribute="trailing" constant="310" id="KjK-eH-E0S"/>
+                                                            <constraint firstItem="r16-ai-LJJ" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="LOd-mL-OFr"/>
                                                             <constraint firstAttribute="height" constant="35" id="RmA-fa-lYC"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ONL-B4-9aW" secondAttribute="trailing" id="uFr-Tg-iEv"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
