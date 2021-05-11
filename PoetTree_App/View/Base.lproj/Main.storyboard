@@ -100,6 +100,7 @@
                         <outlet property="hashTagStackView" destination="LWe-zN-zgS" id="aBU-B6-QaM"/>
                         <outlet property="keyWordTextField1" destination="TTb-ir-Tkn" id="utN-tQ-YyC"/>
                         <outlet property="keyWordTextField2" destination="csQ-cR-BOM" id="KZJ-sk-GcC"/>
+                        <outlet property="pagerView" destination="XDd-yh-2Or" id="2fO-D9-dhH"/>
                         <outlet property="toDaysPhoto" destination="ffz-Mj-P1t" id="e9L-bc-Yzh"/>
                         <outlet property="wrtBtn" destination="Cc5-oM-bNY" id="4MR-Pc-zHW"/>
                         <segue destination="zLj-BB-nLQ" kind="show" identifier="toWriting" id="Lix-n7-F6h"/>

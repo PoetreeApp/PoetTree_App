@@ -18,16 +18,22 @@ import SwiftyJSON
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
-    
     @IBOutlet weak var toDaysPhoto: UILabel!
     @IBOutlet weak var hashTagStackView: UIStackView!
     @IBOutlet weak var keyWordTextField1: UITextField!
     @IBOutlet weak var keyWordTextField2: UITextField!
     @IBOutlet weak var wrtBtn: UIButton!
     
-    //localhost:3306/source 에서 이미지들과 id를 받아와서 튜플 배열에 넣음
-    fileprivate var todayImages: [TodaysPhoto] = []
+    @IBOutlet weak var pagerView: FSPagerView! {
+        didSet {
+            self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+            self.pagerView.itemSize = FSPagerView.automaticSize
+            self.pagerView.isInfinite = true
+        }
+    }
     
+    fileprivate var todayImages: [TodaysPhoto] = []
+    fileprivate var todayImageViews: [UIImage] = []
    
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
 
@@ -39,7 +45,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         self.config()
         self.getPhotos()
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,16 +77,19 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         //사진을 받아서 배열에 넣음
         AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
             
+            
             guard let self = self else {return}
             switch response.result {
             case .success(let sources):
-
+                
                 let json = JSON(sources)
                 for (index, json) in json {
                     if let id = json["id"].int,
                        let url = json["imageURL"].string,
                        let imageURL = URL(string: url){
                         self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
+                        let urls = self.todayImages.map{$0.imageURL}
+                        self.downloadImage(from: urls)
                         self.setPagerView()
                     }
                 }
@@ -93,15 +101,27 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     }
     
     fileprivate func setPagerView() {
-        // kingfisher 와 fspagerview를 연동해야함
+        // 지금 있는 것 - uiimages
+        
+        // 해야하는 것 - 이미지들을 fspagerview에서 활용하기
         
         
+    }
+    
+    fileprivate func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void){
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from urls: [URL]) {
+        print("Download Started")
         
-        
-        // fspagerview -> UIVIEW로 작동
-        // 
-        
-        // kingfisher -> UIImgae로 작동
+        // url 배열을 전달해서 배열을 돌면서 images에 추가함
+        for url in urls {
+            getData(from: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                self.todayImageViews.append(UIImage(data: data)!)
+            }
+        }
     }
     
     //MARK: - keyboard 에따른 view 설정
@@ -115,14 +135,9 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
 
             print("keyboardSize.height: \(keyboardSize.height)")
-            //버튼을 들어올림
-            
+       
             self.wrtBtn.frame.origin.y = self.wrtBtn.frame.origin.y - keyboardSize.height
             
-            
-//            self.wrtBtn.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: keyboardSize.height).isActive = true
-//            self.wrtBtn.rightAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 25).isActive = true
-        
         }
     }
     
@@ -196,9 +211,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             view.endEditing(true)
             return true
         }
-
     }
-    
 }
 
 
