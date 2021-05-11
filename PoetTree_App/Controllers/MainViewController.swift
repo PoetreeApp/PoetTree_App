@@ -8,7 +8,6 @@
 import UIKit
 import GoogleSignIn
 import Toast_Swift
-import Kingfisher
 import FSPagerView
 import Alamofire
 import SwiftyJSON
@@ -27,8 +26,8 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var pagerView: FSPagerView! {
         didSet {
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
-            self.pagerView.itemSize = FSPagerView.automaticSize
-            self.pagerView.isInfinite = true
+//            self.pagerView.itemSize = FSPagerView.automaticSize
+//            self.pagerView.isInfinite = true
         }
     }
     
@@ -37,19 +36,27 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
    
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
 
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.underLineText()
         self.config()
         self.getPhotos()
+        
+        pagerView.dataSource = self
+        pagerView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowHandle(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideHandle), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        DispatchQueue.main.async {
+            self.pagerView.reloadData()
+        }
+        
     }
     
 
@@ -90,7 +97,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                         self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
                         let urls = self.todayImages.map{$0.imageURL}
                         self.downloadImage(from: urls)
-                        self.setPagerView()
                     }
                 }
                 
@@ -98,14 +104,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                 print(error.localizedDescription)
             }
         }
-    }
-    
-    fileprivate func setPagerView() {
-        // 지금 있는 것 - uiimages
-        
-        // 해야하는 것 - 이미지들을 fspagerview에서 활용하기
-        
-        
     }
     
     fileprivate func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void){
@@ -120,6 +118,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             getData(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
                 self.todayImageViews.append(UIImage(data: data)!)
+                print(self.todayImageViews.count)
             }
         }
     }
@@ -137,7 +136,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             print("keyboardSize.height: \(keyboardSize.height)")
        
             self.wrtBtn.frame.origin.y = self.wrtBtn.frame.origin.y - keyboardSize.height
-            
         }
     }
     
@@ -197,7 +195,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         } else {
             self.view.makeToast("로그인 해주세요", duration: 2.0, position: .center)
         }
-        
     }
     
     //MARK: - 제스처 recognizer
@@ -214,18 +211,20 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     }
 }
 
-
 //MARK: - FSPagerView extension
 
-//extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
-//
-//
-//    func numberOfItems(in pagerView: FSPagerView) -> Int {
-//        return self.todayImages.count
-//    }
-//
-////    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-////        <#code#>
-////    }
-//
-//}
+extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
+
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        print(self.todayImageViews.count)
+        return self.todayImageViews.count
+    }
+
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        cell.imageView?.image = self.todayImageViews[index]
+        cell.contentMode = .scaleAspectFit
+        print("call")
+        return cell
+    }
+}
