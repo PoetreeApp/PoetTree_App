@@ -68,21 +68,23 @@
                                     <constraint firstAttribute="width" constant="120" id="bsc-7p-ubI"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDd-yh-2Or" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="315.5" width="414" height="315.5"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDG-Le-2ga" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="315.5" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="gF2-hK-WwD"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CHu-zP-RbC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ffz-Mj-P1t" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="6Eq-Nj-ZHE"/>
-                            <constraint firstItem="XDd-yh-2Or" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" id="IZN-Eg-QIC"/>
-                            <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="XDd-yh-2Or" secondAttribute="trailing" id="OBu-kA-0Ex"/>
+                            <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="SDG-Le-2ga" secondAttribute="trailing" id="8iQ-di-VQn"/>
+                            <constraint firstItem="SDG-Le-2ga" firstAttribute="top" secondItem="LWe-zN-zgS" secondAttribute="bottom" constant="50" id="Le6-d9-46x"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="15" id="Ouk-tg-eig"/>
-                            <constraint firstItem="Cc5-oM-bNY" firstAttribute="top" secondItem="XDd-yh-2Or" secondAttribute="bottom" constant="100" id="QAn-m3-Sjz"/>
+                            <constraint firstItem="SDG-Le-2ga" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" id="THE-Ks-3lk"/>
                             <constraint firstItem="ffz-Mj-P1t" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="30" id="WYW-Np-PR5"/>
-                            <constraint firstItem="XDd-yh-2Or" firstAttribute="top" secondItem="LWe-zN-zgS" secondAttribute="bottom" constant="50" id="bhb-V4-g0Q"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="bottom" secondItem="Cc5-oM-bNY" secondAttribute="bottom" constant="25" id="biY-bp-6vR"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="Cc5-oM-bNY" secondAttribute="trailing" constant="25" id="iK6-k4-6mW"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="mf6-bV-RxR"/>
@@ -100,7 +102,7 @@
                         <outlet property="hashTagStackView" destination="LWe-zN-zgS" id="aBU-B6-QaM"/>
                         <outlet property="keyWordTextField1" destination="TTb-ir-Tkn" id="utN-tQ-YyC"/>
                         <outlet property="keyWordTextField2" destination="csQ-cR-BOM" id="KZJ-sk-GcC"/>
-                        <outlet property="pagerView" destination="XDd-yh-2Or" id="2fO-D9-dhH"/>
+                        <outlet property="pagerView" destination="SDG-Le-2ga" id="wBd-nx-BbK"/>
                         <outlet property="toDaysPhoto" destination="ffz-Mj-P1t" id="e9L-bc-Yzh"/>
                         <outlet property="wrtBtn" destination="Cc5-oM-bNY" id="4MR-Pc-zHW"/>
                         <segue destination="zLj-BB-nLQ" kind="show" identifier="toWriting" id="Lix-n7-F6h"/>

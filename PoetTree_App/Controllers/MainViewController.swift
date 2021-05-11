@@ -24,38 +24,41 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var wrtBtn: UIButton!
     
     @IBOutlet weak var pagerView: FSPagerView! {
-        didSet {
+        didSet{
+            
             self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
-//            self.pagerView.itemSize = FSPagerView.automaticSize
-//            self.pagerView.isInfinite = true
+            
+            self.pagerView.itemSize = FSPagerView.automaticSize
+            
+            self.pagerView.isInfinite = true
+            
+            self.pagerView.automaticSlidingInterval = 4.0
         }
     }
+    
+    
     
     fileprivate var todayImages: [TodaysPhoto] = []
     fileprivate var todayImageViews: [UIImage] = []
    
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
 
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        pagerView.delegate = self
+        pagerView.dataSource = self
         
         self.underLineText()
         self.config()
         self.getPhotos()
         
-        pagerView.dataSource = self
-        pagerView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowHandle(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideHandle), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        DispatchQueue.main.async {
-            self.pagerView.reloadData()
-        }
         
     }
     
@@ -82,44 +85,53 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     
     fileprivate func getPhotos(){
         //사진을 받아서 배열에 넣음
-        AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
-            
-            
-            guard let self = self else {return}
-            switch response.result {
-            case .success(let sources):
+        
+        DispatchQueue.global(qos: .userInteractive).async {
+            AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
                 
-                let json = JSON(sources)
-                for (index, json) in json {
-                    if let id = json["id"].int,
-                       let url = json["imageURL"].string,
-                       let imageURL = URL(string: url){
-                        self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
-                        let urls = self.todayImages.map{$0.imageURL}
-                        self.downloadImage(from: urls)
+                guard let self = self else {return}
+                switch response.result {
+                case .success(let sources):
+                    
+                    let json = JSON(sources)
+                    for (index, json) in json {
+                        if let id = json["id"].int,
+                           let url = json["imageURL"].string,
+                           let imageURL = URL(string: url){
+                            self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
+                        }
                     }
-                }
+                    let urls = self.todayImages.map{$0.imageURL}
+                    self.downloadImage(from: urls)
                 
-            case .failure(let error):
-                print(error.localizedDescription)
+                    
+                    
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         }
+        
+      
+        
     }
     
     fileprivate func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void){
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    func downloadImage(from urls: [URL]) {
+    fileprivate func downloadImage(from urls: [URL]) {
         print("Download Started")
-        
         // url 배열을 전달해서 배열을 돌면서 images에 추가함
         for url in urls {
             getData(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
+                print(data)
                 self.todayImageViews.append(UIImage(data: data)!)
-                print(self.todayImageViews.count)
             }
+        }
+        DispatchQueue.main.async {
+            self.pagerView.reloadData()
         }
     }
     
@@ -211,20 +223,19 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     }
 }
 
-//MARK: - FSPagerView extension
-
 extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
-
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         print(self.todayImageViews.count)
         return self.todayImageViews.count
     }
-
+    
+    
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        print("i called")
         cell.imageView?.image = self.todayImageViews[index]
-        cell.contentMode = .scaleAspectFit
-        print("call")
+        cell.imageView?.contentMode = .scaleAspectFit
         return cell
     }
+    
 }
