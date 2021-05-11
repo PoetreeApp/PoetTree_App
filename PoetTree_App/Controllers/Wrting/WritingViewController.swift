@@ -8,6 +8,12 @@
 import UIKit
 import Alamofire
 
+// 포스팅을 소스아이디와 함께 post하기
+
+// 이미지를 상단에 표시하기
+
+// 키보드 대응, 텍스트 필드 place holder 설정
+
 class WritingViewController: UIViewController {
 
     var keyWord: [String]?

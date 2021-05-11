@@ -10,6 +10,9 @@ import GoogleSignIn
 import Toast_Swift
 import Kingfisher
 
+// 메인에 이미지 슬라이더 3개 표시하기
+// writing으로 넘어갈 때 선택한 이미지 같이 보내기 -> writing에서 source id를 같이 보내야함
+
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
     

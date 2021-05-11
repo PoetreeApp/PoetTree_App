@@ -7,6 +7,8 @@
 
 import UIKit
 
+// 로그인한 유저의 글들을 불러와서 테이블 뷰에 뿌리기
+
 class UserWritingViewController: UIViewController {
 
     

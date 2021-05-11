@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 import Alamofire
 
+// 댓글 작업, 좋아요 기능.
+
 class YesterdaysWriting: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
