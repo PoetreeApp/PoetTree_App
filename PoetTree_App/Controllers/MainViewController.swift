@@ -9,6 +9,7 @@ import UIKit
 import GoogleSignIn
 import Toast_Swift
 import Kingfisher
+import FSPagerView
 
 // 메인에 이미지 슬라이더 3개 표시하기
 // writing으로 넘어갈 때 선택한 이미지 같이 보내기 -> writing에서 source id를 같이 보내야함
@@ -21,9 +22,11 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var keyWordTextField1: UITextField!
     @IBOutlet weak var keyWordTextField2: UITextField!
     @IBOutlet weak var wrtBtn: UIButton!
-    @IBOutlet weak var todaysImage: UIImageView!
     
-
+    //이미지를 넣음
+    fileprivate var todayImages: [UIImage] = []
+    
+   
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
 
     
@@ -150,6 +153,22 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             return true
         }
 
+    }
+    
+}
+
+
+//MARK: - FSPagerView extension
+
+extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
+    
+    
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
+        return self.todayImages.count
+    }
+    
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        <#code#>
     }
     
 }

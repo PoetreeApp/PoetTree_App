@@ -16,12 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="22l-r0-6wd">
-                                <rect key="frame" x="0.0" y="310" width="414" height="276"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="276" id="RsU-Ke-MJX"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffz-Mj-P1t">
                                 <rect key="frame" x="137" y="170" width="140" height="40"/>
                                 <constraints>
@@ -45,7 +39,7 @@
                                 </connections>
                             </button>
                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LWe-zN-zgS">
-                                <rect key="frame" x="147" y="159.5" width="120" height="110.5"/>
+                                <rect key="frame" x="147" y="155" width="120" height="110.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="키워드" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WKE-Ze-3QE">
                                         <rect key="frame" x="39" y="0.0" width="42" height="26.5"/>
@@ -74,19 +68,24 @@
                                     <constraint firstAttribute="width" constant="120" id="bsc-7p-ubI"/>
                                 </constraints>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDd-yh-2Or" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="315.5" width="414" height="315.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CHu-zP-RbC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ffz-Mj-P1t" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="6Eq-Nj-ZHE"/>
-                            <constraint firstItem="22l-r0-6wd" firstAttribute="leading" secondItem="P4f-j4-4sg" secondAttribute="leading" id="8Ae-Fw-8B3"/>
+                            <constraint firstItem="XDd-yh-2Or" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" id="IZN-Eg-QIC"/>
+                            <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="XDd-yh-2Or" secondAttribute="trailing" id="OBu-kA-0Ex"/>
+                            <constraint firstItem="LWe-zN-zgS" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="15" id="Ouk-tg-eig"/>
+                            <constraint firstItem="Cc5-oM-bNY" firstAttribute="top" secondItem="XDd-yh-2Or" secondAttribute="bottom" constant="100" id="QAn-m3-Sjz"/>
                             <constraint firstItem="ffz-Mj-P1t" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="30" id="WYW-Np-PR5"/>
-                            <constraint firstItem="22l-r0-6wd" firstAttribute="top" secondItem="LWe-zN-zgS" secondAttribute="bottom" constant="40" id="a72-vZ-y1R"/>
+                            <constraint firstItem="XDd-yh-2Or" firstAttribute="top" secondItem="LWe-zN-zgS" secondAttribute="bottom" constant="50" id="bhb-V4-g0Q"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="bottom" secondItem="Cc5-oM-bNY" secondAttribute="bottom" constant="25" id="biY-bp-6vR"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="Cc5-oM-bNY" secondAttribute="trailing" constant="25" id="iK6-k4-6mW"/>
-                            <constraint firstItem="22l-r0-6wd" firstAttribute="trailing" secondItem="P4f-j4-4sg" secondAttribute="trailing" id="mAM-6t-KIK"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="mf6-bV-RxR"/>
-                            <constraint firstItem="22l-r0-6wd" firstAttribute="centerY" secondItem="P4f-j4-4sg" secondAttribute="centerY" id="zFb-di-CpR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Poetree" id="51Z-kc-55Q">
@@ -102,7 +101,6 @@
                         <outlet property="keyWordTextField1" destination="TTb-ir-Tkn" id="utN-tQ-YyC"/>
                         <outlet property="keyWordTextField2" destination="csQ-cR-BOM" id="KZJ-sk-GcC"/>
                         <outlet property="toDaysPhoto" destination="ffz-Mj-P1t" id="e9L-bc-Yzh"/>
-                        <outlet property="todaysImage" destination="22l-r0-6wd" id="VGp-Yx-nd8"/>
                         <outlet property="wrtBtn" destination="Cc5-oM-bNY" id="4MR-Pc-zHW"/>
                         <segue destination="zLj-BB-nLQ" kind="show" identifier="toWriting" id="Lix-n7-F6h"/>
                         <segue destination="L3B-aK-g34" kind="show" identifier="toUserWriting" id="9uO-Hh-Xhk"/>
