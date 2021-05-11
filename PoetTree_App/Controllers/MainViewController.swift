@@ -10,6 +10,8 @@ import GoogleSignIn
 import Toast_Swift
 import Kingfisher
 import FSPagerView
+import Alamofire
+import SwiftyJSON
 
 // 메인에 이미지 슬라이더 3개 표시하기
 // writing으로 넘어갈 때 선택한 이미지 같이 보내기 -> writing에서 source id를 같이 보내야함
@@ -23,8 +25,8 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var keyWordTextField2: UITextField!
     @IBOutlet weak var wrtBtn: UIButton!
     
-    //이미지를 넣음
-    fileprivate var todayImages: [UIImage] = []
+    //localhost:3306/source 에서 이미지들과 id를 받아와서 튜플 배열에 넣음
+    fileprivate var todayImages: [TodaysPhoto] = []
     
    
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
@@ -33,12 +35,11 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
-        let underlineAttributedString = NSAttributedString(string: "Today's Photo", attributes: underlineAttribute)
-        toDaysPhoto.attributedText = underlineAttributedString
-        
+        self.underLineText()
         self.config()
+        self.getPhotos()
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -55,11 +56,54 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
+    fileprivate func underLineText(){
+        
+        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]
+        let underlineAttributedString = NSAttributedString(string: "Today's Photo", attributes: underlineAttribute)
+        toDaysPhoto.attributedText = underlineAttributedString
+    }
+    
     fileprivate func config(){
         self.keyboardDismissTabGesture.delegate = self
         self.view.addGestureRecognizer(keyboardDismissTabGesture)
     }
+    
+    fileprivate func getPhotos(){
+        //사진을 받아서 배열에 넣음
+        AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
+            
+            guard let self = self else {return}
+            switch response.result {
+            case .success(let sources):
 
+                let json = JSON(sources)
+                for (index, json) in json {
+                    if let id = json["id"].int,
+                       let url = json["imageURL"].string,
+                       let imageURL = URL(string: url){
+                        self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
+                        self.setPagerView()
+                    }
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    fileprivate func setPagerView() {
+        // kingfisher 와 fspagerview를 연동해야함
+        
+        
+        
+        
+        // fspagerview -> UIVIEW로 작동
+        // 
+        
+        // kingfisher -> UIImgae로 작동
+    }
+    
     //MARK: - keyboard 에따른 view 설정
     @objc func keyboardWillShowHandle(notification: NSNotification){
         print("HomeVC - keyboardWillShowHandle() called")
@@ -160,15 +204,15 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
 
 //MARK: - FSPagerView extension
 
-extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
-    
-    
-    func numberOfItems(in pagerView: FSPagerView) -> Int {
-        return self.todayImages.count
-    }
-    
-    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        <#code#>
-    }
-    
-}
+//extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
+//
+//
+//    func numberOfItems(in pagerView: FSPagerView) -> Int {
+//        return self.todayImages.count
+//    }
+//
+////    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+////        <#code#>
+////    }
+//
+//}

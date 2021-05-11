@@ -19,6 +19,7 @@ struct K {
         static let BASE_URL = "http://54.180.34.121:8080/"
         static let USER_POST: String = BASE_URL + "users/signIn"
         static let WRITING_GET_POST: String = BASE_URL + "posts/"
+        static let PHOTOS_GET: String = BASE_URL + "sources"
     }
     struct TABLE_VIEW_CELL_ID {
         static let postsCell = "PostsCell"

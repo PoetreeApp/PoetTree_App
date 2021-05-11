@@ -30,6 +30,7 @@
 		DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0D261C3FC100085EB9 /* WritingService.swift */; };
 		DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */; };
 		DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */; };
+		DBB6FC0F264AAEBA005E8BAF /* TodayPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		DB881C0D261C3FC100085EB9 /* WritingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingService.swift; sourceTree = "<group>"; };
 		DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterDayCorrectionViewController.swift; sourceTree = "<group>"; };
+		DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhoto.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				DB7D1D432618BBCC0092820D /* UserModel.swift */,
 				DB881C06261C307200085EB9 /* WritingGet.swift */,
 				DB881C0D261C3FC100085EB9 /* WritingService.swift */,
+				DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */,
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,
 				DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */,
+				DBB6FC0F264AAEBA005E8BAF /* TodayPhoto.swift in Sources */,
 				DB4F9334261496A80029D640 /* MainViewController.swift in Sources */,
 				DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */,
 				DB881C07261C307200085EB9 /* WritingGet.swift in Sources */,
