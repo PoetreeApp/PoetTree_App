@@ -551,7 +551,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3us-MS-FDB">
                                                         <rect key="frame" x="0.0" y="990.5" width="394" height="104"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfq-dE-A1w">
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfq-dE-A1w" userLabel="correctionView">
                                                                 <rect key="frame" x="0.0" y="0.0" width="394" height="35"/>
                                                                 <subviews>
                                                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-B4-9aW">
@@ -563,10 +563,10 @@
                                                                         </connections>
                                                                     </button>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pWw-AC-7Nb">
-                                                                        <rect key="frame" x="5.5" y="3.5" width="78.5" height="28.5"/>
+                                                                        <rect key="frame" x="53.5" y="4.5" width="30.5" height="26"/>
                                                                         <subviews>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n30-d2-Xxf">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="28.5"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="26"/>
                                                                                 <color key="tintColor" systemColor="systemPinkColor"/>
                                                                                 <state key="normal" image="heart" catalog="system">
                                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
@@ -574,16 +574,6 @@
                                                                                 <state key="selected" image="heart.fill" catalog="system"/>
                                                                                 <connections>
                                                                                     <action selector="likeBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="s9v-vg-KdT"/>
-                                                                                </connections>
-                                                                            </button>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob6-A9-Ukg">
-                                                                                <rect key="frame" x="45.5" y="0.0" width="33" height="28.5"/>
-                                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                                <state key="normal" image="bubble.right" catalog="system">
-                                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
-                                                                                </state>
-                                                                                <connections>
-                                                                                    <action selector="commentBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="wve-jV-kAk"/>
                                                                                 </connections>
                                                                             </button>
                                                                         </subviews>
@@ -617,7 +607,7 @@
                                                                             <color key="titleColor" systemColor="systemGray2Color"/>
                                                                         </state>
                                                                         <connections>
-                                                                            <action selector="commentListBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="7XU-eT-P5Z"/>
+                                                                            <segue destination="WRi-z6-YGq" kind="show" identifier="toComment" id="j1V-f4-pU6"/>
                                                                         </connections>
                                                                     </button>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HD-B0-b5k">
@@ -686,6 +676,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="B0b-Ci-qlQ"/>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
+                        <outlet property="commentCountButton" destination="DUZ-OY-N0p" id="2yI-G0-ohN"/>
                         <outlet property="commentTextField" destination="cqa-1E-Q7c" id="Nm8-wJ-slY"/>
                         <outlet property="contentLabel" destination="9eG-0h-0a1" id="9vj-H4-94O"/>
                         <outlet property="correctionButton" destination="ONL-B4-9aW" id="43r-6Z-yto"/>
@@ -699,6 +690,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="frR-HF-zYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3615.9420289855075" y="1790.625"/>
+        </scene>
+        <!--댓글-->
+        <scene sceneID="G67-X0-1aF">
+            <objects>
+                <viewController id="WRi-z6-YGq" customClass="CommentViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BQu-m7-naw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M2H-yd-TLk">
+                                <rect key="frame" x="0.0" y="88" width="414" height="625"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hus-dj-nZD">
+                                <rect key="frame" x="0.0" y="713" width="414" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gx8-IV-AQf">
+                                        <rect key="frame" x="0.0" y="0.0" width="364" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A2W-26-Zrp">
+                                        <rect key="frame" x="364" y="0.0" width="50" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="50" id="D5n-im-B1e"/>
+                                        </constraints>
+                                        <state key="normal" title="게시"/>
+                                        <connections>
+                                            <action selector="postBtnTapped:" destination="WRi-z6-YGq" eventType="touchUpInside" id="Quz-G7-q2W"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="QJf-Ep-38j"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LUD-rk-PNG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="hus-dj-nZD" firstAttribute="leading" secondItem="LUD-rk-PNG" secondAttribute="leading" id="1BE-wJ-Lwh"/>
+                            <constraint firstItem="M2H-yd-TLk" firstAttribute="leading" secondItem="LUD-rk-PNG" secondAttribute="leading" id="FHa-DQ-9nt"/>
+                            <constraint firstItem="LUD-rk-PNG" firstAttribute="trailing" secondItem="M2H-yd-TLk" secondAttribute="trailing" id="Qo2-eQ-dc7"/>
+                            <constraint firstItem="M2H-yd-TLk" firstAttribute="top" secondItem="LUD-rk-PNG" secondAttribute="top" id="XT2-RU-Yul"/>
+                            <constraint firstItem="LUD-rk-PNG" firstAttribute="trailing" secondItem="hus-dj-nZD" secondAttribute="trailing" id="eHI-Fl-lHG"/>
+                            <constraint firstItem="hus-dj-nZD" firstAttribute="top" secondItem="M2H-yd-TLk" secondAttribute="bottom" id="iYn-er-3b2"/>
+                            <constraint firstItem="LUD-rk-PNG" firstAttribute="bottom" secondItem="M2H-yd-TLk" secondAttribute="bottom" constant="100" id="w1z-Ox-SAu"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="댓글" id="BCH-O1-KFj"/>
+                    <connections>
+                        <outlet property="commentTableView" destination="M2H-yd-TLk" id="7Ao-OH-PTQ"/>
+                        <outlet property="commentTextField" destination="gx8-IV-AQf" id="TaH-WI-oga"/>
+                        <outlet property="postBtn" destination="A2W-26-Zrp" id="5SJ-eh-sDb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58l-cb-1ac" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4684" y="2357"/>
         </scene>
         <!--Today-->
         <scene sceneID="w9t-hM-g5x">
@@ -873,11 +923,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoF-SG-8Of" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4658" y="1791"/>
+            <point key="canvasLocation" x="5765" y="1791"/>
         </scene>
     </scenes>
     <resources>
-        <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>

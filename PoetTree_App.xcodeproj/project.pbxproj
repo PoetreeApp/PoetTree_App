@@ -30,7 +30,9 @@
 		DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0D261C3FC100085EB9 /* WritingService.swift */; };
 		DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */; };
 		DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */; };
+		DBB07128264BA4EB00E57837 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB07127264BA4EB00E57837 /* CommentViewController.swift */; };
 		DBB6FC0F264AAEBA005E8BAF /* TodayPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */; };
+		DBF6842C264BDA300049EFE4 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6842B264BDA300049EFE4 /* WebService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,7 +63,9 @@
 		DB881C0D261C3FC100085EB9 /* WritingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingService.swift; sourceTree = "<group>"; };
 		DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterDayCorrectionViewController.swift; sourceTree = "<group>"; };
+		DBB07127264BA4EB00E57837 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhoto.swift; sourceTree = "<group>"; };
+		DBF6842B264BDA300049EFE4 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				DB7D1D472618E43C0092820D /* Interceptor.swift */,
+				DBF6842B264BDA300049EFE4 /* WebService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 				DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */,
 				DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */,
 				DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */,
+				DBB07127264BA4EB00E57837 /* CommentViewController.swift */,
 			);
 			path = YesterDays;
 			sourceTree = "<group>";
@@ -382,6 +388,8 @@
 				DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */,
 				DB881C07261C307200085EB9 /* WritingGet.swift in Sources */,
 				DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */,
+				DBF6842C264BDA300049EFE4 /* WebService.swift in Sources */,
+				DBB07128264BA4EB00E57837 /* CommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

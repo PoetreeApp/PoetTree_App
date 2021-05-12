@@ -50,7 +50,11 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         
         self.underLineText()
         self.config()
-        self.getPhotos()
+        self.getPhotos { sources in
+            sources.map{ source in
+//                guard let 
+            }
+        }
         
     }
     
@@ -84,17 +88,33 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         self.view.addGestureRecognizer(keyboardDismissTabGesture)
     }
     
-    fileprivate func getPhotos(){
+    fileprivate func getPhotos(completion: @escaping (JSON) -> Void){
         //사진을 받아서 배열에 넣음
         
-       
             AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
-                
+
                 guard let self = self else {return}
                 switch response.result {
                 case .success(let sources):
-                    
+
                     let json = JSON(sources)
+                    let sources = json
+                    DispatchQueue.main.async {
+                        completion(sources)
+                    }
+                    
+//                    self.todayImages = json.map{post in
+//                        if let id = json["id"].int,
+//                           let url = json["imageURL"].string,
+//                           let imageURL = URL(string: url){
+//                            print(id)
+//                            return TodaysPhoto(id: id, imageURL: imageURL)
+//                        }
+//                        return TodaysPhoto(id: 1, imageURL: URL(string: "sadf")!)
+//                    }
+//                    print(self.todayImages)
+//
+                    
                     for (index, json) in json {
                         if let id = json["id"].int,
                            let url = json["imageURL"].string,
@@ -102,18 +122,14 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                             self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
                         }
                     }
+                    
                     let urls = self.todayImages.map{$0.imageURL}
                     self.downloadImage(from: urls)
-                    
-                    DispatchQueue.main.async {
-                        self.pagerView.reloadData()
-                    }
-                    
+
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
-      
     }
     
     fileprivate func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void){

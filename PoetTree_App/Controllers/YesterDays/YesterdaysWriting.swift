@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 // 댓글 작업, 좋아요 기능.
 
@@ -21,9 +22,12 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var reactStackView: UIStackView!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var commentCountButton: UIButton!
     
     
     var writing: WritingGet?
+    var comments: [Comment]?
+    //커멘트 따로 받아야함. 받아서 넘겨줌
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +36,59 @@ class YesterdaysWriting: UIViewController {
     }
     
     fileprivate func setUpUI(){
-        titleLabel.text = writing?.title
-        contentLabel.text = writing?.content
-        userNameLabel.text = writing?.userName
         
-        if GoogleLogInViewController.user?.profile.email == writing?.userEmail {
+        guard let writing = writing else {return}
+        
+        titleLabel.text = writing.title
+        contentLabel.text = writing.content
+        userNameLabel.text = writing.userName
+        getComment { comments in
+//            for comment in comments {
+//                if let id = comment["id"].int,
+//                   let commentContent = comment["comment"].string,
+//                   let commenter = comment["commenterName"].string{
+//                    let comment = Comment(id: id, comment: commentContent, commenter: commenter)
+//                    print(comment)
+//                    self.comments?.append(comment)
+//                }
+//            }
+            
+            self.comments = comments.map{ comment in
+                guard let id = comment["id"].int,
+                   let commentContent = comment["comment"].string,
+                   let commenter = comment["commenterName"].string else {return Comment(id: 1, comment: "2", commenter: "4")}
+                return Comment(id: id, comment: commentContent, commenter: commenter)
+            }
+           
+        }
+        
+        if GoogleLogInViewController.user?.profile.email == writing.userEmail {
             correctionButton.isHidden = false
             deleteButton.isHidden = false
         } else {
             correctionButton.isHidden = true
             deleteButton.isHidden = true
             reactStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        }
+    }
+    
+    fileprivate func getComment(completion: @escaping ([JSON]) -> Void){
+        guard let id = self.writing?.id else {return}
+        AF.request(K.API.WRITING_GET_POST + "\(id)", method: .get).responseJSON {
+            post in
+            
+            switch post.result {
+            case .success(let value):
+                let json = JSON(value)
+                let comments = json["comments"].arrayValue
+                
+                DispatchQueue.main.async {
+                    completion(comments)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
  
@@ -60,7 +106,16 @@ class YesterdaysWriting: UIViewController {
                 self.contentLabel.text = wrting.content
             }
         }
+        
+        if segue.identifier == K.SEGUE_ID.toComments {
+            
+            guard let vc = segue.destination as? CommentViewController,
+                  let comments = self.comments else { return }
+            
+            vc.comment = comments
+        }
     }
+    
     
     @IBAction func deleteBtnTapped(_ sender: UIButton) {
         
@@ -86,13 +141,6 @@ class YesterdaysWriting: UIViewController {
         }
     }
     
-    @IBAction func commentBtnTapped(_ sender: UIButton) {
-        // 코멘트 리스트로 넘어감
-    }
-    
-    @IBAction func commentListBtnTapped(_ sender: UIButton) {
-        // 코멘트 리스트로 넘어감
-    }
     
     @IBAction func commentPostTapped(_ sender: UIButton) {
         
@@ -119,4 +167,10 @@ extension YesterdaysWriting: UITextFieldDelegate {
     //타이핑 시작하면 게시에 파란불이 들어옴
     
     
+}
+
+struct Comment: Codable {
+    let id: Int
+    var comment: String
+    var commenter: String
 }
