@@ -494,10 +494,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1412"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWq-Xi-8nM">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1065.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1134.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="p92-H1-yUP">
-                                                <rect key="frame" x="10" y="30" width="394" height="1025.5"/>
+                                                <rect key="frame" x="10" y="30" width="394" height="1094.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qaH-wQ-N1N">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="43"/>
@@ -548,56 +548,109 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfq-dE-A1w">
-                                                        <rect key="frame" x="0.0" y="990.5" width="394" height="35"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="3us-MS-FDB">
+                                                        <rect key="frame" x="0.0" y="990.5" width="394" height="104"/>
                                                         <subviews>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-B4-9aW">
-                                                                <rect key="frame" x="331" y="0.5" width="63" height="34"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                <state key="normal" title="수정하기"/>
-                                                                <connections>
-                                                                    <segue destination="zAc-et-cGg" kind="show" identifier="toCorrection" id="cB4-kE-vg0"/>
-                                                                </connections>
-                                                            </button>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pWw-AC-7Nb">
-                                                                <rect key="frame" x="5.5" y="3.5" width="78.5" height="28.5"/>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zfq-dE-A1w">
+                                                                <rect key="frame" x="0.0" y="0.0" width="394" height="35"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n30-d2-Xxf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="30.5" height="28.5"/>
-                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" image="heart" catalog="system">
-                                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
-                                                                        </state>
+                                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ONL-B4-9aW">
+                                                                        <rect key="frame" x="331" y="0.5" width="63" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <state key="normal" title="수정하기"/>
+                                                                        <connections>
+                                                                            <segue destination="zAc-et-cGg" kind="show" identifier="toCorrection" id="cB4-kE-vg0"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob6-A9-Ukg">
-                                                                        <rect key="frame" x="45.5" y="0.0" width="33" height="28.5"/>
-                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <state key="normal" image="bubble.right" catalog="system">
-                                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pWw-AC-7Nb">
+                                                                        <rect key="frame" x="5.5" y="3.5" width="78.5" height="28.5"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n30-d2-Xxf">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="30.5" height="28.5"/>
+                                                                                <color key="tintColor" systemColor="systemPinkColor"/>
+                                                                                <state key="normal" image="heart" catalog="system">
+                                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                                                                </state>
+                                                                                <state key="selected" image="heart.fill" catalog="system"/>
+                                                                                <connections>
+                                                                                    <action selector="likeBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="s9v-vg-KdT"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob6-A9-Ukg">
+                                                                                <rect key="frame" x="45.5" y="0.0" width="33" height="28.5"/>
+                                                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <state key="normal" image="bubble.right" catalog="system">
+                                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                                                                </state>
+                                                                                <connections>
+                                                                                    <action selector="commentBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="wve-jV-kAk"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r16-ai-LJJ">
+                                                                        <rect key="frame" x="258" y="0.5" width="63" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <state key="normal" title="삭제하기"/>
+                                                                        <connections>
+                                                                            <action selector="deleteBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="IuY-fK-1D3"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="ONL-B4-9aW" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="0xa-Qn-zip"/>
+                                                                    <constraint firstItem="ONL-B4-9aW" firstAttribute="leading" secondItem="r16-ai-LJJ" secondAttribute="trailing" constant="10" id="5N9-2i-POp"/>
+                                                                    <constraint firstItem="pWw-AC-7Nb" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="8X9-s7-d23"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="pWw-AC-7Nb" secondAttribute="trailing" constant="310" id="KjK-eH-E0S"/>
+                                                                    <constraint firstItem="r16-ai-LJJ" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="LOd-mL-OFr"/>
+                                                                    <constraint firstAttribute="height" constant="35" id="RmA-fa-lYC"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="ONL-B4-9aW" secondAttribute="trailing" id="uFr-Tg-iEv"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wYy-KB-JO3">
+                                                                <rect key="frame" x="0.0" y="35" width="394" height="35"/>
+                                                                <subviews>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUZ-OY-N0p">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="112" height="35"/>
+                                                                        <state key="normal" title="댓글 3개 모두 보기">
+                                                                            <color key="titleColor" systemColor="systemGray2Color"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <action selector="commentListBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="7XU-eT-P5Z"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HD-B0-b5k">
+                                                                        <rect key="frame" x="112" y="0.0" width="282" height="35"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    </view>
+                                                                </subviews>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="35" id="av9-Hq-JwJ"/>
+                                                                </constraints>
+                                                            </stackView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yka-KR-vmD">
+                                                                <rect key="frame" x="0.0" y="70" width="394" height="34"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cqa-1E-Q7c">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="344" height="34"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                    </textField>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6v-lK-bSw">
+                                                                        <rect key="frame" x="344" y="0.0" width="50" height="34"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="50" id="8BU-ss-bgM"/>
+                                                                        </constraints>
+                                                                        <state key="normal" title="게시"/>
+                                                                        <connections>
+                                                                            <action selector="commentPostTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="kNx-7V-Aiy"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
-                                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r16-ai-LJJ">
-                                                                <rect key="frame" x="258" y="0.5" width="63" height="34"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                                <state key="normal" title="삭제하기"/>
-                                                                <connections>
-                                                                    <action selector="deleteBtnTapped:" destination="b2A-hI-Co9" eventType="touchUpInside" id="IuY-fK-1D3"/>
-                                                                </connections>
-                                                            </button>
                                                         </subviews>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstItem="ONL-B4-9aW" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="0xa-Qn-zip"/>
-                                                            <constraint firstItem="ONL-B4-9aW" firstAttribute="leading" secondItem="r16-ai-LJJ" secondAttribute="trailing" constant="10" id="5N9-2i-POp"/>
-                                                            <constraint firstItem="pWw-AC-7Nb" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="8X9-s7-d23"/>
-                                                            <constraint firstAttribute="trailing" secondItem="pWw-AC-7Nb" secondAttribute="trailing" constant="310" id="KjK-eH-E0S"/>
-                                                            <constraint firstItem="r16-ai-LJJ" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="LOd-mL-OFr"/>
-                                                            <constraint firstAttribute="height" constant="35" id="RmA-fa-lYC"/>
-                                                            <constraint firstAttribute="trailing" secondItem="ONL-B4-9aW" secondAttribute="trailing" id="uFr-Tg-iEv"/>
-                                                        </constraints>
-                                                    </view>
+                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -633,6 +686,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="B0b-Ci-qlQ"/>
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
+                        <outlet property="commentTextField" destination="cqa-1E-Q7c" id="Nm8-wJ-slY"/>
                         <outlet property="contentLabel" destination="9eG-0h-0a1" id="9vj-H4-94O"/>
                         <outlet property="correctionButton" destination="ONL-B4-9aW" id="43r-6Z-yto"/>
                         <outlet property="deleteButton" destination="r16-ai-LJJ" id="siU-Yg-jBB"/>
@@ -826,6 +880,7 @@
         <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image" width="1878.3333740234375" height="1252.3333740234375"/>
         <image name="pencil" width="341.33334350585938" height="341.33334350585938"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
@@ -834,6 +889,12 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -20,7 +20,7 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var reactStackView: UIStackView!
     @IBOutlet weak var likeBtn: UIButton!
-    
+    @IBOutlet weak var commentTextField: UITextField!
     
     
     var writing: WritingGet?
@@ -28,6 +28,7 @@ class YesterdaysWriting: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+        commentTextField.delegate = self
     }
     
     fileprivate func setUpUI(){
@@ -71,4 +72,51 @@ class YesterdaysWriting: UIViewController {
             self.navigationController?.popViewController(animated: true)
         }
     }
+    
+    @IBAction func likeBtnTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        guard let id = writing?.id else {return}
+        
+        //사용자 로그인 안했으면 toast 띄우기
+        
+        AF.request(K.API.LIKE_POST + "\(id)/like", method: .post, interceptor: RequestInterceptor()).response {
+            response in
+            debugPrint(response)
+        }
+    }
+    
+    @IBAction func commentBtnTapped(_ sender: UIButton) {
+        // 코멘트 리스트로 넘어감
+    }
+    
+    @IBAction func commentListBtnTapped(_ sender: UIButton) {
+        // 코멘트 리스트로 넘어감
+    }
+    
+    @IBAction func commentPostTapped(_ sender: UIButton) {
+        
+        guard let comment = commentTextField.text,
+              let id = writing?.id
+        else {return}
+        
+        //코멘트 포스트함
+        
+        let parameter: [String : Any] = [
+            "comment" : comment
+        ]
+
+        AF.request(K.API.LIKE_POST + "\(id)/comment", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response {
+            response in
+            debugPrint(response)
+        }
+    }
+    
+}
+
+extension YesterdaysWriting: UITextFieldDelegate {
+    
+    //타이핑 시작하면 게시에 파란불이 들어옴
+    
+    
 }

@@ -20,6 +20,8 @@ struct K {
         static let USER_POST: String = BASE_URL + "users/signIn"
         static let WRITING_GET_POST: String = BASE_URL + "posts/"
         static let PHOTOS_GET: String = BASE_URL + "sources"
+        static let LIKE_POST: String = BASE_URL + "posts/"
+        
     }
     struct TABLE_VIEW_CELL_ID {
         static let postsCell = "PostsCell"
