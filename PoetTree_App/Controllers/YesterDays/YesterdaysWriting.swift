@@ -19,6 +19,9 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var correctionButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var reactStackView: UIStackView!
+    @IBOutlet weak var likeBtn: UIButton!
+    
+    
     
     var writing: WritingGet?
     

@@ -14,6 +14,7 @@ import SwiftyJSON
 
 // 메인에 이미지 슬라이더 3개 표시하기
 // writing으로 넘어갈 때 선택한 이미지 같이 보내기 -> writing에서 source id를 같이 보내야함
+// 글을 쓰고 돌아 와서야만 이미지 보임
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
@@ -36,8 +37,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         }
     }
     
-    
-    
     fileprivate var todayImages: [TodaysPhoto] = []
     fileprivate var todayImageViews: [UIImage] = []
    
@@ -59,7 +58,9 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         super.viewWillAppear(animated)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowHandle(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideHandle), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+        DispatchQueue.main.async {
+            self.pagerView.reloadData()
+        }
     }
     
 
@@ -86,7 +87,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     fileprivate func getPhotos(){
         //사진을 받아서 배열에 넣음
         
-        DispatchQueue.global(qos: .userInteractive).async {
+       
             AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
                 
                 guard let self = self else {return}
@@ -103,17 +104,16 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                     }
                     let urls = self.todayImages.map{$0.imageURL}
                     self.downloadImage(from: urls)
-                
                     
+                    DispatchQueue.main.async {
+                        self.pagerView.reloadData()
+                    }
                     
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
-        }
-        
       
-        
     }
     
     fileprivate func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void){
@@ -129,9 +129,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                 print(data)
                 self.todayImageViews.append(UIImage(data: data)!)
             }
-        }
-        DispatchQueue.main.async {
-            self.pagerView.reloadData()
         }
     }
     
@@ -237,5 +234,4 @@ extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
         cell.imageView?.contentMode = .scaleAspectFit
         return cell
     }
-    
 }

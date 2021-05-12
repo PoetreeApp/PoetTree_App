@@ -68,26 +68,25 @@
                                     <constraint firstAttribute="width" constant="120" id="bsc-7p-ubI"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SDG-Le-2ga" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="315.5" width="414" height="300"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1L-IN-UVG" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="315.5" width="414" height="365.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="gF2-hK-WwD"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CHu-zP-RbC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ffz-Mj-P1t" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="6Eq-Nj-ZHE"/>
-                            <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="SDG-Le-2ga" secondAttribute="trailing" id="8iQ-di-VQn"/>
-                            <constraint firstItem="SDG-Le-2ga" firstAttribute="top" secondItem="LWe-zN-zgS" secondAttribute="bottom" constant="50" id="Le6-d9-46x"/>
+                            <constraint firstItem="CHu-zP-RbC" firstAttribute="bottom" secondItem="Cc5-oM-bNY" secondAttribute="bottom" constant="25" id="Iio-zB-LJQ"/>
+                            <constraint firstItem="r1L-IN-UVG" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" id="Mdc-8F-6tt"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="15" id="Ouk-tg-eig"/>
-                            <constraint firstItem="SDG-Le-2ga" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" id="THE-Ks-3lk"/>
                             <constraint firstItem="ffz-Mj-P1t" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="30" id="WYW-Np-PR5"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="bottom" secondItem="Cc5-oM-bNY" secondAttribute="bottom" constant="25" id="biY-bp-6vR"/>
+                            <constraint firstItem="Cc5-oM-bNY" firstAttribute="top" secondItem="r1L-IN-UVG" secondAttribute="bottom" constant="50" id="g5X-t2-d8h"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="Cc5-oM-bNY" secondAttribute="trailing" constant="25" id="iK6-k4-6mW"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="mf6-bV-RxR"/>
+                            <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="r1L-IN-UVG" secondAttribute="trailing" id="noU-rm-f0i"/>
+                            <constraint firstItem="r1L-IN-UVG" firstAttribute="top" secondItem="LWe-zN-zgS" secondAttribute="bottom" constant="50" id="zoY-17-VOj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Poetree" id="51Z-kc-55Q">
@@ -102,7 +101,7 @@
                         <outlet property="hashTagStackView" destination="LWe-zN-zgS" id="aBU-B6-QaM"/>
                         <outlet property="keyWordTextField1" destination="TTb-ir-Tkn" id="utN-tQ-YyC"/>
                         <outlet property="keyWordTextField2" destination="csQ-cR-BOM" id="KZJ-sk-GcC"/>
-                        <outlet property="pagerView" destination="SDG-Le-2ga" id="wBd-nx-BbK"/>
+                        <outlet property="pagerView" destination="r1L-IN-UVG" id="Bye-aG-A6B"/>
                         <outlet property="toDaysPhoto" destination="ffz-Mj-P1t" id="e9L-bc-Yzh"/>
                         <outlet property="wrtBtn" destination="Cc5-oM-bNY" id="4MR-Pc-zHW"/>
                         <segue destination="zLj-BB-nLQ" kind="show" identifier="toWriting" id="Lix-n7-F6h"/>
@@ -358,8 +357,8 @@
                                                         <constraint firstAttribute="width" secondItem="cPB-ur-V4q" secondAttribute="height" multiplier="4:3" id="Dfu-kV-GV5"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️:  2 View: 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuY-so-trc">
-                                                    <rect key="frame" x="287" y="70" width="107" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="❤️:  2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuY-so-trc">
+                                                    <rect key="frame" x="347.5" y="70" width="46.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -561,26 +560,26 @@
                                                                 </connections>
                                                             </button>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pWw-AC-7Nb">
-                                                                <rect key="frame" x="6.5" y="3.5" width="77.5" height="28"/>
+                                                                <rect key="frame" x="5.5" y="3.5" width="78.5" height="28.5"/>
                                                                 <subviews>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n30-d2-Xxf">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="30.5" height="28"/>
-                                                                        <color key="tintColor" systemColor="systemPinkColor"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="30.5" height="28.5"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <state key="normal" image="heart" catalog="system">
                                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                                         </state>
                                                                     </button>
                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ob6-A9-Ukg">
-                                                                        <rect key="frame" x="45.5" y="0.0" width="32" height="28"/>
-                                                                        <color key="tintColor" systemColor="systemPinkColor"/>
-                                                                        <state key="normal" image="bubble.right.fill" catalog="system">
+                                                                        <rect key="frame" x="45.5" y="0.0" width="33" height="28.5"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <state key="normal" image="bubble.right" catalog="system">
                                                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                                         </state>
                                                                     </button>
                                                                 </subviews>
                                                             </stackView>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r16-ai-LJJ">
-                                                                <rect key="frame" x="263" y="0.5" width="63" height="34"/>
+                                                                <rect key="frame" x="258" y="0.5" width="63" height="34"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                                 <state key="normal" title="삭제하기"/>
                                                                 <connections>
@@ -591,7 +590,7 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
                                                             <constraint firstItem="ONL-B4-9aW" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="0xa-Qn-zip"/>
-                                                            <constraint firstItem="ONL-B4-9aW" firstAttribute="leading" secondItem="r16-ai-LJJ" secondAttribute="trailing" constant="5" id="5N9-2i-POp"/>
+                                                            <constraint firstItem="ONL-B4-9aW" firstAttribute="leading" secondItem="r16-ai-LJJ" secondAttribute="trailing" constant="10" id="5N9-2i-POp"/>
                                                             <constraint firstItem="pWw-AC-7Nb" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="8X9-s7-d23"/>
                                                             <constraint firstAttribute="trailing" secondItem="pWw-AC-7Nb" secondAttribute="trailing" constant="310" id="KjK-eH-E0S"/>
                                                             <constraint firstItem="r16-ai-LJJ" firstAttribute="centerY" secondItem="zfq-dE-A1w" secondAttribute="centerY" id="LOd-mL-OFr"/>
@@ -637,6 +636,7 @@
                         <outlet property="contentLabel" destination="9eG-0h-0a1" id="9vj-H4-94O"/>
                         <outlet property="correctionButton" destination="ONL-B4-9aW" id="43r-6Z-yto"/>
                         <outlet property="deleteButton" destination="r16-ai-LJJ" id="siU-Yg-jBB"/>
+                        <outlet property="likeBtn" destination="n30-d2-Xxf" id="8T0-Aq-DwS"/>
                         <outlet property="reactStackView" destination="pWw-AC-7Nb" id="9iH-zY-33J"/>
                         <outlet property="titleLabel" destination="qaH-wQ-N1N" id="8EY-7L-OWd"/>
                         <outlet property="userNameLabel" destination="e1e-xE-Qrc" id="qgh-9P-R9f"/>
@@ -823,7 +823,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bubble.right.fill" catalog="system" width="128" height="110"/>
+        <image name="bubble.right" catalog="system" width="128" height="110"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="image" width="1878.3333740234375" height="1252.3333740234375"/>
@@ -834,9 +834,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
