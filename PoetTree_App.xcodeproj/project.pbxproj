@@ -25,6 +25,7 @@
 		DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB789832261777790065D964 /* GoogleLogInViewController.swift */; };
 		DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D1D432618BBCC0092820D /* UserModel.swift */; };
 		DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7D1D472618E43C0092820D /* Interceptor.swift */; };
+		DB85D606264D6A19009FB8DF /* UserWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB85D605264D6A19009FB8DF /* UserWriting.swift */; };
 		DB881C07261C307200085EB9 /* WritingGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C06261C307200085EB9 /* WritingGet.swift */; };
 		DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0A261C3E0300085EB9 /* PostsCell.swift */; };
 		DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0D261C3FC100085EB9 /* WritingService.swift */; };
@@ -58,6 +59,7 @@
 		DB789832261777790065D964 /* GoogleLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLogInViewController.swift; sourceTree = "<group>"; };
 		DB7D1D432618BBCC0092820D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DB7D1D472618E43C0092820D /* Interceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interceptor.swift; sourceTree = "<group>"; };
+		DB85D605264D6A19009FB8DF /* UserWriting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWriting.swift; sourceTree = "<group>"; };
 		DB881C06261C307200085EB9 /* WritingGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingGet.swift; sourceTree = "<group>"; };
 		DB881C0A261C3E0300085EB9 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		DB881C0D261C3FC100085EB9 /* WritingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingService.swift; sourceTree = "<group>"; };
@@ -135,11 +137,11 @@
 		DB4F932A2614912B0029D640 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB4F9333261496A80029D640 /* MainViewController.swift */,
 				DBA774A1263E6E5D00D16EED /* UserWriting */,
 				DBA774A0263E6E4B00D16EED /* Wrting */,
 				DBA7749F263E6E3500D16EED /* LogIn */,
 				DBA7749E263E6E2800D16EED /* YesterDays */,
-				DB4F9333261496A80029D640 /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -152,6 +154,7 @@
 				DB881C06261C307200085EB9 /* WritingGet.swift */,
 				DB881C0D261C3FC100085EB9 /* WritingService.swift */,
 				DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */,
+				DB85D605264D6A19009FB8DF /* UserWriting.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */,
 				DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */,
 				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,
+				DB85D606264D6A19009FB8DF /* UserWriting.swift in Sources */,
 				DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */,
 				DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */,
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,

@@ -43,6 +43,7 @@ class YesterdaysWriting: UIViewController {
         contentLabel.text = writing.content
         userNameLabel.text = writing.userName
         getComment { comments in
+            
 //            for comment in comments {
 //                if let id = comment["id"].int,
 //                   let commentContent = comment["comment"].string,

@@ -17,22 +17,33 @@ import Alamofire
 class WritingViewController: UIViewController {
 
     var keyWord: [String]?
+    var sourceID: Int?
+    var selectedPhoto: UIImage?
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var keyWordLabel: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var contentTextField: UITextView!
+    @IBOutlet weak var selectedImage: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        contentTextField.delegate = self
         self.navigationController?.navigationItem.hidesBackButton = true
        
+        contentTextField.text = "시 쓰기"
+        contentTextField.textColor = UIColor.lightGray
+        
         setTimeLabel()
         setKeyWordLabel()
+        setImageView()
     }
     
     
-    //MARK: - updateUI
+    //MARK: - UpdateUI
+    
     fileprivate func setTimeLabel(){
         let date = Date()
         let format = DateFormatter()
@@ -45,9 +56,17 @@ class WritingViewController: UIViewController {
     fileprivate func setKeyWordLabel(){
         
         if let keyWord = keyWord {
-            keyWordLabel.text = "\(keyWord[0]) \(keyWord[1])"
+            keyWordLabel.text = " \(keyWord[0]) \(keyWord[1])"
         }
     }
+    
+    fileprivate func setImageView(){
+        guard let selectedImage = self.selectedPhoto else { return }
+        
+        self.selectedImage.image = selectedImage
+        
+    }
+    
     
     //MARK: - Back
     @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
@@ -66,6 +85,8 @@ class WritingViewController: UIViewController {
             let writing = Writing(title: title, content: content, email: email, hashtags: hashtags)
             
             
+            //소스 아이디를 같이 보냄
+            
             let parameter: [String : Any] =
                 [ "title" : writing.title,
                   "content" : writing.content,
@@ -73,14 +94,25 @@ class WritingViewController: UIViewController {
                   "hashtags": "\(writing.hashtags[0]), \(writing.hashtags[1])"
                 ]
             
+            guard let sourceID = self.sourceID else {return}
             
-            AF.request(K.API.WRITING_GET_POST+"?SourceId=17", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response{
+            AF.request(K.API.WRITING_GET_POST+"?SourceId=\(sourceID)", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response{
                 response in
                 
                 debugPrint(response)
                 self.navigationController?.popViewController(animated: true)
-                
             }
         }
     }
+}
+
+extension WritingViewController: UITextViewDelegate {
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
 }

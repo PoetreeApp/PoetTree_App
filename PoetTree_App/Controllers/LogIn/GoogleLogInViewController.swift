@@ -46,7 +46,7 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
                               "name" : user.profile.name,
                               "provider" : "Google"
                             ]
-                        AF.request(K.API.USER_POST, method: .post, parameters: parameter, encoding: JSONEncoding.default).response{
+                        AF.request(K.API.USER_SIGNIN, method: .post, parameters: parameter, encoding: JSONEncoding.default).response{
                             response in
                             
                             if let data = response.data {

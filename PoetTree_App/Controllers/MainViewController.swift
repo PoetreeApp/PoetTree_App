@@ -12,9 +12,6 @@ import FSPagerView
 import Alamofire
 import SwiftyJSON
 
-// 메인에 이미지 슬라이더 3개 표시하기
-// writing으로 넘어갈 때 선택한 이미지 같이 보내기 -> writing에서 source id를 같이 보내야함
-// 글을 쓰고 돌아 와서야만 이미지 보임
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
@@ -33,7 +30,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             
             self.pagerView.isInfinite = true
             
-            self.pagerView.automaticSlidingInterval = 4.0
+//            self.pagerView.automaticSlidingInterval = 4.0
         }
     }
     
@@ -41,32 +38,30 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     fileprivate var todayImageViews: [UIImage] = []
    
     var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
+    var selectedPhotoIndex: Int = 0
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         pagerView.delegate = self
         pagerView.dataSource = self
         
         self.underLineText()
         self.config()
-        self.getPhotos { sources in
-            sources.map{ source in
-//                guard let 
-            }
-        }
+        self.getPhotos()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("main view will appear called")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowHandle(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideHandle), name: UIResponder.keyboardWillHideNotification, object: nil)
         DispatchQueue.main.async {
             self.pagerView.reloadData()
         }
     }
-    
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -88,7 +83,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         self.view.addGestureRecognizer(keyboardDismissTabGesture)
     }
     
-    fileprivate func getPhotos(completion: @escaping (JSON) -> Void){
+    fileprivate func getPhotos(){
         //사진을 받아서 배열에 넣음
         
             AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
@@ -98,33 +93,22 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                 case .success(let sources):
 
                     let json = JSON(sources)
-                    let sources = json
-                    DispatchQueue.main.async {
-                        completion(sources)
-                    }
-                    
-//                    self.todayImages = json.map{post in
-//                        if let id = json["id"].int,
-//                           let url = json["imageURL"].string,
-//                           let imageURL = URL(string: url){
-//                            print(id)
-//                            return TodaysPhoto(id: id, imageURL: imageURL)
-//                        }
-//                        return TodaysPhoto(id: 1, imageURL: URL(string: "sadf")!)
-//                    }
-//                    print(self.todayImages)
-//
-                    
+
+                    print("\(json) here")
                     for (index, json) in json {
                         if let id = json["id"].int,
                            let url = json["imageURL"].string,
                            let imageURL = URL(string: url){
+                            
                             self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
                         }
                     }
+//                    print(self.todayImages)
                     
                     let urls = self.todayImages.map{$0.imageURL}
-                    self.downloadImage(from: urls)
+                    self.downloadImage(from: urls){images in
+                        print(images)
+                    }
 
                 case .failure(let error):
                     print(error.localizedDescription)
@@ -136,15 +120,30 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
     
-    fileprivate func downloadImage(from urls: [URL]) {
+    fileprivate func downloadImage(from urls: [URL], completion: @escaping ([UIImage]) -> Void) {
         print("Download Started")
         // url 배열을 전달해서 배열을 돌면서 images에 추가함
+        
         for url in urls {
             getData(from: url) { data, response, error in
                 guard let data = data, error == nil else { return }
-                print(data)
+//                print(data)
+                
                 self.todayImageViews.append(UIImage(data: data)!)
+                
+//                DispatchQueue.main.async {
+//                    reloaddata()
+//                }
+//                completion(self.todayImageViews)
+                //DispatchQueue.main.async{
+                // 순서대로 배열에 넣으면서, 바로 띄워야 한다. 이미지 파일이 다 배열에 들어가면, 그때 리로드 데이터를 한다
+//            }
+                //비동기 동기 공부하기
+                // 이미지를 다 받고나서 reload 예를 들어 타이머를 활용해서 
             }
+        }
+        DispatchQueue.main.async {
+            completion(self.todayImageViews)
         }
     }
     
@@ -199,7 +198,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         }
         
         if segue.identifier == K.SEGUE_ID.toWriting {
-            
+    
             guard let destinationVC = segue.destination as? WritingViewController else {
                 return
             }
@@ -208,6 +207,8 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             let keyWord2 = self.keyWordTextField2.text{
                 
                 destinationVC.keyWord = ["#"+keyWord1, "#"+keyWord2]
+                destinationVC.sourceID = self.todayImages[selectedPhotoIndex].id
+                destinationVC.selectedPhoto = self.todayImageViews[selectedPhotoIndex]
             }
         }
     }
@@ -215,7 +216,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBAction func writeBtnTapped(_ sender: UIButton) {
         
         if let currentUser = GoogleLogInViewController.user {
-            
             self.performSegue(withIdentifier: K.SEGUE_ID.toWriting, sender: self)
         } else {
             self.view.makeToast("로그인 해주세요", duration: 2.0, position: .center)
@@ -227,7 +227,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
 
         if(touch.view?.isDescendant(of: hashTagStackView) == true){
-
             return false
         }  else {
             view.endEditing(true)
@@ -245,9 +244,13 @@ extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
-        print("i called")
         cell.imageView?.image = self.todayImageViews[index]
         cell.imageView?.contentMode = .scaleAspectFit
         return cell
+    }
+    
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
+        selectedPhotoIndex = targetIndex
+        print(selectedPhotoIndex)
     }
 }

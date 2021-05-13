@@ -18,10 +18,11 @@ struct K {
     }
     struct API {
         static let BASE_URL = "http://54.180.34.121:8080/"
-        static let USER_POST: String = BASE_URL + "users/signIn"
+        static let USER_SIGNIN: String = BASE_URL + "users/signIn"
         static let WRITING_GET_POST: String = BASE_URL + "posts/"
         static let PHOTOS_GET: String = BASE_URL + "sources"
         static let LIKE_POST: String = BASE_URL + "posts/"
+        static let USER_WRITINGS: String = BASE_URL + "users/mypage/myposts"
         
     }
     struct TABLE_VIEW_CELL_ID {
