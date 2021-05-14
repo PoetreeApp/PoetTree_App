@@ -12,5 +12,5 @@ struct UserWriting {
     let id: Int
     var title: String
     var content: String
-    
+    let views: Int
 }

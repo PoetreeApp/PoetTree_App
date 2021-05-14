@@ -8,6 +8,9 @@
 import UIKit
 import Alamofire
 
+//커멘트들을 테이블 뷰에 뿌림
+//커멘트 수정 vc 추가해야함
+
 class CommentViewController: UIViewController, UITextFieldDelegate {
      
     @IBOutlet weak var commentTableView: UITableView!
@@ -29,7 +32,6 @@ class CommentViewController: UIViewController, UITextFieldDelegate {
         //커멘트들로 테이블 뷰 세팅
         
     }
-    
     
     @IBAction func postBtnTapped(_ sender: UIButton) {
         

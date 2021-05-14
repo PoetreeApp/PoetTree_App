@@ -11,7 +11,7 @@
         <!--Poetree-->
         <scene sceneID="ezH-NX-SLy">
             <objects>
-                <viewController id="T0Z-uu-1cx" customClass="MainViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="T0Z-uu-1cx" customClass="MainViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P4f-j4-4sg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,6 +214,11 @@
                         <barButtonItem key="leftBarButtonItem" image="chevron.left" catalog="system" id="MLw-Ed-2EA">
                             <connections>
                                 <action selector="backBtnTapped:" destination="L3B-aK-g34" id="8lo-Kt-yp5"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="로그아웃" id="HEq-7w-rGD">
+                            <connections>
+                                <action selector="logOutBtnTapped:" destination="L3B-aK-g34" id="qgn-LE-boZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

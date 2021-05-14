@@ -218,7 +218,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         if let currentUser = GoogleLogInViewController.user {
             self.performSegue(withIdentifier: K.SEGUE_ID.toWriting, sender: self)
         } else {
-            self.view.makeToast("로그인 해주세요", duration: 2.0, position: .center)
+            self.view.makeToast("글쓰기는 로그인 후 가능합니다", duration: 2.0, position: .center)
         }
     }
     

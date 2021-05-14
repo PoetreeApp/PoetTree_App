@@ -8,20 +8,22 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import GoogleSignIn
+import Firebase
 
-// 로그인한 유저의 글들을 불러와서 테이블 뷰에 뿌리기
 // 로그아웃 구현하기
+// 좋아요한 글들 보기
 
 class UserWritingViewController: UIViewController {
 
     
     @IBOutlet weak var tableView: UITableView!
-    var userWritings: [WritingGet] = []
+    var userWritings: [UserWriting] = []
+    let firebaseAuth = Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationItem.hidesBackButton = true
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -38,22 +40,19 @@ class UserWritingViewController: UIViewController {
         AF.request(K.API.USER_WRITINGS, method: .get, interceptor: RequestInterceptor()).responseJSON { [weak self] response in
             
             guard let self = self else {return}
-            debugPrint(response)
+//            debugPrint(response)
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
 
-                for (index, json) in json {
-                    print(index)
+                for (index, post) in json {
                     
-                    if let title = json["title"].string,
-                       let content = json["content"].string,
-                       let views = json["views"].int,
-                       let id = json["id"].int,
-                       let email = json["UserEmail"].string,
-                       let userName = json["name"].string{
-                        print("user post title \(title)")
-                        
+                    if let title = post["title"].string,
+                       let content = post["content"].string,
+                       let views = post["views"].int,
+                       let id = post["id"].int{
+                       
+                        self.userWritings.append(UserWriting(id: id, title: title, content: content, views: views))
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -69,6 +68,26 @@ class UserWritingViewController: UIViewController {
     @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    @IBAction func logOutBtnTapped(_ sender: UIBarButtonItem) {
+        
+        do{
+            try Auth.auth().signOut()
+            GIDSignIn.sharedInstance().signOut()
+            
+            if let storyboard = self.storyboard {
+                        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! UIViewController
+                        self.present(vc, animated: false, completion: nil)
+                    }
+            
+        } catch let signOutError as NSError {
+            print("error sign out \(signOutError)")
+        }
+        
+        
+    }
+    
 }
 
 extension UserWritingViewController: UITableViewDelegate {
