@@ -8,8 +8,6 @@
 import UIKit
 import Alamofire
 
-//삭제 기능 추가 -> 테이블뷰 슬라이드로
-
 protocol AddCommentDelegate {
     func addComment(comments: [Comment])
 }
@@ -112,15 +110,12 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
             
             AF.request(K.API.COMMENT_DELETE+"\(writingId)/\(commentId)", method: .delete, interceptor: RequestInterceptor()).response{
                 response in
-                debugPrint(response)
-                print("삭제 성공")
+                print("댓글 삭제 성공")
             }
-            
             self.comment?.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    
 }
 
 class WritingCommentCell: UITableViewCell {
@@ -132,5 +127,4 @@ class WritingCommentCell: UITableViewCell {
         commenter.text = comment.commenter
         commentLabel.text = comment.comment
     }
-    
 }
