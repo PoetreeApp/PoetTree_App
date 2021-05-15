@@ -539,77 +539,6 @@
             <point key="canvasLocation" x="2582.608695652174" y="930.80357142857133"/>
         </scene>
         <!--Yesterdays Writing-->
-        <scene sceneID="MC1-My-Y1c">
-            <objects>
-                <viewController id="fSh-In-JQ1" customClass="YesterdaysWriting" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="1cy-sr-Azr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스며드는 것" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vxF-uR-fxJ">
-                                <rect key="frame" x="10" y="94" width="394" height="42"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYl-b8-6T9">
-                                <rect key="frame" x="20" y="156" width="374" height="788"/>
-                                <string key="text">꽃게가 간장 속에
-
-반쯤 몸을 담그고 엎드려 있다
-
-등판에 간장이 울컥울컥 쏟아질 때
-
-꽃게는  뱃속의 알을 껴안으려고
-
-꿈틀거리다가 더 낮게
-
-더 바닥 쪽으로 웅크렸으리라
-
-​
-
-버둥거렸으리라 버둥거리다가
-
-어찌할 수 없어서
-
-살 속에 스며드는 것을
-
-한때의 어스름을
-
-꽃게는 천천히 받아들였으리라
-
-껍질이 먹먹해지기 전에
-
-가만히 알들에게 말했으리라
-
-​
-
-저녁이야
-
-불 끄고 잘 시간이야</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kfP-iG-QSL"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kfP-iG-QSL" firstAttribute="trailing" secondItem="vxF-uR-fxJ" secondAttribute="trailing" constant="10" id="IPS-2f-WQx"/>
-                            <constraint firstItem="vxF-uR-fxJ" firstAttribute="top" secondItem="kfP-iG-QSL" secondAttribute="top" constant="50" id="TfG-yl-rTJ"/>
-                            <constraint firstItem="vxF-uR-fxJ" firstAttribute="leading" secondItem="kfP-iG-QSL" secondAttribute="leading" constant="10" id="Xat-Nr-mBu"/>
-                            <constraint firstItem="uYl-b8-6T9" firstAttribute="top" secondItem="vxF-uR-fxJ" secondAttribute="bottom" constant="20" id="edL-X5-drB"/>
-                            <constraint firstItem="kfP-iG-QSL" firstAttribute="trailing" secondItem="uYl-b8-6T9" secondAttribute="trailing" constant="20" id="flH-6c-HIL"/>
-                            <constraint firstItem="uYl-b8-6T9" firstAttribute="leading" secondItem="kfP-iG-QSL" secondAttribute="leading" constant="20" id="p06-yM-h2n"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="wWd-Wr-6CS"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="htr-Kw-gNY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4610" y="1327"/>
-        </scene>
-        <!--Yesterdays Writing-->
         <scene sceneID="N67-u8-3Pu">
             <objects>
                 <viewController id="b2A-hI-Co9" customClass="YesterdaysWriting" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -968,10 +897,10 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="1412"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NLA-20-QBq">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="740"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1140"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-CY-m72">
-                                                <rect key="frame" x="10" y="30" width="394" height="700"/>
+                                                <rect key="frame" x="10" y="30" width="394" height="1100"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="스며드는 것" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-aC-Z6w">
                                                         <rect key="frame" x="0.0" y="0.0" width="394" height="44.5"/>
@@ -985,10 +914,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fbi-JE-qIw">
-                                                        <rect key="frame" x="0.0" y="165" width="394" height="450"/>
+                                                        <rect key="frame" x="0.0" y="165" width="394" height="400"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="450" id="A6a-IV-lVc"/>
+                                                            <constraint firstAttribute="height" constant="400" id="A6a-IV-lVc"/>
                                                         </constraints>
                                                         <string key="text">꽃게가 간장 속에
 
@@ -1026,7 +955,7 @@
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23v-h8-0EE">
-                                                        <rect key="frame" x="0.0" y="665" width="394" height="35"/>
+                                                        <rect key="frame" x="0.0" y="615" width="394" height="35"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qf7-oW-uSl">
                                                                 <rect key="frame" x="348" y="3" width="30" height="30"/>
@@ -1042,6 +971,12 @@
                                                             <constraint firstAttribute="height" constant="35" id="E6b-gM-sQ3"/>
                                                         </constraints>
                                                     </view>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="akZ-5t-pPS">
+                                                        <rect key="frame" x="0.0" y="700" width="394" height="400"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="400" id="lQY-at-Ebm"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -1078,6 +1013,7 @@
                     <size key="freeformSize" width="414" height="1500"/>
                     <connections>
                         <outlet property="contentTextView" destination="fbi-JE-qIw" id="bZF-Qa-vhf"/>
+                        <outlet property="selectedImage" destination="akZ-5t-pPS" id="yga-fy-aqX"/>
                         <outlet property="titleTextField" destination="XbN-aC-Z6w" id="356-Iz-1ht"/>
                         <outlet property="userIdLabel" destination="iGE-gq-VDp" id="8TV-X8-PYL"/>
                     </connections>

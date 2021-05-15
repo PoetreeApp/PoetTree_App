@@ -16,7 +16,11 @@ class YesterDayCorrectionViewController: UIViewController {
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var userIdLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
+    @IBOutlet weak var selectedImage: UIImageView!
+    
+    
     var changeUI: ((Writing) -> Void)?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,7 @@ class YesterDayCorrectionViewController: UIViewController {
         titleTextField.text = writing?.title
         userIdLabel.text = writing?.userName
         contentTextView.text = writing?.content
+        selectedImage.image = writing?.image
     }
     
     @IBAction func completeBtnTapped(_ sender: UIButton) {
