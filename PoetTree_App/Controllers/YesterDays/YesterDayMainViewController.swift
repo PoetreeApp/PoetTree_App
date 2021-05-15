@@ -49,6 +49,8 @@ class YesterDayMainViewController: UIViewController {
                        let imageURL = json["imageURL"].string
                     {
                         
+                        
+                        
                         let data = try! Data(contentsOf: URL(string: imageURL)!)
                         print(data)
                         let image = UIImage(data: data)

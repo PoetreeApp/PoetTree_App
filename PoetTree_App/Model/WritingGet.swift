@@ -19,4 +19,6 @@ struct WritingGet {
     let userEmail: String
     let userName: String
     let image: UIImage
+
 }
+

@@ -26,7 +26,8 @@ class YesterdaysWriting: UIViewController {
     
     var writing: WritingGet?
     var comments: [Comment]?
-   
+    var likers: [Liker]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -51,7 +52,28 @@ class YesterdaysWriting: UIViewController {
             }
             
             self.commentCountButton.setTitle("댓글 \(self.comments?.count ?? 0)개 모두 보기", for: .normal)
+        }
+        
+        getLikers { likers in
             
+            guard let user = GoogleLogInViewController.user else {return}
+            
+            self.likers = likers.map{ liker in
+                guard let name = liker["name"].string else {return Liker(name: "kim")}
+                return Liker(name: name)
+            }
+            guard let likers = self.likers else {return}
+            
+           let isLike = likers.contains { liker in
+                if liker.name == user.profile.name {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            if isLike {
+                self.likeBtn.isSelected = true
+            }
         }
         
         if let user = GoogleLogInViewController.user {
@@ -81,6 +103,26 @@ class YesterdaysWriting: UIViewController {
                 
                 DispatchQueue.main.async {
                     completion(comments)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    fileprivate func getLikers(completion: @escaping ([JSON]) -> Void){
+        guard let id = self.writing?.id else {return}
+        AF.request(K.API.WRITING_GET_POST + "\(id)", method: .get).responseJSON {
+            post in
+            
+            switch post.result {
+            case .success(let value):
+                let json = JSON(value)
+                let likers = json["likers"].arrayValue
+                
+                DispatchQueue.main.async {
+                    completion(likers)
                 }
                 
             case .failure(let error):
@@ -153,4 +195,8 @@ struct Comment: Codable {
     let id: Int
     var comment: String
     var commenter: String
+}
+
+struct Liker: Codable {
+    let name: String
 }
