@@ -10,6 +10,9 @@ import Alamofire
 
 //커멘트들을 테이블 뷰에 뿌림
 //커멘트 수정 vc 추가해야함
+protocol AddCommentDelegate {
+    func addComment(vc: UIViewController)
+}
 
 class CommentViewController: UIViewController{
     
@@ -17,12 +20,9 @@ class CommentViewController: UIViewController{
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var postBtn: UIButton!
     
-    
-    
-    //해당 게시물의 id를 받아옴
+    var delegate: AddCommentDelegate?
     var comment: [Comment]?
     var id: Int?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,6 @@ class CommentViewController: UIViewController{
     
     @IBAction func postBtnTapped(_ sender: UIButton) {
         
-        //아무 내용도 없으면 게시하지 못한다
         guard let commentText = commentTextField.text,
               !commentText.isEmpty
               else {return}
@@ -55,6 +54,15 @@ class CommentViewController: UIViewController{
             self.commentTableView.reloadData()
         }
         self.commentTextField.text?.removeAll()
+    }
+    
+    @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
+        
+        guard let delegate = self.delegate else {return}
+        
+        delegate.addComment(vc: self)
+       
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
@@ -107,3 +115,5 @@ class WritingCommentCell: UITableViewCell {
     }
     
 }
+
+// 뒤로 돌아 갈 때 커맨트를 다시 추가해야함 - delegate

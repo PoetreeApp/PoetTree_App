@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-//로그인에 따른 리액션 보이기
 
 class YesterdaysWriting: UIViewController {
     
@@ -114,6 +113,7 @@ class YesterdaysWriting: UIViewController {
             
             vc.comment = comments
             vc.id = id
+            vc.delegate = self
         }
     }
     
@@ -142,12 +142,12 @@ class YesterdaysWriting: UIViewController {
     
 }
 
-extension YesterdaysWriting: UITextFieldDelegate {
-    
-    //타이핑 시작하면 게시에 파란불이 들어옴
-    
-    
+extension YesterdaysWriting: AddCommentDelegate {
+    func addComment(vc: UIViewController) {
+        setUpUI()
+    }
 }
+
 
 struct Comment: Codable {
     let id: Int

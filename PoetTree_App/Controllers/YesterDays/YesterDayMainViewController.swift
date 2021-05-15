@@ -9,8 +9,6 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-//ui 개선, 좋아요 누르기 기능
-//이미지 불러오기..
 
 class YesterDayMainViewController: UIViewController {
 

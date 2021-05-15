@@ -894,7 +894,13 @@
                             <constraint firstItem="LUD-rk-PNG" firstAttribute="bottom" secondItem="M2H-yd-TLk" secondAttribute="bottom" constant="100" id="w1z-Ox-SAu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="댓글" id="BCH-O1-KFj"/>
+                    <navigationItem key="navigationItem" title="댓글" id="BCH-O1-KFj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.left" catalog="system" id="1lt-ZG-jw7">
+                            <connections>
+                                <action selector="backBtnTapped:" destination="WRi-z6-YGq" id="UzY-2a-JfG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="commentTableView" destination="M2H-yd-TLk" id="7Ao-OH-PTQ"/>
                         <outlet property="commentTextField" destination="gx8-IV-AQf" id="TaH-WI-oga"/>

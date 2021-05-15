@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 
-//수정하는 뷰컨트롤러
+
 class YesterDayCorrectionViewController: UIViewController {
     
     //이전 글을 받아 옴
