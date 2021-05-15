@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-// 댓글 작업, 좋아요 기능.
+//로그인에 따른 리액션 보이기
 
 class YesterdaysWriting: UIViewController {
     
@@ -19,18 +19,16 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var correctionButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var reactStackView: UIStackView!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var commentCountButton: UIButton!
     @IBOutlet weak var writingImage: UIImageView!
-    
+    @IBOutlet weak var reactionStackView: UIStackView!
     
     
     var writing: WritingGet?
     var comments: [Comment]?
-    //커멘트 따로 받아야함. 받아서 넘겨줌
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
@@ -53,16 +51,22 @@ class YesterdaysWriting: UIViewController {
                    let commenter = comment["commenterName"].string else {return Comment(id: 1, comment: "2", commenter: "4")}
                 return Comment(id: id, comment: commentContent, commenter: commenter)
             }
-           
         }
         
-        if GoogleLogInViewController.user?.profile.email == writing.userEmail {
-            correctionButton.isHidden = false
-            deleteButton.isHidden = false
-        } else {
-            correctionButton.isHidden = true
-            deleteButton.isHidden = true
-            reactStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+        //로그인이 된 상태이면 리액션 뷰를 보여준다
+        
+        if let user = GoogleLogInViewController.user {
+          
+            reactionStackView.isHidden = false
+          
+            if GoogleLogInViewController.user?.profile.email == writing.userEmail {
+                correctionButton.isHidden = false
+                deleteButton.isHidden = false
+            } else {
+                correctionButton.isHidden = true
+                deleteButton.isHidden = true
+//                reactStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
+            }
         }
     }
     
@@ -104,9 +108,11 @@ class YesterdaysWriting: UIViewController {
         if segue.identifier == K.SEGUE_ID.toComments {
             
             guard let vc = segue.destination as? CommentViewController,
-                  let comments = self.comments else { return }
+                  let comments = self.comments,
+                  let id = self.writing?.id else { return }
             
             vc.comment = comments
+            vc.id = id
         }
     }
     
@@ -126,8 +132,6 @@ class YesterdaysWriting: UIViewController {
         sender.isSelected = !sender.isSelected
         
         guard let id = writing?.id else {return}
-        
-        //사용자 로그인 안했으면 toast 띄우기
         
         AF.request(K.API.LIKE_POST + "\(id)/like", method: .post, interceptor: RequestInterceptor()).response {
             response in
