@@ -27,5 +27,6 @@ struct K {
     }
     struct TABLE_VIEW_CELL_ID {
         static let postsCell = "PostsCell"
+        static let commentCell = "CommentCell"
     }
 }

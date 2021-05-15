@@ -20,7 +20,7 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var correctionButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
-    @IBOutlet weak var commentTextField: UITextField!
+    
     @IBOutlet weak var commentCountButton: UIButton!
     @IBOutlet weak var writingImage: UIImageView!
     @IBOutlet weak var reactionStackView: UIStackView!
@@ -32,7 +32,7 @@ class YesterdaysWriting: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
-        commentTextField.delegate = self
+        
     }
     
     fileprivate func setUpUI(){
@@ -51,9 +51,10 @@ class YesterdaysWriting: UIViewController {
                    let commenter = comment["commenterName"].string else {return Comment(id: 1, comment: "2", commenter: "4")}
                 return Comment(id: id, comment: commentContent, commenter: commenter)
             }
+            
+            self.commentCountButton.setTitle("댓글 \(self.comments?.count ?? 0)개 모두 보기", for: .normal)
+            
         }
-        
-        //로그인이 된 상태이면 리액션 뷰를 보여준다
         
         if let user = GoogleLogInViewController.user {
           
@@ -134,25 +135,6 @@ class YesterdaysWriting: UIViewController {
         guard let id = writing?.id else {return}
         
         AF.request(K.API.LIKE_POST + "\(id)/like", method: .post, interceptor: RequestInterceptor()).response {
-            response in
-            debugPrint(response)
-        }
-    }
-    
-    
-    @IBAction func commentPostTapped(_ sender: UIButton) {
-        
-        guard let comment = commentTextField.text,
-              let id = writing?.id
-        else {return}
-        
-        //코멘트 포스트함
-        
-        let parameter: [String : Any] = [
-            "comment" : comment
-        ]
-
-        AF.request(K.API.LIKE_POST + "\(id)/comment", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response {
             response in
             debugPrint(response)
         }
