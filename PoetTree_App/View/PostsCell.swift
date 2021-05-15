@@ -16,6 +16,7 @@ class PostsCell: UITableViewCell {
     
     func updateCell(writing: WritingGet){
         
+        daysImage.image = writing.image
         titleLabel.text = writing.title
         likesLabel.text = "❤️: \(writing.likes)"
         

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct WritingGet {
     
@@ -17,5 +18,5 @@ struct WritingGet {
     let hashtags: String
     let userEmail: String
     let userName: String
-    
+    let image: UIImage
 }

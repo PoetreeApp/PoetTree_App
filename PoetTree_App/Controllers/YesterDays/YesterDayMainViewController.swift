@@ -10,6 +10,7 @@ import Alamofire
 import SwiftyJSON
 
 //ui 개선, 좋아요 누르기 기능
+//이미지 불러오기..
 
 class YesterDayMainViewController: UIViewController {
 
@@ -46,8 +47,17 @@ class YesterDayMainViewController: UIViewController {
                        let hashtags = json["hashtags"].string,
                        let id = json["id"].int,
                        let email = json["UserEmail"].string,
-                       let userName = json["name"].string{
-                        self.writings.append(WritingGet(id: id, title: title, content: content, views: views, likes: likes, hashtags: hashtags, userEmail: email, userName: userName))
+                       let userName = json["name"].string,
+                       let imageURL = json["imageURL"].string
+                    {
+                        
+                        let data = try! Data(contentsOf: URL(string: imageURL)!)
+                        print(data)
+                        let image = UIImage(data: data)
+                        
+                        //리팩토링 필요한 부분
+                        
+                        self.writings.append(WritingGet(id: id, title: title, content: content, views: views, likes: likes, hashtags: hashtags, userEmail: email, userName: userName, image: image!))
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                         }
@@ -58,6 +68,7 @@ class YesterDayMainViewController: UIViewController {
             }
         }
     }
+
 }
 
 extension YesterDayMainViewController: UITableViewDelegate {
@@ -86,5 +97,17 @@ extension YesterDayMainViewController: UITableViewDataSource{
         }
         cell.updateCell(writing: writings[indexPath.row])
         return cell
+    }
+}
+
+extension UIImage {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    self = image
+                }
+            }
+        }
     }
 }

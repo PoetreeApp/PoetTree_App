@@ -85,7 +85,6 @@ class UserWritingViewController: UIViewController {
             print("error sign out \(signOutError)")
         }
         
-        
     }
     
 }
