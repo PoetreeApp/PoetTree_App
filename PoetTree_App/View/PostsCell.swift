@@ -14,6 +14,8 @@ class PostsCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var likesLabel: UILabel!
     @IBOutlet weak var writerLabel: UILabel!
+    @IBOutlet weak var hashTagsLabel: UILabel!
+    
     
     func updateCell(writing: WritingGet){
         
@@ -21,7 +23,7 @@ class PostsCell: UITableViewCell {
         titleLabel.text = writing.title
         likesLabel.text = "❤️: \(writing.likes)"
         writerLabel.text = "by. \(writing.userName)"
-        
+        hashTagsLabel.text = writing.hashtags
     }
     
 }

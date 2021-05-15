@@ -18,6 +18,8 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var correctionButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var hashtagsLabel: UILabel!
+    
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var commentCountButton: UIButton!
     @IBOutlet weak var writingImage: UIImageView!
@@ -42,6 +44,7 @@ class YesterdaysWriting: UIViewController {
         contentLabel.text = writing.content
         userNameLabel.text = writing.userName
         writingImage.image = writing.image
+        hashtagsLabel.text = writing.hashtags
         getComment { comments in
             
             self.comments = comments.map{ comment in

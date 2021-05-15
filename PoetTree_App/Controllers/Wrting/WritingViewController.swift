@@ -85,7 +85,7 @@ class WritingViewController: UIViewController {
                 [ "title" : writing.title,
                   "content" : writing.content,
                   "email" : writing.email,
-                  "hashtags": "\(writing.hashtags[0]), \(writing.hashtags[1])"
+                  "hashtags": "\(writing.hashtags[0]) \(writing.hashtags[1])"
                 ]
             
             guard let sourceID = self.sourceID else {return}
