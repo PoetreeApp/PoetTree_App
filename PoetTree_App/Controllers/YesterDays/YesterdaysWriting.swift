@@ -23,6 +23,8 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var commentCountButton: UIButton!
+    @IBOutlet weak var writingImage: UIImageView!
+    
     
     
     var writing: WritingGet?
@@ -42,17 +44,8 @@ class YesterdaysWriting: UIViewController {
         titleLabel.text = writing.title
         contentLabel.text = writing.content
         userNameLabel.text = writing.userName
+        writingImage.image = writing.image
         getComment { comments in
-            
-//            for comment in comments {
-//                if let id = comment["id"].int,
-//                   let commentContent = comment["comment"].string,
-//                   let commenter = comment["commenterName"].string{
-//                    let comment = Comment(id: id, comment: commentContent, commenter: commenter)
-//                    print(comment)
-//                    self.comments?.append(comment)
-//                }
-//            }
             
             self.comments = comments.map{ comment in
                 guard let id = comment["id"].int,

@@ -68,7 +68,6 @@ class YesterDayMainViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension YesterDayMainViewController: UITableViewDelegate {
@@ -81,7 +80,7 @@ extension YesterDayMainViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let writingVC = segue.destination as? YesterdaysWriting,
               let writing = sender as? WritingGet else {return}
-        writingVC.writing = writing
+            writingVC.writing = writing
     }
 }
 
