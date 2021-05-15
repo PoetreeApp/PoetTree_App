@@ -8,10 +8,10 @@
 import UIKit
 import Alamofire
 
-//커멘트들을 테이블 뷰에 뿌림
-//커멘트 수정 vc 추가해야함
+//삭제 기능 추가 -> 테이블뷰 슬라이드로
+
 protocol AddCommentDelegate {
-    func addComment(vc: UIViewController)
+    func addComment(comments: [Comment])
 }
 
 class CommentViewController: UIViewController{
@@ -22,7 +22,7 @@ class CommentViewController: UIViewController{
     
     var delegate: AddCommentDelegate?
     var comment: [Comment]?
-    var id: Int?
+    var writingId: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class CommentViewController: UIViewController{
               else {return}
         
         guard let comment = commentTextField.text,
-              let id = self.id,
+              let writingId = self.writingId,
               let user = GoogleLogInViewController.user
         else {return}
         
@@ -46,10 +46,10 @@ class CommentViewController: UIViewController{
             "comment" : comment
         ]
         
-        AF.request(K.API.LIKE_POST + "\(id)/comment", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response {
+        AF.request(K.API.LIKE_POST + "\(writingId)/comment", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response {
             response in
             
-            self.comment?.append(Comment(id: id, comment: comment, commenter: user.profile.name))
+            self.comment?.append(Comment(id: writingId, comment: comment, commenter: user.profile.name))
             
             self.commentTableView.reloadData()
         }
@@ -58,17 +58,16 @@ class CommentViewController: UIViewController{
     
     @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
         
-        guard let delegate = self.delegate else {return}
+        guard let delegate = self.delegate,
+              let comments = self.comment else {return}
         
-        delegate.addComment(vc: self)
+        delegate.addComment(comments: comments)
        
         self.navigationController?.popViewController(animated: true)
     }
 }
 
 extension CommentViewController: UITextFieldDelegate {
-    
-    //게시에 불 들어옴
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
       
@@ -102,6 +101,26 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            guard let writingId = writingId,
+                  let currentComment = self.comment else {return}
+            
+            let commentId = currentComment[indexPath.row].id
+            
+            AF.request(K.API.COMMENT_DELETE+"\(writingId)/\(commentId)", method: .delete, interceptor: RequestInterceptor()).response{
+                response in
+                debugPrint(response)
+                print("삭제 성공")
+            }
+            
+            self.comment?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 
 class WritingCommentCell: UITableViewCell {
@@ -115,5 +134,3 @@ class WritingCommentCell: UITableViewCell {
     }
     
 }
-
-// 뒤로 돌아 갈 때 커맨트를 다시 추가해야함 - delegate

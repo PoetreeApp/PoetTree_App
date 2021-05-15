@@ -19,7 +19,6 @@ class YesterdaysWriting: UIViewController {
     @IBOutlet weak var correctionButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var likeBtn: UIButton!
-    
     @IBOutlet weak var commentCountButton: UIButton!
     @IBOutlet weak var writingImage: UIImageView!
     @IBOutlet weak var reactionStackView: UIStackView!
@@ -112,7 +111,7 @@ class YesterdaysWriting: UIViewController {
                   let id = self.writing?.id else { return }
             
             vc.comment = comments
-            vc.id = id
+            vc.writingId = id
             vc.delegate = self
         }
     }
@@ -143,8 +142,9 @@ class YesterdaysWriting: UIViewController {
 }
 
 extension YesterdaysWriting: AddCommentDelegate {
-    func addComment(vc: UIViewController) {
-        setUpUI()
+    func addComment(comments: [Comment]) {
+        self.comments = comments
+        self.commentCountButton.setTitle("댓글 \(self.comments?.count ?? 0)개 모두 보기", for: .normal)
     }
 }
 
