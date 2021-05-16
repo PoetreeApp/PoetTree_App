@@ -14,5 +14,5 @@ struct UserWriting {
     var content: String
     let views: Int
     let image: UIImage
-    
+    let name: String
 }

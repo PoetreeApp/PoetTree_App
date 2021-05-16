@@ -20,12 +20,12 @@ import Firebase
 class UserWritingViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    
     var userWritings: [UserWriting] = []
     let firebaseAuth = Auth.auth()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getWritings()
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
@@ -54,13 +54,14 @@ class UserWritingViewController: UIViewController {
                        let content = post["content"].string,
                        let views = post["views"].int,
                        let id = post["id"].int,
-                       let imageURL = post["imageURL"].string{
+                       let imageURL = post["imageURL"].string,
+                       let name = post["name"].string{
                   
                         let data = try! Data(contentsOf: URL(string: imageURL)!)
                         print(data)
                         let image = UIImage(data: data)
                         
-                        self.userWritings.append(UserWriting(id: id, title: title, content: content, views: views, image: image!))
+                        self.userWritings.append(UserWriting(id: id, title: title, content: content, views: views, image: image!, name: name))
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()

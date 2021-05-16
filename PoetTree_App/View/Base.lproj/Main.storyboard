@@ -281,7 +281,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="e5v-UJ-ukM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LikedCell" rowHeight="100" id="e5v-UJ-ukM" customClass="LikedWritingsCell" customModule="PoetTree_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e5v-UJ-ukM" id="dX9-ra-arm">
@@ -301,24 +301,38 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View: 5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GdM-Vg-tQb">
-                                                    <rect key="frame" x="318" y="70" width="56" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="323.5" y="73" width="50.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" red="0.73725490199999999" green="0.73709219690000005" blue="0.74902129169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by. VDO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8N-Oq-nHu">
+                                                    <rect key="frame" x="154.5" y="73" width="56" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="tTx-9N-Ud9" secondAttribute="trailing" id="Bgu-av-sfF"/>
+                                                <constraint firstItem="v8N-Oq-nHu" firstAttribute="bottom" secondItem="GdM-Vg-tQb" secondAttribute="bottom" id="F7a-6x-z42"/>
                                                 <constraint firstItem="tTx-9N-Ud9" firstAttribute="centerY" secondItem="dX9-ra-arm" secondAttribute="centerY" id="Ixs-ot-WxM"/>
                                                 <constraint firstItem="dgg-xh-k95" firstAttribute="leading" secondItem="dX9-ra-arm" secondAttribute="leading" constant="25" id="L3d-nl-KJW"/>
                                                 <constraint firstAttribute="bottom" secondItem="dgg-xh-k95" secondAttribute="bottom" constant="9" id="OLL-wX-z0h"/>
                                                 <constraint firstItem="dgg-xh-k95" firstAttribute="centerY" secondItem="dX9-ra-arm" secondAttribute="centerY" id="Yag-Sk-IE5"/>
                                                 <constraint firstItem="GdM-Vg-tQb" firstAttribute="bottom" secondItem="dgg-xh-k95" secondAttribute="bottom" id="bQn-G1-8jh"/>
+                                                <constraint firstItem="v8N-Oq-nHu" firstAttribute="leading" secondItem="tTx-9N-Ud9" secondAttribute="leading" id="cbq-vr-j8l"/>
                                                 <constraint firstItem="dgg-xh-k95" firstAttribute="top" secondItem="dX9-ra-arm" secondAttribute="top" constant="9" id="dda-9s-XTM"/>
                                                 <constraint firstItem="tTx-9N-Ud9" firstAttribute="leading" secondItem="dgg-xh-k95" secondAttribute="trailing" constant="20" id="mPz-rh-xnu"/>
                                                 <constraint firstItem="GdM-Vg-tQb" firstAttribute="trailing" secondItem="dX9-ra-arm" secondAttribute="trailingMargin" constant="-20" id="maG-8i-rsa"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="likedImage" destination="dgg-xh-k95" id="caI-Kx-nwv"/>
+                                            <outlet property="titleLabel" destination="tTx-9N-Ud9" id="34k-n4-Hrt"/>
+                                            <outlet property="viewsLabel" destination="GdM-Vg-tQb" id="Ef8-nk-xcp"/>
+                                            <outlet property="writerLabel" destination="v8N-Oq-nHu" id="gmA-T2-vTt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -332,6 +346,9 @@
                             <constraint firstItem="xMr-Wx-ljP" firstAttribute="leading" secondItem="T9B-9p-wZd" secondAttribute="leading" id="tD0-gT-YfY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="xMr-Wx-ljP" id="0YE-ru-ghG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EnA-uX-UD8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

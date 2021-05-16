@@ -24,6 +24,7 @@ struct K {
         static let LIKE_POST: String = BASE_URL + "posts/"
         static let USER_WRITINGS: String = BASE_URL + "users/mypage/myposts/"
         static let COMMENT_DELETE: String = BASE_URL + "posts/"
+        static let LIKED_WRITINGS: String = BASE_URL + "users/mypage/getLikedPosts"
     }
     struct TABLE_VIEW_CELL_ID {
         static let postsCell = "PostsCell"
