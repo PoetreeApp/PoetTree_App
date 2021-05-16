@@ -267,6 +267,10 @@ extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
         selectedPhotoIndex = targetIndex
-        print(selectedPhotoIndex)
+        self.fsPageControl.currentPage = targetIndex
+    }
+    
+    func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
+        self.fsPageControl.currentPage = pagerView.currentIndex
     }
 }
