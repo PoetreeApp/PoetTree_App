@@ -12,11 +12,12 @@ import GoogleSignIn
 import Firebase
 
 // 로그아웃 구현하기
+
 // 좋아요한 글들 보기
+
 // 수정, 삭제, 댓글 남기기, 수정, 좋아요
 
 class UserWritingViewController: UIViewController {
-
     
     @IBOutlet weak var tableView: UITableView!
     var userWritings: [UserWriting] = []
