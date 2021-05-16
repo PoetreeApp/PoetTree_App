@@ -12,7 +12,6 @@ import FSPagerView
 import Alamofire
 import SwiftyJSON
 
-// controller 수정[]
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
@@ -21,7 +20,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var keyWordTextField1: UITextField!
     @IBOutlet weak var keyWordTextField2: UITextField!
     @IBOutlet weak var wrtBtn: UIButton!
-    @IBOutlet weak var pageViewTop: NSLayoutConstraint!
     
     
     @IBOutlet weak var pagerView: FSPagerView! {
