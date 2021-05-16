@@ -25,36 +25,42 @@ class UserWritingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+//        getWritings()
         self.tableView.dataSource = self
         self.tableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        print("called")
         userWritings.removeAll()
         getWritings()
         tableView.reloadData()
     }
     
     func getWritings(){
+        print("getwri")
         AF.request(K.API.USER_WRITINGS, method: .get, interceptor: RequestInterceptor()).responseJSON { [weak self] response in
             
             guard let self = self else {return}
-//            debugPrint(response)
+
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-
+                debugPrint(json)
                 for (index, post) in json {
-                    
+                    debugPrint(post)
                     if let title = post["title"].string,
                        let content = post["content"].string,
                        let views = post["views"].int,
-                       let id = post["id"].int{
-                       
-                        self.userWritings.append(UserWriting(id: id, title: title, content: content, views: views))
+                       let id = post["id"].int,
+                       let imageURL = post["imageURL"].string{
+                  
+                        let data = try! Data(contentsOf: URL(string: imageURL)!)
+                        print(data)
+                        let image = UIImage(data: data)
+                        
+                        self.userWritings.append(UserWriting(id: id, title: title, content: content, views: views, image: image!))
                         
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
@@ -106,8 +112,9 @@ extension UserWritingViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "UserPoemCell") as? UserPoemCell else { return UITableViewCell() }
         
-        cell.title.text = self.userWritings[indexPath.row].title
-        cell.daysImage.image = UIImage(named: "image")
+        let userWriting = self.userWritings[indexPath.row]
+        
+        cell.updateCell(userWriting: userWriting)
         
         return cell
     }

@@ -22,7 +22,7 @@ struct K {
         static let WRITING_GET_POST: String = BASE_URL + "posts/"
         static let PHOTOS_GET: String = BASE_URL + "sources"
         static let LIKE_POST: String = BASE_URL + "posts/"
-        static let USER_WRITINGS: String = BASE_URL + "users/mypage/myposts"
+        static let USER_WRITINGS: String = BASE_URL + "users/mypage/myposts/"
         static let COMMENT_DELETE: String = BASE_URL + "posts/"
     }
     struct TABLE_VIEW_CELL_ID {

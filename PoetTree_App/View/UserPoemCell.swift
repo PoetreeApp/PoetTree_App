@@ -12,10 +12,14 @@ class UserPoemCell: UITableViewCell {
     
     @IBOutlet weak var daysImage: UIImageView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var viewsLabel: UILabel!
     
     
-    func updateCell(){
+    func updateCell(userWriting: UserWriting){
         
+        daysImage.image = userWriting.image
+        title.text = userWriting.title
+        viewsLabel.text = "View: \(userWriting.views)"
     }
     
 }
