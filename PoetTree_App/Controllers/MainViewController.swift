@@ -30,9 +30,20 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             
             self.pagerView.isInfinite = true
             
-//            self.pagerView.automaticSlidingInterval = 4.0
+            self.pagerView.transformer = FSPagerViewTransformer(type: .linear)
         }
     }
+    
+    @IBOutlet weak var fsPageControl: FSPageControl! {
+        didSet{
+            self.fsPageControl.numberOfPages = 3
+            self.fsPageControl.contentHorizontalAlignment = .right
+            self.fsPageControl.itemSpacing = 10
+            self.fsPageControl.interitemSpacing = 10
+        }
+    }
+    
+    
     
     fileprivate var todayImages: [TodaysPhoto] = []
     fileprivate var todayImageViews: [UIImage] = []
