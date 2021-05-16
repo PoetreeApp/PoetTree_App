@@ -29,4 +29,9 @@ struct K {
         static let postsCell = "PostsCell"
         static let commentCell = "CommentCell"
     }
+    
+    struct ColorName {
+        static let pageControlSelectedColor = "pageControlSelectedColor"
+        static let pageControlNonSelectedColor = "pageControlNonSelectedColor"
+    }
 }

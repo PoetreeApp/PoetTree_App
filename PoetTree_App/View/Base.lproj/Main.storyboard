@@ -76,7 +76,7 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NnR-CI-CXb" customClass="FSPageControl" customModule="FSPagerView">
-                                <rect key="frame" x="100" y="691" width="214" height="40"/>
+                                <rect key="frame" x="30" y="691" width="354" height="40"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9dg-o3-okf"/>
@@ -87,8 +87,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ffz-Mj-P1t" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="6Eq-Nj-ZHE"/>
-                            <constraint firstItem="NnR-CI-CXb" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" constant="100" id="7Qo-0J-JZi"/>
-                            <constraint firstAttribute="trailing" secondItem="NnR-CI-CXb" secondAttribute="trailing" constant="100" id="9jO-g9-nba"/>
+                            <constraint firstItem="NnR-CI-CXb" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" constant="30" id="7Qo-0J-JZi"/>
+                            <constraint firstAttribute="trailing" secondItem="NnR-CI-CXb" secondAttribute="trailing" constant="30" id="9jO-g9-nba"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="bottom" secondItem="Cc5-oM-bNY" secondAttribute="bottom" constant="25" id="Iio-zB-LJQ"/>
                             <constraint firstItem="r1L-IN-UVG" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" id="Mdc-8F-6tt"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="15" id="Ouk-tg-eig"/>

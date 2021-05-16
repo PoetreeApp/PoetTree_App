@@ -37,9 +37,11 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     @IBOutlet weak var fsPageControl: FSPageControl! {
         didSet{
             self.fsPageControl.numberOfPages = 3
-            self.fsPageControl.contentHorizontalAlignment = .right
+            self.fsPageControl.contentHorizontalAlignment = .center
             self.fsPageControl.itemSpacing = 10
-            self.fsPageControl.interitemSpacing = 10
+            self.fsPageControl.interitemSpacing = 15
+            self.fsPageControl.setFillColor(.systemBlue, for: .selected)
+            self.fsPageControl.setFillColor(.lightGray, for: .normal)
         }
     }
     
