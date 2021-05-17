@@ -36,6 +36,7 @@
 		DBB07128264BA4EB00E57837 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB07127264BA4EB00E57837 /* CommentViewController.swift */; };
 		DBB6FC0F264AAEBA005E8BAF /* TodayPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */; };
 		DBF6842C264BDA300049EFE4 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6842B264BDA300049EFE4 /* WebService.swift */; };
+		DBFFF90C26523F300089D1AE /* UserDetailWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		DBB07127264BA4EB00E57837 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhoto.swift; sourceTree = "<group>"; };
 		DBF6842B264BDA300049EFE4 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailWritingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +242,7 @@
 			children = (
 				DB7DDA5D26515D4C003A8650 /* UserWritingContainerViewController.swift */,
 				DB4F934A2614CD880029D640 /* UserWritingViewController.swift */,
+				DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */,
 				DB7DDA5F26515D68003A8650 /* UserLikedWritingsViewController.swift */,
 			);
 			path = UserWriting;
@@ -384,6 +387,7 @@
 				DB4F934B2614CD880029D640 /* UserWritingViewController.swift in Sources */,
 				DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */,
 				DB3F71DB262C5D5700C429BA /* YesterdaysWriting.swift in Sources */,
+				DBFFF90C26523F300089D1AE /* UserDetailWritingViewController.swift in Sources */,
 				DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */,
 				DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */,
 				DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */,

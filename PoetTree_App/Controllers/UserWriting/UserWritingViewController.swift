@@ -38,6 +38,12 @@ class UserWritingViewController: UIViewController {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.SEGUE_ID.toUserDetailWriting {
+            
+        }
+    }
+    
     func getWritings(){
         print("getwri")
         AF.request(K.API.USER_WRITINGS, method: .get, interceptor: RequestInterceptor()).responseJSON { [weak self] response in
