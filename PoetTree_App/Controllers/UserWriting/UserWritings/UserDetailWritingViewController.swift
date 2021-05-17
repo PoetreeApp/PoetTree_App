@@ -36,6 +36,7 @@ class UserDetailWritingViewController: UIViewController {
         self.selectedImageView.image = userWriting?.image
         self.titleLabel.text = userWriting?.title
         self.contentLabel.text = userWriting?.content
+        self.userLabel.text = userWriting?.name
     }
     
     

@@ -146,6 +146,7 @@ class YesterdaysWriting: UIViewController {
             vc.changeUI = { wrting in
                 self.titleLabel.text = wrting.title
                 self.contentLabel.text = wrting.content
+                self.hashtagsLabel.text = "\(wrting.hashtags[0]) \(wrting.hashtags[1])"
             }
         }
         
