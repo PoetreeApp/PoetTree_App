@@ -37,6 +37,7 @@
 		DBB6FC0F264AAEBA005E8BAF /* TodayPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */; };
 		DBF6842C264BDA300049EFE4 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6842B264BDA300049EFE4 /* WebService.swift */; };
 		DBFFF90C26523F300089D1AE /* UserDetailWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */; };
+		DBFFF910265273100089D1AE /* UserWritingCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFF90F265273100089D1AE /* UserWritingCorrectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhoto.swift; sourceTree = "<group>"; };
 		DBF6842B264BDA300049EFE4 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailWritingViewController.swift; sourceTree = "<group>"; };
+		DBFFF90F265273100089D1AE /* UserWritingCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCorrectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,11 +243,28 @@
 			isa = PBXGroup;
 			children = (
 				DB7DDA5D26515D4C003A8650 /* UserWritingContainerViewController.swift */,
-				DB4F934A2614CD880029D640 /* UserWritingViewController.swift */,
-				DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */,
-				DB7DDA5F26515D68003A8650 /* UserLikedWritingsViewController.swift */,
+				DBFFF90D265272C90089D1AE /* UserWritings */,
+				DBFFF90E265272D90089D1AE /* Liked Writings */,
 			);
 			path = UserWriting;
+			sourceTree = "<group>";
+		};
+		DBFFF90D265272C90089D1AE /* UserWritings */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F934A2614CD880029D640 /* UserWritingViewController.swift */,
+				DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */,
+				DBFFF90F265273100089D1AE /* UserWritingCorrectionViewController.swift */,
+			);
+			path = UserWritings;
+			sourceTree = "<group>";
+		};
+		DBFFF90E265272D90089D1AE /* Liked Writings */ = {
+			isa = PBXGroup;
+			children = (
+				DB7DDA5F26515D68003A8650 /* UserLikedWritingsViewController.swift */,
+			);
+			path = "Liked Writings";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,6 +409,7 @@
 				DBFFF90C26523F300089D1AE /* UserDetailWritingViewController.swift in Sources */,
 				DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */,
 				DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */,
+				DBFFF910265273100089D1AE /* UserWritingCorrectionViewController.swift in Sources */,
 				DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */,
 				DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */,
 				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,

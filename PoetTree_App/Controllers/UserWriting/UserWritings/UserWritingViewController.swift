@@ -40,6 +40,11 @@ class UserWritingViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.SEGUE_ID.toUserDetailWriting {
+            guard let vc = segue.destination as? UserDetailWritingViewController else {return}
+            
+            guard let index = tableView.indexPathForSelectedRow else {return}
+            
+            vc.userWriting = userWritings[index.row]
             
         }
     }

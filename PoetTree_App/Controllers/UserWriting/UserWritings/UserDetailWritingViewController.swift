@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 
+//좋아요, 댓글, 수정
+
 class UserDetailWritingViewController: UIViewController {
     
     
@@ -24,15 +26,18 @@ class UserDetailWritingViewController: UIViewController {
         setUI()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.SEGUE_ID.toUserWritingCorrection {
+            
+        }
+    }
+    
     fileprivate func setUI(){
         self.selectedImageView.image = userWriting?.image
-        
+        self.titleLabel.text = userWriting?.title
+        self.contentLabel.text = userWriting?.content
     }
     
-    
-    @IBAction func correctionBtnTapped(_ sender: UIButton) {
-        
-    }
     
     @IBAction func deleteBtnTapped(_ sender: Any) {
         
@@ -45,4 +50,6 @@ class UserDetailWritingViewController: UIViewController {
             
         }
     }
+    
+    
 }

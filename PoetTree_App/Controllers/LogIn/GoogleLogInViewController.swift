@@ -41,10 +41,15 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
                         return
                     } else {
                         GoogleLogInViewController.user = user
+                        
+                        let image = user.profile.imageURL(withDimension: 96)
+                        let imageURL = image?.absoluteString
+                        
                         let parameter: [String : Any] =
                             [ "email" : user.profile.email,
                               "name" : user.profile.name,
-                              "provider" : "Google"
+                              "provider" : "Google",
+                              "image" : imageURL
                             ]
                         AF.request(K.API.USER_SIGNIN, method: .post, parameters: parameter, encoding: JSONEncoding.default).response{
                             response in
