@@ -15,6 +15,7 @@ import SwiftyJSON
 class UserWritingCommentViewController: UIViewController {
     
     @IBOutlet weak var commentTableView: UITableView!
+    @IBOutlet weak var postBtn: UIButton!
     
     
     var writingId: Int?
@@ -24,7 +25,7 @@ class UserWritingCommentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        commentTextField.delegate = self
     }
     
     @IBAction func postBtnTapped(_ sender: UIButton) {
@@ -73,6 +74,23 @@ extension UserWritingCommentViewController: UITableViewDelegate, UITableViewData
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            guard let writingId = writingId,
+                  let currentComment = self.comments else {return}
+            
+            let commentId = currentComment[indexPath.row].id
+            
+            AF.request(K.API.COMMENT_DELETE+"\(writingId)/\(commentId)", method: .delete, interceptor: RequestInterceptor()).response{
+                response in
+                print("댓글 삭제 성공")
+            }
+            self.comments?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
 }
 
 
@@ -90,4 +108,19 @@ class UserCommentCell: UITableViewCell {
         commentLabel.text = comment.comment
     }
     
+}
+
+extension UserWritingCommentViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+      
+        guard let text = textField.text else {return}
+       
+        if !text.isEmpty{
+            print("change called")
+            postBtn.setTitleColor(UIColor.link, for: .normal)
+        } else {
+            postBtn.setTitleColor(UIColor(named: "emptyPostColor"), for: .normal)
+        }
+    }
 }
