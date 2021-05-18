@@ -19,10 +19,37 @@ class UserWritingCommentViewController: UIViewController {
     
     var writingId: Int?
     var comments: [Comment]?
+    @IBOutlet weak var commentTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    @IBAction func postBtnTapped(_ sender: UIButton) {
+        
+        guard let commentText = commentTextField.text,
+              !commentText.isEmpty
+              else {return}
+        
+        guard let comment = commentTextField.text,
+              let writingId = self.writingId,
+              let user = GoogleLogInViewController.user
+        else {return}
+        
+        let parameter: [String : Any] = [
+            "comment" : comment
+        ]
+        
+        AF.request(K.API.LIKE_POST + "\(writingId)/comment", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response {
+            response in
+            
+            self.comments?.append(Comment(id: writingId, comment: comment, commenter: user.profile.name))
+            
+            self.commentTableView.reloadData()
+        }
+        self.commentTextField.text?.removeAll()
     }
     
 }

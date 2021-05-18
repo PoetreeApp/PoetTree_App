@@ -29,6 +29,20 @@ class UserLikedWritingsViewController: UIViewController {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.SEGUE_ID.toDetailLikedWriting {
+            
+            guard let vc = segue.destination as? UserLikedDetailWritingViewController else {return}
+            
+            guard let selectedIndex = tableView.indexPathForSelectedRow?.row else {return}
+            
+            let writing = likedWritings[selectedIndex]
+            
+            vc.userWriting = writing
+            
+        }
+    }
+    
     
     func getWritings(){
         
