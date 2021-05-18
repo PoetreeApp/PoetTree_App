@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1140,28 +1141,106 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8k-dM-IgW" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="ymB-AH-gcj"/>
+                                    <constraint firstAttribute="height" constant="300" id="ymB-AH-gcj"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tzZ-4F-paN">
+                                <rect key="frame" x="10" y="406.5" width="394" height="455.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lBv-TL-bRb">
+                                    <size key="itemSize" width="70" height="240"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="Gus-DL-oiW" customClass="YesterDayPhotoCollectionViewCell" customModule="PoetTree_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Lff-Ue-ba6">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="240"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ANP-Ym-0U9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="70" height="240"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ANP-Ym-0U9" firstAttribute="leading" secondItem="Lff-Ue-ba6" secondAttribute="leading" id="69u-Jm-5EY"/>
+                                                <constraint firstItem="ANP-Ym-0U9" firstAttribute="top" secondItem="Lff-Ue-ba6" secondAttribute="top" id="C2s-Il-Tq8"/>
+                                                <constraint firstAttribute="bottom" secondItem="ANP-Ym-0U9" secondAttribute="bottom" id="rsm-eq-D0v"/>
+                                                <constraint firstAttribute="trailing" secondItem="ANP-Ym-0U9" secondAttribute="trailing" id="xZm-4S-2UY"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="70" height="240"/>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="ANP-Ym-0U9" id="lm9-8R-zWV"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zvg-4b-Seh" id="Z87-RF-46e"/>
+                                    <outlet property="delegate" destination="Zvg-4b-Seh" id="azf-xC-Lhk"/>
+                                </connections>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MMV-yz-ibM">
+                                <rect key="frame" x="78.5" y="362" width="13.5" height="22"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <state key="normal" image="chevron.left" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18"/>
+                                </state>
+                                <connections>
+                                    <action selector="leftBtnTapped:" destination="Zvg-4b-Seh" eventType="touchUpInside" id="1OV-nh-S9h"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2021-05-16" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2Y-nQ-Fpy">
+                                <rect key="frame" x="100" y="359" width="214" height="27.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8d-zD-JTM">
+                                <rect key="frame" x="322" y="362" width="13.5" height="22"/>
+                                <color key="tintColor" systemColor="systemGrayColor"/>
+                                <state key="normal" image="chevron.right" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="18"/>
+                                </state>
+                                <connections>
+                                    <action selector="rightBtnTapped:" destination="Zvg-4b-Seh" eventType="touchUpInside" id="6sL-5Z-xM6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xYE-Wg-8bP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="g8d-zD-JTM" firstAttribute="centerY" secondItem="f2Y-nQ-Fpy" secondAttribute="centerY" id="2fm-fN-GCR"/>
+                            <constraint firstItem="tzZ-4F-paN" firstAttribute="leading" secondItem="xYE-Wg-8bP" secondAttribute="leading" constant="10" id="7fc-cS-mZJ"/>
+                            <constraint firstItem="tzZ-4F-paN" firstAttribute="top" secondItem="f2Y-nQ-Fpy" secondAttribute="bottom" constant="20" id="E3P-m0-0E7"/>
+                            <constraint firstItem="g8d-zD-JTM" firstAttribute="leading" secondItem="f2Y-nQ-Fpy" secondAttribute="trailing" constant="8" id="GoT-Aa-SN7"/>
+                            <constraint firstItem="f2Y-nQ-Fpy" firstAttribute="leading" secondItem="MMV-yz-ibM" secondAttribute="trailing" constant="8" id="IKs-4e-b9e"/>
                             <constraint firstItem="O8k-dM-IgW" firstAttribute="leading" secondItem="xYE-Wg-8bP" secondAttribute="leading" id="X4R-ld-4GI"/>
+                            <constraint firstItem="f2Y-nQ-Fpy" firstAttribute="top" secondItem="O8k-dM-IgW" secondAttribute="bottom" constant="15" id="ZZL-0H-V89"/>
+                            <constraint firstItem="xYE-Wg-8bP" firstAttribute="trailing" secondItem="tzZ-4F-paN" secondAttribute="trailing" constant="10" id="a0d-vv-8Mo"/>
                             <constraint firstItem="O8k-dM-IgW" firstAttribute="top" secondItem="xYE-Wg-8bP" secondAttribute="top" id="bXs-aw-45a"/>
+                            <constraint firstItem="xYE-Wg-8bP" firstAttribute="bottom" secondItem="tzZ-4F-paN" secondAttribute="bottom" id="fyt-U2-Qob"/>
+                            <constraint firstItem="MMV-yz-ibM" firstAttribute="centerY" secondItem="f2Y-nQ-Fpy" secondAttribute="centerY" id="kAR-HT-dMf"/>
+                            <constraint firstItem="xYE-Wg-8bP" firstAttribute="trailing" secondItem="f2Y-nQ-Fpy" secondAttribute="trailing" constant="100" id="v0M-QU-8Ay"/>
+                            <constraint firstItem="f2Y-nQ-Fpy" firstAttribute="leading" secondItem="xYE-Wg-8bP" secondAttribute="leading" constant="100" id="xdw-0c-cuZ"/>
                             <constraint firstItem="xYE-Wg-8bP" firstAttribute="trailing" secondItem="O8k-dM-IgW" secondAttribute="trailing" id="zLJ-t2-had"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="tzZ-4F-paN" id="OtN-vV-Ltc"/>
+                        <outlet property="dateLabel" destination="f2Y-nQ-Fpy" id="LBG-QH-iO0"/>
                         <outlet property="pagerView" destination="O8k-dM-IgW" id="Vv3-jI-G17"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M8m-vV-Ebg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5122" y="2581"/>
+            <point key="canvasLocation" x="5121.739130434783" y="2580.1339285714284"/>
         </scene>
         <!--User Detail Writing View Controller-->
         <scene sceneID="G9F-R4-HkP">
@@ -1953,6 +2032,7 @@
     <resources>
         <image name="PoetreeIcon" width="500" height="500"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image" width="1878.3333740234375" height="1252.3333740234375"/>

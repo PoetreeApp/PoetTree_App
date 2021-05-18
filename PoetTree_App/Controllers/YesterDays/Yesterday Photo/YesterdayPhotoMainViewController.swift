@@ -27,8 +27,13 @@ class YesterdayPhotoMainViewController: UIViewController {
     
     
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
     var images: [Image] = []
     var uiImages: [UIImage] = []
+    var selectedPhotoIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,17 +44,14 @@ class YesterdayPhotoMainViewController: UIViewController {
     }
     
     fileprivate func setUI(){
+        
         getPhoto { images in
-            let url = images[0].imageURL
-            let data = try! Data(contentsOf: URL(string: url)!)
-            let image = UIImage(data: data)
             
             let filteredImages: [UIImage] = images.map{ image in
                 
                 let url = image.imageURL
                 let data = try! Data(contentsOf: URL(string: url)!)
                 let image = UIImage(data: data)
-                print("filtered images done")
                 return image!
             }
             
@@ -57,8 +59,9 @@ class YesterdayPhotoMainViewController: UIViewController {
                 guard let self = self else {return}
                 self.images = images
                 self.uiImages = filteredImages
-                print("dispatch que done\(self.uiImages)")
+                self.dateLabel.text = self.images[0].uploadDate
                 self.pagerView.reloadData()
+                self.collectionView.reloadData()
             }
         }
     }
@@ -91,12 +94,38 @@ class YesterdayPhotoMainViewController: UIViewController {
             
         }
     }
+    
+    @IBAction func leftBtnTapped(_ sender: UIButton) {
+        
+        if self.selectedPhotoIndex == 0 {
+            return
+        }
+        
+        self.selectedPhotoIndex -= 1
+        self.dateLabel.text = self.images[self.selectedPhotoIndex].uploadDate
+        self.pagerView.scrollToItem(at: selectedPhotoIndex, animated: true)
+    }
+    
+    @IBAction func rightBtnTapped(_ sender: UIButton) {
+        
+        
+        if(self.selectedPhotoIndex == self.uiImages.count - 1){
+            self.selectedPhotoIndex = 0
+        } else {
+            self.selectedPhotoIndex = self.selectedPhotoIndex + 1
+        }
+        
+        self.dateLabel.text = self.images[self.selectedPhotoIndex].uploadDate
+        
+        self.pagerView.scrollToItem(at: selectedPhotoIndex, animated: true)
+    }
+    
 }
 
 extension YesterdayPhotoMainViewController: FSPagerViewDataSource, FSPagerViewDelegate {
     
     func numberOfItems(in pagerView: FSPagerView) -> Int {
-        print("number of items called")
+      
         return self.uiImages.count
     }
     
@@ -105,8 +134,57 @@ extension YesterdayPhotoMainViewController: FSPagerViewDataSource, FSPagerViewDe
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
         cell.imageView?.image = self.uiImages[index]
         cell.imageView?.contentMode = .scaleAspectFit
-        print("cell called")
+     
+        return cell
+    }
+    func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
+      
+        let date = self.images[targetIndex].uploadDate
+        self.dateLabel.text = date
+        
+        selectedPhotoIndex = targetIndex
+       
+        
+    }
+    
+    func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
+        
+    }
+    
+}
+
+extension YesterdayPhotoMainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? YesterDayPhotoCollectionViewCell else {return UICollectionViewCell()}
+        
+        let image = self.uiImages[indexPath.item]
+        
+        cell.updateUI(image: image)
+        
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 70, height: 240)
+    }
+}
+
+class YesterDayPhotoCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet weak var photoImageView: UIImageView!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        photoImageView.layer.cornerRadius = 3
+    }
+    
+    func updateUI(image: UIImage){
+        photoImageView.image = image
+    }
 }

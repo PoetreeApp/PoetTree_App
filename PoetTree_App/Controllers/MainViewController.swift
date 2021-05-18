@@ -46,12 +46,10 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         }
     }
     
-    
-    
     fileprivate var todayImages: [TodaysPhoto] = []
     fileprivate var todayImageViews: [UIImage] = []
    
-    var keyboardDismissTabGesture : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: nil)
+   
     var selectedPhotoIndex: Int = 0
 
     
@@ -60,30 +58,11 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         
         pagerView.delegate = self
         pagerView.dataSource = self
-        print("\(self.pagerView.topAnchor) top anchor constraint")
-        self.underLineText()
-        self.config()
-        self.getPhotos()
-        
+  
+        setupUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        print("main view will appear called")
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShowHandle(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHideHandle), name: UIResponder.keyboardWillHideNotification, object: nil)
-        DispatchQueue.main.async {
-            self.pagerView.reloadData()
-        }
-    }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("HomeVC - viewWillDisappear() called")
-        // 키보드 노티 해제
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
     
     fileprivate func underLineText(){
         
@@ -92,12 +71,29 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         toDaysPhoto.attributedText = underlineAttributedString
     }
     
-    fileprivate func config(){
-        self.keyboardDismissTabGesture.delegate = self
-        self.view.addGestureRecognizer(keyboardDismissTabGesture)
+    fileprivate func setupUI(){
+        
+        underLineText()
+        
+        getPhotos { todayPhotos in
+            
+            let images: [UIImage] = todayPhotos.map{ photo in
+                let url = photo.imageURL
+                let data = try! Data(contentsOf: url)
+                let image = UIImage(data: data)
+                return image!
+            }
+            
+            DispatchQueue.main.async {
+                self.todayImages = todayPhotos
+                self.todayImageViews = images
+                self.pagerView.reloadData()
+            }
+        }
     }
+   
     
-    fileprivate func getPhotos(){
+    fileprivate func getPhotos(completion: @escaping (([TodaysPhoto]) -> Void)){
         //사진을 받아서 배열에 넣음
         
             AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
@@ -107,81 +103,27 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                 case .success(let sources):
 
                     let json = JSON(sources)
-
-                    print("\(json) here")
+                    var todayPhotos: [TodaysPhoto] = []
                     for (index, json) in json {
                         if let id = json["id"].int,
                            let url = json["imageURL"].string,
                            let imageURL = URL(string: url){
-                            
-                            self.todayImages.append(TodaysPhoto(id: id, imageURL: imageURL))
+                            todayPhotos.append(TodaysPhoto(id: id, imageURL: imageURL))
                         }
                     }
-//                    print(self.todayImages)
                     
-                    let urls = self.todayImages.map{$0.imageURL}
-                    self.downloadImage(from: urls){images in
-                        print(images)
-                    }
-
+                    completion(todayPhotos)
+          
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
             }
     }
-    
-    fileprivate func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void){
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    
-    fileprivate func downloadImage(from urls: [URL], completion: @escaping ([UIImage]) -> Void) {
-        print("Download Started")
-        // url 배열을 전달해서 배열을 돌면서 images에 추가함
-        
-        for url in urls {
-            getData(from: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-//                print(data)
-                
-                self.todayImageViews.append(UIImage(data: data)!)
-                
-//                DispatchQueue.main.async {
-//                    reloaddata()
-//                }
-//                completion(self.todayImageViews)
-                //DispatchQueue.main.async{
-                // 순서대로 배열에 넣으면서, 바로 띄워야 한다. 이미지 파일이 다 배열에 들어가면, 그때 리로드 데이터를 한다
-//            }
-                //비동기 동기 공부하기
-                // 이미지를 다 받고나서 reload 예를 들어 타이머를 활용해서 
-            }
-        }
-        DispatchQueue.main.async {
-            completion(self.todayImageViews)
-        }
-    }
-    
+
     //MARK: - keyboard 에따른 view 설정
-    @objc func keyboardWillShowHandle(notification: NSNotification){
-        print("HomeVC - keyboardWillShowHandle() called")
-        // 키보드 사이즈 가져오기
-
-//        self.navigationController?.navigationBar.isHidden = true
-
-
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-
-            print("keyboardSize.height: \(keyboardSize.height)")
-       
-            self.wrtBtn.frame.origin.y = self.wrtBtn.frame.origin.y - keyboardSize.height
-        }
-    }
     
-    @objc func keyboardWillHideHandle(){
-        print("HomeVC - keyboardWillHideHandle() called")
-        //버튼을 다시 내림
-        self.wrtBtn.frame.origin.y = self.view.frame.origin.y - 20
-    }
+    
+    
 
     
     //MARK: - after logIn delegate function
@@ -238,15 +180,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     
     //MARK: - 제스처 recognizer
     
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-
-        if(touch.view?.isDescendant(of: hashTagStackView) == true){
-            return false
-        }  else {
-            view.endEditing(true)
-            return true
-        }
-    }
+    
 }
 
 extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {
