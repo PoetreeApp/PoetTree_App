@@ -18,6 +18,8 @@ class UserDetailWritingViewController: UIViewController {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var hashtagLabel: UILabel!
+    @IBOutlet weak var likeBtn: UIButton!
+    
     
     var userWriting: UserWriting?
     var hashtags: String?
@@ -77,14 +79,53 @@ class UserDetailWritingViewController: UIViewController {
         }
     }
     
-    fileprivate func setUI(){
-        self.selectedImageView.image = userWriting?.image
-        self.titleLabel.text = userWriting?.title
-        self.contentLabel.text = userWriting?.content
-        self.userLabel.text = userWriting?.name
-        self.hashtagLabel.text = hashtags
+    fileprivate func getLikers(id: Int, completion: @escaping ([Liker]) -> Void){
+        
+        AF.request(K.API.LIKE_POST + "\(id)/likers", method: .get).responseJSON { response in
+            
+            switch response.result {
+            case .success(let value):
+                
+                let json = JSON(value)
+                var likers: [Liker] = []
+                
+                for (index, json) in json {
+                    guard let likerName = json["name"].string else {return}
+                    let liker = Liker(name: likerName)
+                    likers.append(liker)
+                }
+                DispatchQueue.main.async {
+                    completion(likers)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
-    
+    fileprivate func setUI(){
+        
+        guard let userWriting = self.userWriting else {return}
+        
+        self.selectedImageView.image = userWriting.image
+        self.titleLabel.text = userWriting.title
+        self.contentLabel.text = userWriting.content
+        self.userLabel.text = userWriting.name
+        self.hashtagLabel.text = hashtags
+        getLikers(id: userWriting.id) { likers in
+            let isLike = likers.contains { liker in
+                if liker.name == userWriting.name {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            
+            if isLike {
+                self.likeBtn.isSelected = true
+            }
+        }
+    }
     
     @IBAction func deleteBtnTapped(_ sender: Any) {
         
@@ -99,6 +140,15 @@ class UserDetailWritingViewController: UIViewController {
     }
     
     @IBAction func likeBtnTapped(_ sender: UIButton) {
+        
+        sender.isSelected = !sender.isSelected
+        
+        guard let id = self.userWriting?.id else {return}
+        
+        AF.request(K.API.LIKE_POST + "\(id)/like", method: .post, interceptor: RequestInterceptor()).response {
+            response in
+            debugPrint(response)
+        }
     }
     
     

@@ -1223,7 +1223,6 @@
                                                                         </state>
                                                                         <state key="selected" image="heart.fill" catalog="system"/>
                                                                         <connections>
-                                                                            <action selector="deleteBtnTapped:" destination="pdf-93-aYD" eventType="touchUpInside" id="1EC-e6-d9X"/>
                                                                             <action selector="likeBtnTapped:" destination="pdf-93-aYD" eventType="touchUpInside" id="rKF-em-JDz"/>
                                                                         </connections>
                                                                     </button>
@@ -1341,6 +1340,7 @@
                     <connections>
                         <outlet property="contentLabel" destination="lDx-Zt-Xsl" id="0sw-L5-DCc"/>
                         <outlet property="hashtagLabel" destination="NCv-nk-cmU" id="01d-0t-3AW"/>
+                        <outlet property="likeBtn" destination="B23-Ln-V6N" id="ZrY-ez-idr"/>
                         <outlet property="selectedImageView" destination="oJZ-b6-NXJ" id="jLS-PF-xDl"/>
                         <outlet property="titleLabel" destination="rcu-FN-mKh" id="goj-as-93Q"/>
                         <outlet property="userLabel" destination="TYb-Jf-7yO" id="bTD-y0-XeX"/>
@@ -1520,8 +1520,8 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image" width="1878.3333740234375" height="1252.3333740234375"/>
-        <image name="pencil" width="341.33334350585938" height="341.33334350585938"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="pencil" width="341.33334350585938" height="341.33334350585938"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
