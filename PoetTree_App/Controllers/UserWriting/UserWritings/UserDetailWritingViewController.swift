@@ -8,7 +8,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-//좋아요, 댓글, 수정
+//댓글
 
 class UserDetailWritingViewController: UIViewController {
     
@@ -19,10 +19,11 @@ class UserDetailWritingViewController: UIViewController {
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var hashtagLabel: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
-    
+    @IBOutlet weak var commentCountLabel: UIButton!
     
     var userWriting: UserWriting?
     var hashtags: String?
+    var comments: [Comment]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,11 +48,20 @@ class UserDetailWritingViewController: UIViewController {
                 self.userWriting?.title = writing.title
                 self.userWriting?.content = writing.content
                 self.hashtags = "\(writing.hashtags[0]) \(writing.hashtags[1])"
-
+                
                 self.hashtagLabel.text = self.hashtags
                 
             }
         }
+        
+        if segue.identifier == K.SEGUE_ID.toUserComment {
+            guard let vc = segue.destination as? UserWritingCommentViewController,
+                  let id = self.userWriting?.id else {return}
+            
+            vc.writingId = id
+            vc.comments = comments
+        }
+        
     }
     
     fileprivate func setHashTag(id: Int?){
@@ -103,6 +113,28 @@ class UserDetailWritingViewController: UIViewController {
             }
         }
     }
+    
+    fileprivate func getComment(completion: @escaping ([JSON]) -> Void){
+        guard let id = self.userWriting?.id else {return}
+        AF.request(K.API.WRITING_GET_POST + "\(id)", method: .get).responseJSON {
+            post in
+            
+            switch post.result {
+            case .success(let value):
+                let json = JSON(value)
+                let comments = json["comments"].arrayValue
+                
+                DispatchQueue.main.async {
+                    completion(comments)
+                }
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+
+    
     fileprivate func setUI(){
         
         guard let userWriting = self.userWriting else {return}
@@ -125,6 +157,19 @@ class UserDetailWritingViewController: UIViewController {
                 self.likeBtn.isSelected = true
             }
         }
+        
+        getComment { comments in
+            
+            self.comments = comments.map{ comment in
+                guard let id = comment["id"].int,
+                   let commentContent = comment["comment"].string,
+                   let commenter = comment["commenterName"].string else {return Comment(id: 1, comment: "2", commenter: "4")}
+                return Comment(id: id, comment: commentContent, commenter: commenter)
+            }
+            
+            self.commentCountLabel.setTitle("댓글 \(self.comments?.count ?? 0)개 모두 보기", for: .normal)
+        }
+        
     }
     
     @IBAction func deleteBtnTapped(_ sender: Any) {
@@ -150,10 +195,4 @@ class UserDetailWritingViewController: UIViewController {
             debugPrint(response)
         }
     }
-    
-    
-    @IBAction func commentBtnTapped(_ sender: UIButton) {
-    }
-    
-    
 }

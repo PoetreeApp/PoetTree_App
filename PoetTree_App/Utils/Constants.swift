@@ -17,6 +17,7 @@ struct K {
         static let toComments = "toComment"
         static let toUserDetailWriting = "toUserDetailWriting"
         static let toUserWritingCorrection = "toUserWritingCorrection"
+        static let toUserComment = "toUserComment"
     }
     struct API {
         static let BASE_URL = "http://54.180.34.121:8080/"

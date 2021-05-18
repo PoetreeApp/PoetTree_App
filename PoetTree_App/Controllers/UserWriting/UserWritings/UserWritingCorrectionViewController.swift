@@ -17,6 +17,7 @@ class UserWritingCorrectionViewController: UIViewController {
     @IBOutlet weak var hashtag1TextField: UITextField!
     @IBOutlet weak var hashtag2TextField: UITextField!
     
+    
     var changeUI: ((Writing) -> Void)?
     var userWriting: UserWriting?
     var hashtags: String?

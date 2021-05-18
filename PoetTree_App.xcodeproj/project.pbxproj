@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		174043954CE735E296A4529F /* Pods_PoetTree_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */; };
+		DB0A75E4265370FF0046213E /* UserWritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */; };
 		DB3F71DB262C5D5700C429BA /* YesterdaysWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */; };
 		DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93152614911C0029D640 /* AppDelegate.swift */; };
 		DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93172614911C0029D640 /* SceneDelegate.swift */; };
@@ -44,6 +45,7 @@
 		73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoetTree_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		981538C40A400E0A725E1113 /* Pods-PoetTree_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.release.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.release.xcconfig"; sourceTree = "<group>"; };
 		ABF4A84711A44CB2D6E95503 /* Pods-PoetTree_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.debug.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.debug.xcconfig"; sourceTree = "<group>"; };
+		DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCommentViewController.swift; sourceTree = "<group>"; };
 		DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdaysWriting.swift; sourceTree = "<group>"; };
 		DB4F93122614911C0029D640 /* PoetTree_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoetTree_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4F93152614911C0029D640 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				DB4F934A2614CD880029D640 /* UserWritingViewController.swift */,
 				DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */,
 				DBFFF90F265273100089D1AE /* UserWritingCorrectionViewController.swift */,
+				DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */,
 			);
 			path = UserWritings;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,
 				DB85D606264D6A19009FB8DF /* UserWriting.swift in Sources */,
 				DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */,
+				DB0A75E4265370FF0046213E /* UserWritingCommentViewController.swift in Sources */,
 				DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */,
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,
 				DB4F93512614D4520029D640 /* YesterDayMainViewController.swift in Sources */,
