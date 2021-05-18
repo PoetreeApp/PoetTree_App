@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RoV-4g-JzA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zvg-4b-Seh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -1131,6 +1131,38 @@
             </objects>
             <point key="canvasLocation" x="3668" y="2476"/>
         </scene>
+        <!--Yesterday Photo Main View Controller-->
+        <scene sceneID="6El-lg-Swu">
+            <objects>
+                <viewController id="Zvg-4b-Seh" customClass="YesterdayPhotoMainViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aKN-bV-yef">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O8k-dM-IgW" customClass="FSPagerView" customModule="FSPagerView">
+                                <rect key="frame" x="0.0" y="44" width="414" height="400"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="ymB-AH-gcj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xYE-Wg-8bP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="O8k-dM-IgW" firstAttribute="leading" secondItem="xYE-Wg-8bP" secondAttribute="leading" id="X4R-ld-4GI"/>
+                            <constraint firstItem="O8k-dM-IgW" firstAttribute="top" secondItem="xYE-Wg-8bP" secondAttribute="top" id="bXs-aw-45a"/>
+                            <constraint firstItem="xYE-Wg-8bP" firstAttribute="trailing" secondItem="O8k-dM-IgW" secondAttribute="trailing" id="zLJ-t2-had"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pagerView" destination="O8k-dM-IgW" id="Vv3-jI-G17"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M8m-vV-Ebg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5122" y="2581"/>
+        </scene>
         <!--User Detail Writing View Controller-->
         <scene sceneID="G9F-R4-HkP">
             <objects>
@@ -1924,8 +1956,8 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image" width="1878.3333740234375" height="1252.3333740234375"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		174043954CE735E296A4529F /* Pods_PoetTree_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */; };
 		DB0A75E4265370FF0046213E /* UserWritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */; };
+		DB12433526541A2400CB7DEC /* YesterdayPhotoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */; };
+		DB12433726541B3C00CB7DEC /* ImageGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12433626541B3C00CB7DEC /* ImageGet.swift */; };
 		DB2ECF8B2653F27C0026795D /* UserLikedDetailWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2ECF8A2653F27C0026795D /* UserLikedDetailWritingViewController.swift */; };
 		DB2ECF8D2653FD790026795D /* UserLikedWritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2ECF8C2653FD790026795D /* UserLikedWritingCommentViewController.swift */; };
 		DB3F71DB262C5D5700C429BA /* YesterdaysWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */; };
@@ -48,6 +50,8 @@
 		981538C40A400E0A725E1113 /* Pods-PoetTree_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.release.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.release.xcconfig"; sourceTree = "<group>"; };
 		ABF4A84711A44CB2D6E95503 /* Pods-PoetTree_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.debug.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCommentViewController.swift; sourceTree = "<group>"; };
+		DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoMainViewController.swift; sourceTree = "<group>"; };
+		DB12433626541B3C00CB7DEC /* ImageGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGet.swift; sourceTree = "<group>"; };
 		DB2ECF8A2653F27C0026795D /* UserLikedDetailWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedDetailWritingViewController.swift; sourceTree = "<group>"; };
 		DB2ECF8C2653FD790026795D /* UserLikedWritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedWritingCommentViewController.swift; sourceTree = "<group>"; };
 		DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdaysWriting.swift; sourceTree = "<group>"; };
@@ -113,6 +117,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB124332265419E400CB7DEC /* YesterdayList */ = {
+			isa = PBXGroup;
+			children = (
+				DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */,
+				DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */,
+				DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */,
+				DBB07127264BA4EB00E57837 /* CommentViewController.swift */,
+			);
+			path = YesterdayList;
+			sourceTree = "<group>";
+		};
+		DB124333265419FC00CB7DEC /* Yesterday Photo */ = {
+			isa = PBXGroup;
+			children = (
+				DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */,
+			);
+			path = "Yesterday Photo";
+			sourceTree = "<group>";
+		};
 		DB4F93092614911C0029D640 = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +192,7 @@
 				DB881C0D261C3FC100085EB9 /* WritingService.swift */,
 				DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */,
 				DB85D605264D6A19009FB8DF /* UserWriting.swift */,
+				DB12433626541B3C00CB7DEC /* ImageGet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,10 +245,8 @@
 		DBA7749E263E6E2800D16EED /* YesterDays */ = {
 			isa = PBXGroup;
 			children = (
-				DB4F93502614D4520029D640 /* YesterDayMainViewController.swift */,
-				DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */,
-				DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */,
-				DBB07127264BA4EB00E57837 /* CommentViewController.swift */,
+				DB124333265419FC00CB7DEC /* Yesterday Photo */,
+				DB124332265419E400CB7DEC /* YesterdayList */,
 			);
 			path = YesterDays;
 			sourceTree = "<group>";
@@ -420,7 +442,9 @@
 				DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */,
 				DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */,
 				DBFFF910265273100089D1AE /* UserWritingCorrectionViewController.swift in Sources */,
+				DB12433526541A2400CB7DEC /* YesterdayPhotoMainViewController.swift in Sources */,
 				DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */,
+				DB12433726541B3C00CB7DEC /* ImageGet.swift in Sources */,
 				DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */,
 				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,
 				DB85D606264D6A19009FB8DF /* UserWriting.swift in Sources */,

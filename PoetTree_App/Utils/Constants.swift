@@ -30,6 +30,7 @@ struct K {
         static let USER_WRITINGS: String = BASE_URL + "users/mypage/myposts/"
         static let COMMENT_DELETE: String = BASE_URL + "posts/"
         static let LIKED_WRITINGS: String = BASE_URL + "users/mypage/getLikedPosts"
+        static let PAST_IMAGES: String = BASE_URL + "sources/previousImages"
     }
     struct TABLE_VIEW_CELL_ID {
         static let postsCell = "PostsCell"
