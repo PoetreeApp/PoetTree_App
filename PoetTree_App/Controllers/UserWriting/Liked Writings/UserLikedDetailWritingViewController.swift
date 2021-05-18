@@ -33,6 +33,16 @@ class UserLikedDetailWritingViewController: UIViewController {
         setupUI()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.SEGUE_ID.toLikePoemComment {
+            guard let vc = segue.destination as? UserLikedWritingCommentViewController,
+                  let id = self.userWriting?.id else {return}
+            
+            vc.writingId = id
+            vc.comments = comments
+        }
+    }
+    
     fileprivate func setupUI(){
         
         guard let writing = self.userWriting,

@@ -1737,6 +1737,9 @@
                                                                         <state key="normal" title="댓글 3개 모두 보기">
                                                                             <color key="titleColor" systemColor="systemGray2Color"/>
                                                                         </state>
+                                                                        <connections>
+                                                                            <segue destination="JD8-My-SL6" kind="show" identifier="toLikePoemComment" id="5yY-dn-m9d"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leF-e2-PNn">
                                                                         <rect key="frame" x="187" y="0.0" width="187" height="35"/>
@@ -1804,19 +1807,19 @@
             </objects>
             <point key="canvasLocation" x="10588" y="-571"/>
         </scene>
-        <!--User Writing Comment View Controller-->
+        <!--User Liked Writing Comment View Controller-->
         <scene sceneID="Ryi-Ko-aJu">
             <objects>
-                <viewController id="JD8-My-SL6" customClass="UserWritingCommentViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JD8-My-SL6" customClass="UserLikedWritingCommentViewController" customModule="PoetTree_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TkY-yW-zhh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-QI-DQD">
-                                <rect key="frame" x="0.0" y="54" width="414" height="738"/>
+                                <rect key="frame" x="0.0" y="10" width="414" height="728"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="96" id="Kh9-yo-Nrf" customClass="UserCommentCell" customModule="PoetTree_App" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="96" id="Kh9-yo-Nrf" customClass="LikedCommentCell" customModule="PoetTree_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kh9-yo-Nrf" id="JUY-8F-pjC">
@@ -1855,15 +1858,19 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="commentLabel" destination="gPn-RZ-InD" id="Mm4-JO-kXA"/>
-                                            <outlet property="profileImage" destination="SaB-Mu-Slu" id="Sm8-c4-Fy8"/>
-                                            <outlet property="userLabel" destination="7hW-LY-c6Y" id="PJM-aQ-WXs"/>
+                                            <outlet property="contentLabel" destination="gPn-RZ-InD" id="bNl-0W-TMO"/>
+                                            <outlet property="profileImageView" destination="SaB-Mu-Slu" id="muW-e4-sz5"/>
+                                            <outlet property="userLabel" destination="7hW-LY-c6Y" id="NCo-Gv-1Xl"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JD8-My-SL6" id="aV7-oo-oau"/>
+                                    <outlet property="delegate" destination="JD8-My-SL6" id="DZo-YH-4iV"/>
+                                </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XQf-IK-FyY">
-                                <rect key="frame" x="10" y="802" width="394" height="40"/>
+                                <rect key="frame" x="10" y="748" width="394" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yuI-9Y-fxB">
                                         <rect key="frame" x="0.0" y="0.0" width="334" height="40"/>
@@ -1878,6 +1885,9 @@
                                         <state key="normal" title="게시">
                                             <color key="titleColor" red="0.82745098039215681" green="0.91646522279999998" blue="0.99609047169999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="postBtnTapped:" destination="JD8-My-SL6" eventType="touchUpInside" id="YWR-v9-l0b"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -1898,6 +1908,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1y2-Cg-tej"/>
+                    <connections>
+                        <outlet property="commentTextField" destination="yuI-9Y-fxB" id="g4v-95-CHx"/>
+                        <outlet property="postBtn" destination="udK-Oi-8Cf" id="kGr-dW-ET4"/>
+                        <outlet property="tableView" destination="Rnc-QI-DQD" id="tE1-pr-Bvi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iCq-VD-2fq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
