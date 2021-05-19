@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ffz-Mj-P1t">
-                                <rect key="frame" x="137" y="190" width="140" height="40"/>
+                                <rect key="frame" x="137" y="170" width="140" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="140" id="CkU-Fx-9al"/>
                                     <constraint firstAttribute="height" constant="40" id="dPY-aY-aOa"/>
@@ -72,7 +72,7 @@
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r1L-IN-UVG" customClass="FSPagerView" customModule="FSPagerView">
-                                <rect key="frame" x="0.0" y="265" width="414" height="416"/>
+                                <rect key="frame" x="0.0" y="260" width="414" height="421"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="delegate" destination="T0Z-uu-1cx" id="3Wt-Yj-6e6"/>
@@ -95,14 +95,14 @@
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="bottom" secondItem="Cc5-oM-bNY" secondAttribute="bottom" constant="25" id="Iio-zB-LJQ"/>
                             <constraint firstItem="r1L-IN-UVG" firstAttribute="leading" secondItem="CHu-zP-RbC" secondAttribute="leading" id="Mdc-8F-6tt"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="15" id="Ouk-tg-eig"/>
-                            <constraint firstItem="ffz-Mj-P1t" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="50" id="WYW-Np-PR5"/>
+                            <constraint firstItem="ffz-Mj-P1t" firstAttribute="top" secondItem="CHu-zP-RbC" secondAttribute="top" constant="30" id="WYW-Np-PR5"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="bottom" secondItem="Cc5-oM-bNY" secondAttribute="bottom" constant="25" id="biY-bp-6vR"/>
                             <constraint firstItem="Cc5-oM-bNY" firstAttribute="top" secondItem="r1L-IN-UVG" secondAttribute="bottom" constant="50" id="g5X-t2-d8h"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="Cc5-oM-bNY" secondAttribute="trailing" constant="25" id="iK6-k4-6mW"/>
                             <constraint firstItem="NnR-CI-CXb" firstAttribute="top" secondItem="r1L-IN-UVG" secondAttribute="bottom" constant="10" id="jPS-A9-i3H"/>
                             <constraint firstItem="LWe-zN-zgS" firstAttribute="centerX" secondItem="P4f-j4-4sg" secondAttribute="centerX" id="mf6-bV-RxR"/>
                             <constraint firstItem="CHu-zP-RbC" firstAttribute="trailing" secondItem="r1L-IN-UVG" secondAttribute="trailing" id="noU-rm-f0i"/>
-                            <constraint firstItem="r1L-IN-UVG" firstAttribute="top" secondItem="ffz-Mj-P1t" secondAttribute="bottom" constant="35" id="peP-nd-tOq"/>
+                            <constraint firstItem="r1L-IN-UVG" firstAttribute="top" secondItem="ffz-Mj-P1t" secondAttribute="bottom" constant="50" id="peP-nd-tOq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Poetree" id="51Z-kc-55Q">

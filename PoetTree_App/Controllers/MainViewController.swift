@@ -160,6 +160,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
             destinationVC.delegate = self
             destinationVC.logOutBtnAppear = {
                 self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "LogOutColor")
+                
             }
         }
         
@@ -198,6 +199,8 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(goToLogIn))
         sender.tintColor = .white
+        self.hashTagStackView.isHidden = true
+        self.toDaysPhoto.isHidden = false
     }
 //    goToLogIn
     @objc func goToLogIn(){
