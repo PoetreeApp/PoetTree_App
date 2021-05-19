@@ -18,9 +18,9 @@ struct UserPhoto: Equatable {
 class UserPhotoManager {
     static let shared = UserPhotoManager()
     
-    var userPhotos = [UserPhoto]()
+    public static var userPhotos = [UserPhoto]()
     
-    func retrieveUser(completion: @escaping (([UserPhoto]) -> Void)){
+    static func retrieveUser(){
         
         AF.request(K.API.USER_LIST, method: .get).responseJSON { response in
             
@@ -45,9 +45,7 @@ class UserPhotoManager {
                     users.append(user)
                 }
                 
-                completion(users)
-                
-                self.userPhotos = users
+                UserPhotoManager.userPhotos = users
                 
             case .failure(let error):
                 print(error.localizedDescription)

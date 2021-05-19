@@ -15,22 +15,22 @@ class UserLikedWritingCommentViewController: UIViewController {
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
-    let userPhotoViewModel = UserPhotoManager()
+//    let userPhotoViewModel = UserPhotoManager()
     
     var writingId: Int?
     var comments: [Comment]?
-    var userPhoto: [UserPhoto]?
+//    var userPhoto: [UserPhoto]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         commentTextField.delegate = self
-        userPhotoViewModel.retrieveUser { userPhotos in
-            self.userPhoto = userPhotos
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
+//        userPhotoViewModel.retrieveUser { userPhotos in
+//            self.userPhoto = userPhotos
+//
+//            DispatchQueue.main.async {
+//                self.tableView.reloadData()
+//            }
+//        }
     }
     
     
@@ -73,19 +73,15 @@ extension UserLikedWritingCommentViewController: UITableViewDelegate, UITableVie
         
         let comment = comments[indexPath.row]
         
-        if let users = self.userPhoto {
-            let image = getUser(comment: comment, users: users)
-            print(image)
-            cell.update(comment: comment, image: image)
-            return cell
-        }
-        
-        cell.update(comment: comment, image: UIImage())
-        
+        let image = getUser(comment: comment, users: UserPhotoManager.userPhotos)
+       
+        cell.update(comment: comment, image: image)
+       
         return cell
     }
     
     func getUser(comment: Comment, users: [UserPhoto]) -> UIImage{
+        
         let writer = users.filter{$0.email == comment.commenterEmail}
         guard let user = writer.first else {return UIImage()}
         return user.image

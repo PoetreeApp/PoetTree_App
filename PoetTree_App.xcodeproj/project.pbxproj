@@ -11,6 +11,7 @@
 		DB0A75E4265370FF0046213E /* UserWritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */; };
 		DB12433526541A2400CB7DEC /* YesterdayPhotoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */; };
 		DB12433726541B3C00CB7DEC /* ImageGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12433626541B3C00CB7DEC /* ImageGet.swift */; };
+		DB24B4CF265557C300C989BF /* YesterdayPhotoCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB24B4CE265557C300C989BF /* YesterdayPhotoCommentViewController.swift */; };
 		DB2ECF8B2653F27C0026795D /* UserLikedDetailWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2ECF8A2653F27C0026795D /* UserLikedDetailWritingViewController.swift */; };
 		DB2ECF8D2653FD790026795D /* UserLikedWritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB2ECF8C2653FD790026795D /* UserLikedWritingCommentViewController.swift */; };
 		DB3F71DB262C5D5700C429BA /* YesterdaysWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */; };
@@ -57,6 +58,7 @@
 		DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCommentViewController.swift; sourceTree = "<group>"; };
 		DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoMainViewController.swift; sourceTree = "<group>"; };
 		DB12433626541B3C00CB7DEC /* ImageGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGet.swift; sourceTree = "<group>"; };
+		DB24B4CE265557C300C989BF /* YesterdayPhotoCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoCommentViewController.swift; sourceTree = "<group>"; };
 		DB2ECF8A2653F27C0026795D /* UserLikedDetailWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedDetailWritingViewController.swift; sourceTree = "<group>"; };
 		DB2ECF8C2653FD790026795D /* UserLikedWritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLikedWritingCommentViewController.swift; sourceTree = "<group>"; };
 		DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdaysWriting.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				DB8046D12654B27600256811 /* YesterdayPhotoWritingListViewController.swift */,
 				DB459EE42654F77E00C470C5 /* YesterdayPhotoSelectedWritingViewController.swift */,
 				DB459EE626550C5F00C470C5 /* YesterdayPhotoCorrectionViewController.swift */,
+				DB24B4CE265557C300C989BF /* YesterdayPhotoCommentViewController.swift */,
 			);
 			path = "Yesterday Photo";
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */,
 				DBF6842C264BDA300049EFE4 /* WebService.swift in Sources */,
 				DB7DDA5E26515D4C003A8650 /* UserWritingContainerViewController.swift in Sources */,
+				DB24B4CF265557C300C989BF /* YesterdayPhotoCommentViewController.swift in Sources */,
 				DBB07128264BA4EB00E57837 /* CommentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

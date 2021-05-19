@@ -31,6 +31,10 @@ class YesterdayPhotoSelectedWritingViewController: UIViewController {
         setUpUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        setUpUI()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPhotoCorrection" {
             guard let vc = segue.destination as? YesterdayPhotoCorrectionViewController else  { return }
@@ -46,6 +50,16 @@ class YesterdayPhotoSelectedWritingViewController: UIViewController {
                 self.hashtagsLabel.text = "\(wrting.hashtags[0]) \(wrting.hashtags[1])"
             }
         }
+        
+        
+        if segue.identifier == "toPhotoComment" {
+            guard let vc = segue.destination as? YesterdayPhotoCommentViewController,
+                  let id = self.writing?.id else {return}
+            
+            vc.writingId = id
+            vc.comments = comments
+        }
+        
     }
     
     fileprivate func setUpUI(){

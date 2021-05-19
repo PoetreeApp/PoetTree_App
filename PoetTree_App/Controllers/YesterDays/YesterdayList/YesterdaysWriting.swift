@@ -36,6 +36,11 @@ class YesterdaysWriting: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setUpUI()
+    }
+    
     fileprivate func setUpUI(){
         
         guard let writing = writing else {return}

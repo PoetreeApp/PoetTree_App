@@ -13,7 +13,6 @@ import Firebase
 
 // 로그아웃 구현하기
 
-// 댓글 남기기, 수정, 좋아요
 
 class UserWritingViewController: UIViewController {
     

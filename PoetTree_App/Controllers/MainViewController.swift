@@ -48,8 +48,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     
     fileprivate var todayImages: [TodaysPhoto] = []
     fileprivate var todayImageViews: [UIImage] = []
-   
-   
+    
     var selectedPhotoIndex: Int = 0
 
     
@@ -58,11 +57,13 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         
         pagerView.delegate = self
         pagerView.dataSource = self
-  
+        UserPhotoManager.retrieveUser()
         setupUI()
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
     fileprivate func underLineText(){
         

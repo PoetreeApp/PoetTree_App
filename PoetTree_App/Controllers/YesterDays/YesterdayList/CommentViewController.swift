@@ -54,6 +54,8 @@ class CommentViewController: UIViewController{
         self.commentTextField.text?.removeAll()
     }
     
+    
+    
     @IBAction func backBtnTapped(_ sender: UIBarButtonItem) {
         
         guard let delegate = self.delegate,
@@ -95,9 +97,18 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
         
         guard let comment = self.comment?[indexPath.row] else {return UITableViewCell()}
         
-        cell.updateComment(comment: comment)
+        let image = getUser(comment: comment, users: UserPhotoManager.userPhotos)
+       
+        cell.update(comment: comment, image: image)
         
         return cell
+    }
+    
+    func getUser(comment: Comment, users: [UserPhoto]) -> UIImage{
+        
+        let writer = users.filter{$0.email == comment.commenterEmail}
+        guard let user = writer.first else {return UIImage()}
+        return user.image
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -120,11 +131,26 @@ extension CommentViewController: UITableViewDelegate, UITableViewDataSource {
 
 class WritingCommentCell: UITableViewCell {
     
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var commenter: UILabel!
     @IBOutlet weak var commentLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.7
+        profileImageView.clipsToBounds = true
+    }
     
     fileprivate func updateComment(comment: Comment){
         commenter.text = comment.commenter
         commentLabel.text = comment.comment
     }
+    
+    func update(comment: Comment, image: UIImage){
+      
+        profileImageView.image = image
+        commenter.text = comment.commenter
+        commentLabel.text = comment.comment
+    }
+    
 }
