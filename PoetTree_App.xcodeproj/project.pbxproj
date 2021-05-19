@@ -16,6 +16,7 @@
 		DB3F71DB262C5D5700C429BA /* YesterdaysWriting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */; };
 		DB459EE52654F77E00C470C5 /* YesterdayPhotoSelectedWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB459EE42654F77E00C470C5 /* YesterdayPhotoSelectedWritingViewController.swift */; };
 		DB459EE726550C5F00C470C5 /* YesterdayPhotoCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB459EE626550C5F00C470C5 /* YesterdayPhotoCorrectionViewController.swift */; };
+		DB459EE9265513E800C470C5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB459EE8265513E800C470C5 /* User.swift */; };
 		DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93152614911C0029D640 /* AppDelegate.swift */; };
 		DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB4F93172614911C0029D640 /* SceneDelegate.swift */; };
 		DB4F931D2614911C0029D640 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB4F931B2614911C0029D640 /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		DB3F71DA262C5D5700C429BA /* YesterdaysWriting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdaysWriting.swift; sourceTree = "<group>"; };
 		DB459EE42654F77E00C470C5 /* YesterdayPhotoSelectedWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoSelectedWritingViewController.swift; sourceTree = "<group>"; };
 		DB459EE626550C5F00C470C5 /* YesterdayPhotoCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoCorrectionViewController.swift; sourceTree = "<group>"; };
+		DB459EE8265513E800C470C5 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB4F93122614911C0029D640 /* PoetTree_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoetTree_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB4F93152614911C0029D640 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB4F93172614911C0029D640 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */,
 				DB85D605264D6A19009FB8DF /* UserWriting.swift */,
 				DB12433626541B3C00CB7DEC /* ImageGet.swift */,
+				DB459EE8265513E800C470C5 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				DB459EE52654F77E00C470C5 /* YesterdayPhotoSelectedWritingViewController.swift in Sources */,
 				DBFFF910265273100089D1AE /* UserWritingCorrectionViewController.swift in Sources */,
 				DB459EE726550C5F00C470C5 /* YesterdayPhotoCorrectionViewController.swift in Sources */,
+				DB459EE9265513E800C470C5 /* User.swift in Sources */,
 				DB8046D22654B27600256811 /* YesterdayPhotoWritingListViewController.swift in Sources */,
 				DB12433526541A2400CB7DEC /* YesterdayPhotoMainViewController.swift in Sources */,
 				DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */,

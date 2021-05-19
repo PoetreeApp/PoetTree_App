@@ -47,7 +47,7 @@ class CommentViewController: UIViewController{
         AF.request(K.API.LIKE_POST + "\(writingId)/comment", method: .post, parameters: parameter, encoding: JSONEncoding.default, interceptor: RequestInterceptor()).response {
             response in
             
-            self.comment?.append(Comment(id: writingId, comment: comment, commenter: user.profile.name))
+            self.comment?.append(Comment(id: writingId, comment: comment, commenter: user.profile.name, commenterEmail: user.profile.email))
             
             self.commentTableView.reloadData()
         }

@@ -50,8 +50,9 @@ class YesterdaysWriting: UIViewController {
             self.comments = comments.map{ comment in
                 guard let id = comment["id"].int,
                    let commentContent = comment["comment"].string,
-                   let commenter = comment["commenterName"].string else {return Comment(id: 1, comment: "2", commenter: "4")}
-                return Comment(id: id, comment: commentContent, commenter: commenter)
+                   let commenter = comment["commenterName"].string,
+                   let email = comment["email"].string else {return Comment(id: 1, comment: "2", commenter: "4", commenterEmail: "1@2.com")}
+                return Comment(id: id, comment: commentContent, commenter: commenter, commenterEmail: email)
             }
             
             self.commentCountButton.setTitle("댓글 \(self.comments?.count ?? 0)개 모두 보기", for: .normal)
@@ -199,6 +200,7 @@ struct Comment: Codable {
     let id: Int
     var comment: String
     var commenter: String
+    var commenterEmail: String
 }
 
 struct Liker: Codable {
