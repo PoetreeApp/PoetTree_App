@@ -25,8 +25,6 @@ class YesterdayPhotoMainViewController: UIViewController {
         }
     }
     
-    
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -34,13 +32,32 @@ class YesterdayPhotoMainViewController: UIViewController {
     var images: [Image] = []
     var uiImages: [UIImage] = []
     var selectedPhotoIndex: Int = 0
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         pagerView.dataSource = self
         pagerView.delegate = self
         setUI()
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //소스아이디를 넘겨줌
+        
+        if segue.identifier == "toPhotoWriting" {
+            
+            guard let vc = segue.destination as? YesterdayPhotoWritingListViewController else {return}
+            
+            //선택한 셀의 아이템 번호를 받아옴
+            
+            guard let index = sender as? Int else {return}
+            
+            print(self.uiImages[index])
+            
+            vc.image = self.uiImages[index]
+            vc.sourceId = self.images[index].id
+            
+        }
     }
     
     fileprivate func setUI(){
@@ -172,6 +189,13 @@ extension YesterdayPhotoMainViewController: UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 70, height: 240)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+        performSegue(withIdentifier: "toPhotoWriting", sender: indexPath.item)
+        
+    }
+    
 }
 
 class YesterDayPhotoCollectionViewCell: UICollectionViewCell {
