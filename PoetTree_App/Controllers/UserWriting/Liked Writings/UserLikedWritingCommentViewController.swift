@@ -15,14 +15,22 @@ class UserLikedWritingCommentViewController: UIViewController {
     @IBOutlet weak var postBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    let userPhotoViewModel = UserPhotoManager()
     
     var writingId: Int?
     var comments: [Comment]?
+    var userPhoto: [UserPhoto]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         commentTextField.delegate = self
-        print(comments)
+        userPhotoViewModel.retrieveUser { userPhotos in
+            self.userPhoto = userPhotos
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     
@@ -65,9 +73,22 @@ extension UserLikedWritingCommentViewController: UITableViewDelegate, UITableVie
         
         let comment = comments[indexPath.row]
         
-        cell.update(comment: comment)
+        if let users = self.userPhoto {
+            let image = getUser(comment: comment, users: users)
+            print(image)
+            cell.update(comment: comment, image: image)
+            return cell
+        }
+        
+        cell.update(comment: comment, image: UIImage())
         
         return cell
+    }
+    
+    func getUser(comment: Comment, users: [UserPhoto]) -> UIImage{
+        let writer = users.filter{$0.email == comment.commenterEmail}
+        guard let user = writer.first else {return UIImage()}
+        return user.image
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -109,9 +130,15 @@ class LikedCommentCell: UITableViewCell {
     @IBOutlet weak var userLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     
-    func update(comment: Comment){
-        //이미지를 받아와서 업데이트 함
-        
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2.7
+        profileImageView.clipsToBounds = true
+    }
+    
+    func update(comment: Comment, image: UIImage){
+      
+        profileImageView.image = image
         userLabel.text = comment.commenter
         contentLabel.text = comment.comment
     }

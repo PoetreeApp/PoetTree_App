@@ -34,6 +34,7 @@ struct K {
         static let LIKED_WRITINGS: String = BASE_URL + "users/mypage/getLikedPosts"
         static let PAST_IMAGES: String = BASE_URL + "sources/previousImages"
         static let PHOTO_WRITING: String = BASE_URL + "posts/sourcePosts/"
+        static let USER_LIST: String = BASE_URL + "users/"
         
     }
     struct TABLE_VIEW_CELL_ID {

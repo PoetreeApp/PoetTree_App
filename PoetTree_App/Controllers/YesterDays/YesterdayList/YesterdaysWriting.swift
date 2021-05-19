@@ -51,7 +51,7 @@ class YesterdaysWriting: UIViewController {
                 guard let id = comment["id"].int,
                    let commentContent = comment["comment"].string,
                    let commenter = comment["commenterName"].string,
-                   let email = comment["email"].string else {return Comment(id: 1, comment: "2", commenter: "4", commenterEmail: "1@2.com")}
+                   let email = comment["commenter"].string else {return Comment(id: 1, comment: "2", commenter: "4", commenterEmail: "1@2.com")}
                 return Comment(id: id, comment: commentContent, commenter: commenter, commenterEmail: email)
             }
             

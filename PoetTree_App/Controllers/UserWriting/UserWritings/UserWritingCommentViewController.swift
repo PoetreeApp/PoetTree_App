@@ -17,6 +17,7 @@ class UserWritingCommentViewController: UIViewController {
     @IBOutlet weak var commentTableView: UITableView!
     @IBOutlet weak var postBtn: UIButton!
     
+//    let userPhotoViewModel = UserListViewModel()
     
     var writingId: Int?
     var comments: [Comment]?
@@ -26,6 +27,13 @@ class UserWritingCommentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         commentTextField.delegate = self
+//        userPhotoViewModel.retrieveUser()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     @IBAction func postBtnTapped(_ sender: UIButton) {
@@ -52,6 +60,9 @@ class UserWritingCommentViewController: UIViewController {
         }
         self.commentTextField.text?.removeAll()
     }
+    
+    //댓글 남긴 사람의 이메일에 따른 이미지를 가져와서 셀에 넘겨주고 리로드 데이터
+    
     
 }
 

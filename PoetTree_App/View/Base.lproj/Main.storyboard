@@ -1954,20 +1954,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PoetreeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SaB-Mu-Slu">
-                                                    <rect key="frame" x="25" y="21" width="50" height="54"/>
+                                                    <rect key="frame" x="20" y="21" width="40" height="54"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="clz-wP-1bt"/>
-                                                        <constraint firstAttribute="height" constant="50" id="tJb-ej-cgd"/>
+                                                        <constraint firstAttribute="height" constant="40" id="bNL-9y-6G6"/>
+                                                        <constraint firstAttribute="width" constant="40" id="jh8-ge-Ynr"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hW-LY-c6Y">
-                                                    <rect key="frame" x="85" y="21" width="43.5" height="20.5"/>
+                                                    <rect key="frame" x="70" y="21" width="43.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label Label Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPn-RZ-InD">
-                                                    <rect key="frame" x="137" y="21" width="133" height="20.5"/>
+                                                    <rect key="frame" x="122" y="21" width="133" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1975,11 +1975,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7hW-LY-c6Y" firstAttribute="top" secondItem="SaB-Mu-Slu" secondAttribute="top" id="6Ri-Ha-wpi"/>
-                                                <constraint firstItem="SaB-Mu-Slu" firstAttribute="top" secondItem="JUY-8F-pjC" secondAttribute="topMargin" constant="10" id="A3X-gg-nMe"/>
+                                                <constraint firstItem="SaB-Mu-Slu" firstAttribute="top" secondItem="JUY-8F-pjC" secondAttribute="topMargin" constant="10" id="BtP-YZ-yHK"/>
                                                 <constraint firstItem="SaB-Mu-Slu" firstAttribute="centerY" secondItem="JUY-8F-pjC" secondAttribute="centerY" id="EDn-AZ-TeF"/>
                                                 <constraint firstItem="gPn-RZ-InD" firstAttribute="leading" secondItem="7hW-LY-c6Y" secondAttribute="trailing" constant="8.5" id="L6a-Dd-kgb"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gPn-RZ-InD" secondAttribute="trailing" constant="10" id="d7s-u8-Oqz"/>
-                                                <constraint firstItem="SaB-Mu-Slu" firstAttribute="leading" secondItem="JUY-8F-pjC" secondAttribute="leadingMargin" constant="5" id="h9B-Rn-6so"/>
+                                                <constraint firstItem="SaB-Mu-Slu" firstAttribute="leading" secondItem="JUY-8F-pjC" secondAttribute="leadingMargin" id="h9B-Rn-6so"/>
                                                 <constraint firstItem="7hW-LY-c6Y" firstAttribute="leading" secondItem="SaB-Mu-Slu" secondAttribute="trailing" constant="10" id="hny-s4-cwe"/>
                                                 <constraint firstItem="gPn-RZ-InD" firstAttribute="top" secondItem="7hW-LY-c6Y" secondAttribute="top" id="jT5-kf-XEM"/>
                                             </constraints>
