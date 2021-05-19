@@ -21,6 +21,12 @@ class YesterdayPhotoWritingListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         setupUI { writings in
             
             self.writings = writings
@@ -30,6 +36,19 @@ class YesterdayPhotoWritingListViewController: UIViewController {
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSelectedWriting" {
+            
+            guard let vc = segue.destination as? YesterdayPhotoSelectedWritingViewController else {return}
+            
+            guard let index = self.writingListTableView.indexPathForSelectedRow?.row else {return}
+            
+            vc.writing = self.writings[index]
+            
+        }
+    }
+    
     
     fileprivate func setupUI(completion: @escaping (([WritingGet]) -> Void)){
         
@@ -95,5 +114,10 @@ extension YesterdayPhotoWritingListViewController: UITableViewDelegate, UITableV
         cell.updateCell(writing: writing)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        tableView.cellForRow(at: indexPath)?.isSelected = false
     }
 }
