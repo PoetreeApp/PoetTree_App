@@ -79,6 +79,8 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         
         underLineText()
         
+        self.navigationItem.leftBarButtonItem?.tintColor = .white
+        
         getPhotos { todayPhotos in
             
             let images: [UIImage] = todayPhotos.map{ photo in
@@ -136,6 +138,7 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .plain, target: self, action: #selector(moveToUserWriting))
         self.hashTagStackView.isHidden = false
         self.toDaysPhoto.isHidden = true
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "LogOutColor")
     }
     
     //MARK: - move to user writing
@@ -155,6 +158,9 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                 return
             }
             destinationVC.delegate = self
+            destinationVC.logOutBtnAppear = {
+                self.navigationItem.leftBarButtonItem?.tintColor = UIColor(named: "LogOutColor")
+            }
         }
         
         if segue.identifier == K.SEGUE_ID.toWriting {
@@ -185,6 +191,18 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     //MARK: - 제스처 recognizer
     
     
+    
+    
+    @IBAction func logOutBtnTapped(_ sender: UIBarButtonItem) {
+        GoogleLogInViewController.user = nil
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: .plain, target: self, action: #selector(goToLogIn))
+        sender.tintColor = .white
+    }
+//    goToLogIn
+    @objc func goToLogIn(){
+        performSegue(withIdentifier: "goToLogIn", sender: self)
+    }
 }
 
 extension MainViewController: FSPagerViewDelegate, FSPagerViewDataSource {

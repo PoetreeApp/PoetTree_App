@@ -19,6 +19,7 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
     
     public static var user: GIDGoogleUser!
     var delegate: GoogleLogInDelegate?
+    var logOutBtnAppear: (()-> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
                         }
                         self.dismiss(animated: true) {
                             UserPhotoManager.retrieveUser()
+                            self.logOutBtnAppear?()
                         }
                     }
                 }
