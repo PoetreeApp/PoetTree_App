@@ -57,12 +57,15 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
         
         pagerView.delegate = self
         pagerView.dataSource = self
-        UserPhotoManager.retrieveUser()
+        
         setupUI()
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
     }
     
     fileprivate func underLineText(){

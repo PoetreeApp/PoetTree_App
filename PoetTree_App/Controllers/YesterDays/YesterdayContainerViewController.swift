@@ -35,7 +35,7 @@ class YesterdayContainerViewController: UIViewController {
             pagingViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
         ])
         
-        
     }
+    
     
 }

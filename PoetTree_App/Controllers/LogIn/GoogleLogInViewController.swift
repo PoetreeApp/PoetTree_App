@@ -65,7 +65,9 @@ class GoogleLogInViewController: UIViewController, GIDSignInDelegate {
                         DispatchQueue.main.async {
                             self.delegate?.googleLogedIn(user: user)
                         }
-                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true) {
+                            UserPhotoManager.retrieveUser()
+                        }
                     }
                 }
             }
