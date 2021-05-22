@@ -1901,6 +1901,7 @@
                                                 <constraint firstItem="wxL-Wl-FpS" firstAttribute="top" secondItem="5fA-M5-i4F" secondAttribute="top" constant="9" id="XaG-gA-5sA"/>
                                                 <constraint firstAttribute="bottom" secondItem="wxL-Wl-FpS" secondAttribute="bottom" constant="9" id="aXl-IV-8lc"/>
                                                 <constraint firstItem="hKO-82-0d2" firstAttribute="top" secondItem="VU3-6C-Fgc" secondAttribute="bottom" constant="6" id="de8-Pk-Os3"/>
+                                                <constraint firstItem="SAm-56-waV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hKO-82-0d2" secondAttribute="trailing" constant="10" id="lA5-Yd-Hht"/>
                                                 <constraint firstItem="wxL-Wl-FpS" firstAttribute="leading" secondItem="5fA-M5-i4F" secondAttribute="leading" constant="16" id="p2T-Vp-Mlm"/>
                                                 <constraint firstItem="VU3-6C-Fgc" firstAttribute="leading" secondItem="pwm-dh-0ly" secondAttribute="leading" id="q6i-SI-zQv"/>
                                                 <constraint firstItem="SAm-56-waV" firstAttribute="trailing" secondItem="5fA-M5-i4F" secondAttribute="trailingMargin" constant="-30" id="s24-eh-fRE"/>
@@ -2662,8 +2663,8 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image" width="1878.3333740234375" height="1252.3333740234375"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
