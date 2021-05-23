@@ -12,6 +12,15 @@ import FSPagerView
 import Alamofire
 import SwiftyJSON
 
+// 전시 끝나고 할 것
+// 1. 코드 dry 하게 정리
+// - 수정, 삭제, 글쓰기 여러 개 중복되는 코드들 정리
+// 2. UI 개선
+// - 여러 디자인 사이트들 참고하기, history by photo 탭 스크롤 뷰 추가, 메인 페이지 사진 선택 기능 개선, ui개선
+// 3. 키보드 대응
+// - 글쓰는 여러 vc에서 키보드 올라올 때 키보드 대응하기
+// 4. 통신 기능 보완
+// - 현재 너무 느린 전환. 더 효율적인 방법을 고안, 적용
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     

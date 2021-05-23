@@ -2663,8 +2663,8 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="image" width="1878.3333740234375" height="1252.3333740234375"/>
-        <image name="pencil" width="341.33334350585938" height="341.33334350585938"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="pencil" width="341.33334350585938" height="341.33334350585938"/>
         <image name="pencil.circle.fill" catalog="system" width="128" height="121"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="labelColor">
