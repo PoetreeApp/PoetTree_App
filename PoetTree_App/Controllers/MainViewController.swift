@@ -21,6 +21,7 @@ import SwiftyJSON
 // - 글쓰는 여러 vc에서 키보드 올라올 때 키보드 대응하기
 // 4. 통신 기능 보완
 // - 현재 너무 느린 전환. 더 효율적인 방법을 고안, 적용
+// 5. 텍스트 저장 기능 추가
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		174043954CE735E296A4529F /* Pods_PoetTree_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */; };
 		DB0A75E4265370FF0046213E /* UserWritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */; };
+		DB0CE6CF2690799C009AC4D1 /* MySearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CE6CE2690799C009AC4D1 /* MySearchRouter.swift */; };
 		DB12433526541A2400CB7DEC /* YesterdayPhotoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */; };
 		DB12433726541B3C00CB7DEC /* ImageGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12433626541B3C00CB7DEC /* ImageGet.swift */; };
 		DB24B4CF265557C300C989BF /* YesterdayPhotoCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB24B4CE265557C300C989BF /* YesterdayPhotoCommentViewController.swift */; };
@@ -43,6 +44,8 @@
 		DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0A261C3E0300085EB9 /* PostsCell.swift */; };
 		DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB881C0D261C3FC100085EB9 /* WritingService.swift */; };
 		DB89DE6D26183283002FFC22 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */; };
+		DB9E78FA26909B0C009DD893 /* MyAlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E78F926909B0C009DD893 /* MyAlamofireManager.swift */; };
+		DB9E78FC26909D80009DD893 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9E78FB26909D80009DD893 /* MyError.swift */; };
 		DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */; };
 		DBB07128264BA4EB00E57837 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB07127264BA4EB00E57837 /* CommentViewController.swift */; };
 		DBB6FC0F264AAEBA005E8BAF /* TodayPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */; };
@@ -56,6 +59,7 @@
 		981538C40A400E0A725E1113 /* Pods-PoetTree_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.release.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.release.xcconfig"; sourceTree = "<group>"; };
 		ABF4A84711A44CB2D6E95503 /* Pods-PoetTree_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.debug.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.debug.xcconfig"; sourceTree = "<group>"; };
 		DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCommentViewController.swift; sourceTree = "<group>"; };
+		DB0CE6CE2690799C009AC4D1 /* MySearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySearchRouter.swift; sourceTree = "<group>"; };
 		DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoMainViewController.swift; sourceTree = "<group>"; };
 		DB12433626541B3C00CB7DEC /* ImageGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGet.swift; sourceTree = "<group>"; };
 		DB24B4CE265557C300C989BF /* YesterdayPhotoCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoCommentViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		DB881C0A261C3E0300085EB9 /* PostsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsCell.swift; sourceTree = "<group>"; };
 		DB881C0D261C3FC100085EB9 /* WritingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingService.swift; sourceTree = "<group>"; };
 		DB89DE6C26183283002FFC22 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DB9E78F926909B0C009DD893 /* MyAlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAlamofireManager.swift; sourceTree = "<group>"; };
+		DB9E78FB26909D80009DD893 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterDayCorrectionViewController.swift; sourceTree = "<group>"; };
 		DBB07127264BA4EB00E57837 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhoto.swift; sourceTree = "<group>"; };
@@ -254,7 +260,10 @@
 			isa = PBXGroup;
 			children = (
 				DB7D1D472618E43C0092820D /* Interceptor.swift */,
+				DB9E78F926909B0C009DD893 /* MyAlamofireManager.swift */,
 				DBF6842B264BDA300049EFE4 /* WebService.swift */,
+				DB0CE6CE2690799C009AC4D1 /* MySearchRouter.swift */,
+				DB9E78FB26909D80009DD893 /* MyError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -451,6 +460,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7DDA6026515D68003A8650 /* UserLikedWritingsViewController.swift in Sources */,
+				DB0CE6CF2690799C009AC4D1 /* MySearchRouter.swift in Sources */,
 				DB4F932F261491D30029D640 /* WritingPost.swift in Sources */,
 				DB4F934B2614CD880029D640 /* UserWritingViewController.swift in Sources */,
 				DB4F93432614BDED0029D640 /* WritingViewController.swift in Sources */,
@@ -473,6 +483,7 @@
 				DB85D606264D6A19009FB8DF /* UserWriting.swift in Sources */,
 				DB881C0E261C3FC100085EB9 /* WritingService.swift in Sources */,
 				DB0A75E4265370FF0046213E /* UserWritingCommentViewController.swift in Sources */,
+				DB9E78FC26909D80009DD893 /* MyError.swift in Sources */,
 				DB2ECF8D2653FD790026795D /* UserLikedWritingCommentViewController.swift in Sources */,
 				DB7D1D482618E43C0092820D /* Interceptor.swift in Sources */,
 				DB4F93182614911C0029D640 /* SceneDelegate.swift in Sources */,
@@ -481,6 +492,7 @@
 				DB4F9334261496A80029D640 /* MainViewController.swift in Sources */,
 				DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */,
 				DB881C07261C307200085EB9 /* WritingGet.swift in Sources */,
+				DB9E78FA26909B0C009DD893 /* MyAlamofireManager.swift in Sources */,
 				DB7D1D442618BBCC0092820D /* UserModel.swift in Sources */,
 				DBF6842C264BDA300049EFE4 /* WebService.swift in Sources */,
 				DB7DDA5E26515D4C003A8650 /* UserWritingContainerViewController.swift in Sources */,

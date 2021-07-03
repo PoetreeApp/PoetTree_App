@@ -29,40 +29,18 @@ class YesterDayMainViewController: UIViewController {
     }
     
     func getWritings(){
-        AF.request(K.API.WRITING_GET_POST, method: .get).responseJSON { [weak self] response in
+      
+        MyAlamofireManager.shared.getWritings { result in
             
-            guard let self = self else {return}
-            
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-
-                for (index, json) in json {
-                    if let title = json["title"].string,
-                       let content = json["content"].string,
-                       let views = json["views"].int,
-                       let likes = json["likes"].int,
-                       let hashtags = json["hashtags"].string,
-                       let id = json["id"].int,
-                       let email = json["UserEmail"].string,
-                       let userName = json["name"].string,
-                       let imageURL = json["imageURL"].string
-                    {
-                        
-                        let data = try! Data(contentsOf: URL(string: imageURL)!)
-                        print(data)
-                        let image = UIImage(data: data)
-                        
-                        //리팩토링 필요한 부분
-                        
-                        self.writings.append(WritingGet(id: id, title: title, content: content, views: views, likes: likes, hashtags: hashtags, userEmail: email, userName: userName, image: image!))
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
+            switch result {
+            case .success(let writings):
+                self.writings = writings
+                print(self.writings)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
-            case .failure(let error):
-                print(error)
+            case .failure(let myError):
+                print(myError.rawValue)
             }
         }
     }
