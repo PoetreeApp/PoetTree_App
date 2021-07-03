@@ -22,6 +22,7 @@ import SwiftyJSON
 // 4. 통신 기능 보완
 // - 현재 너무 느린 전환. 더 효율적인 방법을 고안, 적용
 // 5. 텍스트 저장 기능 추가
+// 6. MVVM 디자인 패턴 적용
 
 class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecognizerDelegate {
     
@@ -99,7 +100,6 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
                 let image = UIImage(data: data)
                 return image!
             }
-            
             DispatchQueue.main.async {
                 self.todayImages = todayPhotos
                 self.todayImageViews = images
