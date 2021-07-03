@@ -111,36 +111,19 @@ class MainViewController: UIViewController, GoogleLogInDelegate, UIGestureRecogn
     
     fileprivate func getPhotos(completion: @escaping (([TodaysPhoto]) -> Void)){
         //사진을 받아서 배열에 넣음
-        
-            AF.request(K.API.PHOTOS_GET, method: .get).responseJSON { [weak self] response in
-
-                guard let self = self else {return}
-                switch response.result {
-                case .success(let sources):
-
-                    let json = JSON(sources)
-                    var todayPhotos: [TodaysPhoto] = []
-                    for (index, json) in json {
-                        if let id = json["id"].int,
-                           let url = json["imageURL"].string,
-                           let imageURL = URL(string: url){
-                            todayPhotos.append(TodaysPhoto(id: id, imageURL: imageURL))
-                        }
-                    }
-                    
-                    completion(todayPhotos)
-          
-                case .failure(let error):
-                    print(error.localizedDescription)
-                }
+        MyAlamofireManager.shared.getPhotos { result in
+            switch result {
+            case .success(let photos):
+                completion(photos)
+            case .failure(let fail):
+                print(fail.rawValue)
             }
+        }
     }
 
     //MARK: - keyboard 에따른 view 설정
     
     
-    
-
     
     //MARK: - after logIn delegate function
     func googleLogedIn(user: GIDGoogleUser) {

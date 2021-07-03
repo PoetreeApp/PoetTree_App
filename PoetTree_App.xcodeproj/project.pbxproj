@@ -252,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				DB4F93462614C0E80029D640 /* Constants.swift */,
+				DB9E78FB26909D80009DD893 /* MyError.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -263,7 +264,6 @@
 				DB9E78F926909B0C009DD893 /* MyAlamofireManager.swift */,
 				DBF6842B264BDA300049EFE4 /* WebService.swift */,
 				DB0CE6CE2690799C009AC4D1 /* MySearchRouter.swift */,
-				DB9E78FB26909D80009DD893 /* MyError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";

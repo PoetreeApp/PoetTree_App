@@ -20,6 +20,9 @@ final class MyAlamofireManager {
     private init(){
         session = Session(interceptor: interceptor)
     }
+}
+//MARK: - GetWriting Method
+extension MyAlamofireManager {
     
     func getWritings(completion: @escaping (Result<[WritingGet], MyError>) -> Void) {
         self.session
@@ -53,6 +56,38 @@ final class MyAlamofireManager {
                 
                 if writings.count > 0 {
                     completion(.success(writings))
+                } else {
+                    completion(.failure(.noWriting))
+                }
+            }
+    }
+}
+
+//MARK: - GetPhoto Method
+
+extension MyAlamofireManager {
+    
+    func getPhotos(completion: @escaping (Result<[TodaysPhoto], MyError>) -> Void) {
+        self.session
+            .request(MySearchRouter.searchPhoto)
+            .validate(statusCode: 200..<401)
+            .responseJSON { response in
+                guard let responseValue = response.value else {return}
+                
+                let json = JSON(responseValue)
+                
+                var photos: [TodaysPhoto] = []
+                
+                for (index, value) in json {
+                    if let id = value["id"].int,
+                       let imageURL = value["imageURL"].string{
+                        let url = URL(string: imageURL)!
+                        let photo = TodaysPhoto(id: id, imageURL: url)
+                        photos.append(photo)
+                    }
+                }
+                if photos.count > 0 {
+                    completion(.success(photos))
                 } else {
                     completion(.failure(.noWriting))
                 }

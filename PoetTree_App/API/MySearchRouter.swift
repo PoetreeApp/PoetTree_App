@@ -10,6 +10,7 @@ import Alamofire
 //최종 목표 -> 서치하는 메소드들을 dry하게 처리하는 것. 일단 writing search부터하려고 함
 enum MySearchRouter: URLRequestConvertible {
     case searchWriting
+    case searchPhoto
     
     var baseURL: URL {
         return URL(string: K.API.BASE_URL)!
@@ -20,12 +21,15 @@ enum MySearchRouter: URLRequestConvertible {
         switch self {
         case .searchWriting:
             return .get
+        case .searchPhoto:
+            return .get
         }
     }
     
     var endPoint: String {
         switch self {
         case .searchWriting: return "posts"
+        case .searchPhoto: return "sources"
         }
     }
     
