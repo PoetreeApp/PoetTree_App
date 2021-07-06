@@ -16,3 +16,19 @@ struct UserWriting {
     let image: UIImage
     let name: String
 }
+
+struct UserW {
+    
+    let id: Int
+    let title: String
+    let content: String
+    let views: Int
+    let createdAt: String
+    let UserEmail: String
+    let SourceId: Int
+    let name: String?
+    let hashtags: String?
+    let likes: Int?
+    let image: UIImage?
+    
+}

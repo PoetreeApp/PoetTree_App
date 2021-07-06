@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		174043954CE735E296A4529F /* Pods_PoetTree_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */; };
+		DB045C4B2691DF9B00B75217 /* WritingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB045C4A2691DF9B00B75217 /* WritingListViewModel.swift */; };
 		DB0A75E4265370FF0046213E /* UserWritingCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */; };
 		DB0CE6CF2690799C009AC4D1 /* MySearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0CE6CE2690799C009AC4D1 /* MySearchRouter.swift */; };
 		DB12433526541A2400CB7DEC /* YesterdayPhotoMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */; };
@@ -49,6 +50,7 @@
 		DBA774A3263E6F4300D16EED /* YesterDayCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */; };
 		DBB07128264BA4EB00E57837 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB07127264BA4EB00E57837 /* CommentViewController.swift */; };
 		DBB6FC0F264AAEBA005E8BAF /* TodayPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */; };
+		DBC2EFCE26946B4200ADACE6 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC2EFCD26946B4200ADACE6 /* Entity.swift */; };
 		DBF6842C264BDA300049EFE4 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBF6842B264BDA300049EFE4 /* WebService.swift */; };
 		DBFFF90C26523F300089D1AE /* UserDetailWritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */; };
 		DBFFF910265273100089D1AE /* UserWritingCorrectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFFF90F265273100089D1AE /* UserWritingCorrectionViewController.swift */; };
@@ -58,6 +60,7 @@
 		73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PoetTree_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		981538C40A400E0A725E1113 /* Pods-PoetTree_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.release.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.release.xcconfig"; sourceTree = "<group>"; };
 		ABF4A84711A44CB2D6E95503 /* Pods-PoetTree_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PoetTree_App.debug.xcconfig"; path = "Target Support Files/Pods-PoetTree_App/Pods-PoetTree_App.debug.xcconfig"; sourceTree = "<group>"; };
+		DB045C4A2691DF9B00B75217 /* WritingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingListViewModel.swift; sourceTree = "<group>"; };
 		DB0A75E3265370FF0046213E /* UserWritingCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCommentViewController.swift; sourceTree = "<group>"; };
 		DB0CE6CE2690799C009AC4D1 /* MySearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySearchRouter.swift; sourceTree = "<group>"; };
 		DB12433426541A2400CB7DEC /* YesterdayPhotoMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterdayPhotoMainViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +104,7 @@
 		DBA774A2263E6F4300D16EED /* YesterDayCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesterDayCorrectionViewController.swift; sourceTree = "<group>"; };
 		DBB07127264BA4EB00E57837 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		DBB6FC0E264AAEBA005E8BAF /* TodayPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPhoto.swift; sourceTree = "<group>"; };
+		DBC2EFCD26946B4200ADACE6 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		DBF6842B264BDA300049EFE4 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		DBFFF90B26523F300089D1AE /* UserDetailWritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailWritingViewController.swift; sourceTree = "<group>"; };
 		DBFFF90F265273100089D1AE /* UserWritingCorrectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWritingCorrectionViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,14 @@
 				73209770699D6DBDBB241530 /* Pods_PoetTree_App.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB045C492691DF6A00B75217 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				DB045C4A2691DF9B00B75217 /* WritingListViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		DB124332265419E400CB7DEC /* YesterdayList */ = {
@@ -179,6 +191,8 @@
 		DB4F93142614911C0029D640 /* PoetTree_App */ = {
 			isa = PBXGroup;
 			children = (
+				DBC2EFCC26946ADA00ADACE6 /* Entity */,
+				DB045C492691DF6A00B75217 /* View Models */,
 				DB4F932B261491350029D640 /* Model */,
 				DB4F932C2614914C0029D640 /* View */,
 				DB4F932A2614912B0029D640 /* Controllers */,
@@ -302,6 +316,14 @@
 				DBFFF90E265272D90089D1AE /* Liked Writings */,
 			);
 			path = UserWriting;
+			sourceTree = "<group>";
+		};
+		DBC2EFCC26946ADA00ADACE6 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				DBC2EFCD26946B4200ADACE6 /* Entity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		DBFFF90D265272C90089D1AE /* UserWritings */ = {
@@ -468,6 +490,7 @@
 				DB2ECF8B2653F27C0026795D /* UserLikedDetailWritingViewController.swift in Sources */,
 				DBFFF90C26523F300089D1AE /* UserDetailWritingViewController.swift in Sources */,
 				DB8046D02654AE2900256811 /* YesterdayContainerViewController.swift in Sources */,
+				DB045C4B2691DF9B00B75217 /* WritingListViewModel.swift in Sources */,
 				DB4F934E2614D3840029D640 /* UserPoemCell.swift in Sources */,
 				DB4F93162614911C0029D640 /* AppDelegate.swift in Sources */,
 				DB459EE52654F77E00C470C5 /* YesterdayPhotoSelectedWritingViewController.swift in Sources */,
@@ -478,6 +501,7 @@
 				DB12433526541A2400CB7DEC /* YesterdayPhotoMainViewController.swift in Sources */,
 				DB881C0B261C3E0300085EB9 /* PostsCell.swift in Sources */,
 				DB12433726541B3C00CB7DEC /* ImageGet.swift in Sources */,
+				DBC2EFCE26946B4200ADACE6 /* Entity.swift in Sources */,
 				DB789833261777790065D964 /* GoogleLogInViewController.swift in Sources */,
 				DB4F93472614C0E80029D640 /* Constants.swift in Sources */,
 				DB85D606264D6A19009FB8DF /* UserWriting.swift in Sources */,
