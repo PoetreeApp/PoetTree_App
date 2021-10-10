@@ -11,7 +11,7 @@
 <br/>
 
 # 2. 핵심 기능 
-<img width="1680" alt="스크린샷 2021-10-10 오후 8 23 12" src="https://user-images.githubusercontent.com/70733602/136695084-0f4a8cf6-ef02-41a5-86bd-8479f1e27efe.png">
+<img width="1820" alt="스크린샷 2021-10-10 오후 9 20 06" src="https://user-images.githubusercontent.com/70733602/136695756-f560cab7-b611-4aa3-a966-b34349a892c9.png">
 
 * 홈 화면에서 매일 업로드 되는 세 장의 사진을 확인할 수 있습니다.<br/>
  사용자는 세 장의 사진 중 한 장을 골라 떠오른 글을 작성합니다.
